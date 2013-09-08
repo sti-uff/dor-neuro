@@ -1,0 +1,10 @@
+.bundle
+/db/*.sqlite3
+/log/*.log
+/tmp/
+/nbproject/private/
+/public/assets
+.idea/
+.rvmrc
+/vendor/bundle
+.DS_Store
