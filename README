@@ -1,14 +1,14 @@
-#Clinical Research Management: Dor Neuro
+# Clinical Research Management: Dor Neuro
 
-== About
+## About
 
-Dor Neuro is a software for Clinical Study Data Management. The system is web-based and designed to support different types of clinical trials in various research settings; has a modular architecture and transparently, providing a flexible software solution, while it is robust and safe. 
+Dor Neuro is a software for **Clinical Study Data Management**. The system is web-based and designed to support different types of clinical trials in various research settings; has a modular architecture and transparently, providing a flexible software solution, while it is robust and safe. 
 
 It was designed to handle data, files, programs and documents for all trials within a centralized environment, providing the flexibility to easily configure the repository in order to meet the needs of any research institution.
 
 In Federal Fluminense University (Universidade Federal Fluminense - UFF) this software is being used to conduct clinical trial to **evaluate the efficacy of therapeutic regimens for treating neuropathic pain in patients with leprosy**.
 
-== Expected Benefits
+## Expected Benefits
 
 On the clinical research management:
 * Simplicity of operation, configuration and implementation;
@@ -30,13 +30,13 @@ About medical care:
 * Confidentiality of patient data;
 * Fast access to medical history;
 
-== Technologies
+## Technologies
 
 * [Ruby](https://github.com/ruby/ruby)
 * [Ruby on Rails](https://github.com/rails/rails)
 * [MySQL](http://www.mysql.com/)
 
-== License
+## License
 
 Copyright (c) 2013 Universidade Federal Fluminense (UFF)  
 
