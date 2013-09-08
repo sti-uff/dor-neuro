@@ -1,0 +1,58 @@
+<fieldset>
+  <h2>Endereço</h2>
+
+  <div class="row">
+    <div class="span4">
+
+      <div class="control-group">
+        <%= f.label :logradouro, nil, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :logradouro %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :complemento, nil, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :complemento %>
+        </div>
+      </div>
+
+    </div><!--end span4-->
+
+    <div class="span4">
+
+      <div class="control-group">
+        <%= f.label :bairro, nil, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :bairro %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :cep, nil, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :cep, :class => '_cep' %>
+        </div>
+      </div>
+
+    </div><!--end span4-->
+
+    <div class="span4">
+
+      <div class="control-group">
+        <%= f.label :municipio_id, nil, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :municipio_id, :class => '_municipio', 'data-pre' => f.object.token_municipio %>
+        </div>
+      </div>
+
+    </div><!--end span4-->
+  </div><!--end row-->
+</fieldset>
+
+    
+  <!-- <div class="field">
+    <%#= label_tag :uf, 'Estado' %><br />
+    <%#= select_tag :uf, options_from_collection_for_select(Uf.order(:sigla), 'id', 'sigla') %>
+  </div> -->

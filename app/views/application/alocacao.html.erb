@@ -1,0 +1,25 @@
+<h1>Alocação</h1>
+
+<ul class="unstyled list">
+  <li>
+    <%= link_to 'Analisar prontuários', analisar_prontuarios_path, :class => "btn" %>
+    <ul class="unstyled horizontal-list">
+      <li><%= link_to 'Verificar neurofisiologia', show_neurofisiologia_path, :class => "btn" %></li>
+      <li><%= link_to 'Verificar questionários', show_questionarios_path, :class => "btn" %></li>
+      <li><%= link_to 'Verificar exames', show_exames_path, :class => "btn" %></li>
+      <div class="clear"></div>
+    </ul>
+  </li>
+  <li><%= link_to 'Incluir voluntário', incluir_path, :class => "btn" %></li>
+  <li><%= link_to 'Excluir voluntário', excluir_path, :class => "btn" %></li>
+  <li>
+    <%= link_to 'Randomizar voluntários', randomizar_path, :class => "btn" %>
+    <ul class="unstyled horizontal-list">
+      <li><%= link_to 'Critérios I/E da randomização', alocacao_criterios_path, :class => "btn" %></li>
+      <li><%= link_to 'Avaliação clínica de randomização', alocacao_new_avaliacao_clinica_path, :class => "btn" %></li>
+      <li><%= link_to 'Segregar grupos', alocacao_grupos_path, :class => "btn" %></li>
+      <div class="clear"></div>
+    </ul>
+  </li>
+  <li><%= link_to 'Dispensar medicamentos', alocacao_dispensacao_path, :class => "btn" %></li>
+</ul>

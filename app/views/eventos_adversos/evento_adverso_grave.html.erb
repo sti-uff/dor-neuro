@@ -1,0 +1,71 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'date_picker' %>
+<% end %>
+
+<h1>Registrar eventos adversos graves</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @evento_adverso_grave, :url => salvar_evento_adverso_grave_path do |f| %>
+    <div class='control-group'>
+      <h2>Evento adverso grave:</h2>
+      <div class="controls">
+        <label class="checkbox">
+          <div class="checkbox inline">
+            <%= f.check_box :obito %>
+            <%= f.label :obito, nil, :class => 'control-label' %>
+          </div>
+        </label>
+      </div>
+      <div class="controls">
+        <label class="checkbox">
+          <div class="checkbox inline">
+            <%= f.check_box :ameaca_vida %>
+            <%= f.label :ameaca_vida, nil, :class => 'control-label' %>
+          </div>
+        </label>
+      </div>
+      <div class="controls">
+        <label class="checkbox">
+          <div class="checkbox inline">
+            <%= f.check_box :invalidez %>
+            <%= f.label :invalidez, nil, :class => 'control-label' %>
+          </div>
+        </label>
+      </div>
+      <div class="controls">
+        <label class="checkbox">
+          <div class="checkbox inline">
+            <%= f.check_box :anomalia_congenita %>
+            <%= f.label :anomalia_congenita, nil, :class => 'control-label' %>
+          </div>
+        </label>
+      </div>
+      <div class="controls">
+        <label class="checkbox">
+          <div class="checkbox inline">
+            <%= f.check_box :hospitalizacao %>
+            <%= f.label :hospitalizacao, nil, :class => 'control-label' %>
+          </div>
+        </label>
+      </div>
+      
+      <%= f.label :observacoes, nil, :class => 'control-label' %>
+      <%= f.text_area :observacoes, :rows => '4' %>
+      
+      <%= f.label :data_formatada, nil, :class => 'control-label' %>
+      <%= f.text_field :data_formatada, :class => '_data_calendario' %>
+      
+      <%= f.label :usuario_id, nil, :class => 'control-label' %>
+      <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
+      
+      <%= hidden_field_tag 'evento_adverso_grave[voluntario_id]', session[:voluntario] %>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Voltar', eventos_adversos_menu_path, :class => 'btn' %>
+    </div>
+  <% end %>
+<% end %>

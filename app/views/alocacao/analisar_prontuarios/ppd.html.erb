@@ -1,0 +1,13 @@
+<h1>Verificar PPD</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% if @ppd %>
+  <div>
+    <%= image_tag @ppd.imagem.url %>
+  </div>
+<% else %>
+  <p>O PPD deste voluntário não foi registrado.</p>
+<% end %>
+
+<%= link_to 'Voltar', show_exames_path, :class => 'btn' %>

@@ -1,0 +1,13 @@
+<h1>Verificar ENMG</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% if @enmg %>
+  <div>
+    <%= image_tag @enmg.imagem.url %>
+  </div>
+<% else %>
+  <p>O ENMG deste voluntário não foi registrado.</p>
+<% end %>
+
+<%= link_to 'Voltar', show_neurofisiologia_path, :class => 'btn' %>

@@ -1,0 +1,25 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'partial_inclusao' %>
+<% end %>
+
+<h1>Incluir voluntário no estudo</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => true %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @inclusao, :url => salvar_incluir_path do |f| %>
+    
+    <%= hidden_field_tag 'inclusao[voluntario_id]', session[:voluntario] %>
+    <%= hidden_field_tag 'inclusao[usuario_id]', '', :class => '_usuario_inclusao' %>
+    <%= hidden_field_tag 'inclusao[motivo]', 'Alocação' %>
+    <%= hidden_field_tag 'inclusao[incluido]', true %>
+    
+    <div>
+      <label>Confirma a inclusão do voluntário?</label>
+      <%= f.submit 'Sim', :class => 'btn btn-primary' %>
+      <%= link_to 'Não', alocacao_path, :class => 'btn'%>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Voltar', alocacao_path, :class => 'btn' %>

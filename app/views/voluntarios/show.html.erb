@@ -1,0 +1,76 @@
+<p>
+  <b>Código:</b>
+  <%= @voluntario.id %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @voluntario.nome %>
+</p>
+
+<p>
+  <b>Data de nascimento:</b>
+  <%= @voluntario.data_nascimento_formatada %>
+</p>
+
+<p>
+  <b>Prontuário:</b>
+  <%= @voluntario.prontuario %>
+</p>
+
+<p>
+  <b>Sexo:</b>
+  <%= @voluntario.sexo_str %>
+</p>
+
+<p>
+  <b>Estado civil:</b>
+  <%= @voluntario.estado_civil_str %>
+</p>
+
+<p>
+  <b>Profissão:</b>
+  <%= @voluntario.profissao %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @voluntario.email %>
+</p>
+
+<p>
+  <b>Nacionalidade:</b>
+  <%= @voluntario.nacionalidade_str %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%= @voluntario.telefone %>
+</p>
+
+<p>
+  <b>Celular:</b>
+  <%= @voluntario.celular %>
+</p>
+
+<p>
+  <b>Centro:</b>
+  <%= @voluntario.centro.nome %>
+</p>
+
+<p>
+  <b>Naturalidade:</b>
+  <%= @voluntario.uf.nome %>
+</p>
+
+<p>
+  <b>Endereco:</b>
+  <% endereco = @voluntario.endereco %>
+  <%= endereco.logradouro %>
+  <%= endereco.complemento %>
+  <%= endereco.bairro %>,
+  <%= endereco.municipio ? endereco.municipio.nome : '' %>
+</p>
+
+<%= link_to 'Editar', edit_voluntario_path(@voluntario), :class => 'btn' %>
+<%= link_to 'Voltar', voluntarios_path, :class => 'btn' %>

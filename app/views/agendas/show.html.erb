@@ -1,0 +1,18 @@
+<p>
+  <b>Data:</b>
+  <%= @agenda.data_formatada %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= Agenda::TIPOS[@agenda.tipo] %>
+</p>
+
+<p>
+  <b>Voluntário:</b>
+  <%= @agenda.voluntario_id ? Voluntario.find(@agenda.voluntario_id).nome : '' %>
+</p>
+
+
+<%= link_to 'Editar', edit_agenda_path(@agenda), :class => 'btn' %> |
+<%= link_to 'Voltar', agendas_path, :class => 'btn' %>

@@ -1,0 +1,7 @@
+<h1>Dispensação de medicamentos</h1>
+
+<%= render 'partials/escolher_voluntario_dispensacao', :execucao => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= render 'partials/form_dispensacao', :url => alocacao_salvar_dispensacao_path, :voltar => alocacao_path %>
+<% end %>

@@ -1,0 +1,51 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'date_picker' %>
+<% end %>
+
+<%= form_for @dispensacao, :url => url do |f| %>
+  <% if @dispensacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dispensacao.errors.count, "erro impediu") %> esta dispensação de ser salva:</h2>
+
+      <ul>
+      <% @dispensacao.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :medicamento, :class => 'control-label' %>
+    <div class='controls'>
+      <div class='radio inline'>
+        <%= f.radio_button :medicamento, 0 %>
+        <%= f.label :medicamento_0, 'corticoterapia oral' %>
+      </div>
+      <div class='radio inline'>
+        <%= f.radio_button :medicamento, 1 %>
+        <%= f.label :medicamento_1, 'corticoterapia oral em associação à azatioprina oral' %>
+      </div>
+      <div class='radio inline'>
+        <%= f.radio_button :medicamento, 2 %>
+        <%= f.label :medicamento_2, 'amitriptilina' %>
+      </div>
+    </div>
+
+    <%= f.label :posologia, :class => 'control-label' %>
+    <%= f.text_area :posologia, :rows => 4 %>
+
+    <%= f.label :quantidade, :class => 'control-label' %>
+    <%= f.text_area :quantidade, :rows => 4 %>
+
+    <%= f.label :data_formatada, :class => 'control-label' %>
+    <%= f.text_field :data_formatada, :class => '_data_calendario' %>
+
+    <%= f.label :usuario_id, nil, :class => 'control-label' %>
+    <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+  </div>
+<% end %>

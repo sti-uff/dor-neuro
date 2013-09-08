@@ -1,0 +1,39 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'date_picker' %>
+<% end %>
+
+<h1>Listagem de profissionais</h1>
+
+<%= link_to new_usuario_path, :class => "btn btn-primary" do %>
+  Novo profissional
+  <i class="icon-plus icon-white"></i>
+<% end %>
+
+<div>
+  <% unless @usuarios.blank? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Centro</th>
+        <th>Cargo</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= link_to usuario.nome, usuario %></td>
+        <td><%= usuario.email %></td>
+        <td><%= Centro.find(usuario.centro).nome %></td>
+        <td><%= Cargo.find(usuario.cargo).nome %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <p>Nenhum profissional foi encontrado.
+  <% end %>
+</div>
+
+<%= link_to 'Voltar', admin_path, :class => 'btn' %>

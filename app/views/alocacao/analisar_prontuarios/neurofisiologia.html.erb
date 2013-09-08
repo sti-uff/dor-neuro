@@ -1,0 +1,14 @@
+<h1>Verificar neurofisiologia</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <ul class="unstyled horizontal-list">
+    <li><%= link_to 'ENMG', show_enmg_path %></li>
+    <li><%= link_to 'CHEPS', show_cheps_path %></li>
+    <li><%= link_to 'QST', show_qst_path %></li>
+  </ul>
+  <div class="clear"></div>
+<% end %>
+
+<%= link_to 'Voltar', analisar_prontuarios_path, :class => 'btn' %>

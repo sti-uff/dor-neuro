@@ -1,0 +1,13 @@
+<h1>Verificar EVA</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% if @eva %>
+  <div>
+    <%= image_tag @eva.imagem.url %>
+  </div>
+<% else %>
+  <p>O EVA deste voluntário não foi registrado.</p>
+<% end %>
+
+<%= link_to 'Voltar', show_questionarios_path, :class => 'btn' %>

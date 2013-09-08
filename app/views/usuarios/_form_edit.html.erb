@@ -1,0 +1,84 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'jquery.meio.mask', 'mascaras' %>
+<% end %>
+
+<%= form_for(@usuario) do |f| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usuario.errors.count, "erro impediu") %> este profissional de ser salvo:</h2>
+
+      <ul>
+      <% @usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <fieldset>
+    
+    <div class="row">
+      <div class="span4">
+        <div class="control-group">
+          <%= f.label :nome %>
+          <div class="controls">
+            <%= f.text_field :nome %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :email %>
+          <div class="controls">
+            <%= f.email_field :email %>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <%= f.label :celular %>
+          <div class="controls">
+            <%= f.text_field :celular, :class => '_celular' %>
+          </div>
+        </div>
+      
+      </div>
+      <div class="span4">
+        
+        <div class="control-group">
+          <%= f.label :centro_id %>
+          <div class="controls">
+            <%= f.select :centro_id, options_from_collection_for_select(Centro.all, 'id', 'nome', @usuario.centro_id) %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :cargo_id %>
+          <div class="controls">
+            <%= f.select :cargo_id, options_from_collection_for_select(Cargo.all, 'id', 'nome', @usuario.cargo_id) %>
+          </div>
+        </div>
+        
+      </div>
+      <div class="span4">
+  
+        <div class="control-group">
+          <%= f.label :profissao_id %>
+          <div class="controls">
+            <%= f.select :profissao_id, options_from_collection_for_select(Profissao.all, 'id', 'nome', @usuario.profissao_id) %>
+          </div>
+        </div>
+  
+        <div class="control-group">
+          <%= f.label :registro %>
+          <div class="controls">
+            <%= f.text_field :registro %>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+  </div>
+<% end %>

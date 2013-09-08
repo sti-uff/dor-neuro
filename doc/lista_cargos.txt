@@ -1,0 +1,7 @@
+Coordenador geral do projeto
+Coordenador científico do projeto
+Médico
+Enfermeiro
+Farmacêutico
+Administrador
+Estagiário

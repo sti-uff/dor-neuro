@@ -1,0 +1,15 @@
+<h1>Avaliação clínica de execução</h1>
+
+<%= render 'partials/escolher_voluntario_visita', :usuario => true %>
+
+<% if !session[:voluntario].blank? && (session[:numero] && (session[:numero].to_i > 1 && session[:numero].to_i < 8)) %>
+  <ul class='unstyled horizontal-list'>
+    <li><%= link_to 'Dados demográficos', execucao_dados_demograficos_path %></li>
+    <li><%= link_to 'Sinais vitais', execucao_sinais_vitais_path %></li>
+    <li><%= link_to 'Anamnese', execucao_anamnese_path %></li>
+    <li><%= link_to 'Exame físico', execucao_exame_fisico_path %></li>
+    <div class="clear"></div>
+  </ul>
+<% end %>
+
+<%= link_to 'Voltar', execucao_path, :class => 'btn' %>

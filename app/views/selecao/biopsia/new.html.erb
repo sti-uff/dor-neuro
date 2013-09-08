@@ -1,0 +1,40 @@
+<h1>Registrar biópsia</h1>
+
+<% @laudo.build_dados_biopsia %>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @laudo, :url => selecao_new_biopsia_path, :html => { :multipart => true } do |f| %>
+    <div class='control-group'>
+      <%= f.fields_for :dados_biopsia do |d| %>
+        <%= render 'partials/laudos/form_biopsia', :f => d %>
+      <% end %>
+      
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo da biópsia', :texto_data => 'Data da biópsia do nervo periférico' %>
+      
+      <%= f.label :bool, 'Neurite?', :class => 'control-label' %>
+      <div class="controls">
+        <div class='radio inline'>
+          <%= f.radio_button :bool, true %>
+          <%= f.label :bool_true, 'Sim' %>
+        </div>
+        <div class='radio inline'>
+          <%= f.radio_button :bool, false %>
+          <%= f.label :bool_false, 'Não' %>
+        </div>
+      </div>
+      
+      <%= f.label :usuario_id, nil, :class => 'control-label' %>
+      <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
+        
+      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id %>
+      <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_BIOPSIA %>
+    </div>
+
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Voltar', selecao_menu_path, :class => 'btn' %>
+    </div>
+  <% end %>
+<% end %>

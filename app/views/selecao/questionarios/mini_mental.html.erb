@@ -1,0 +1,26 @@
+<h1>Questionários - Mini mental</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @laudo, :url => selecao_salvar_mini_mental_path, :html => { :multipart => true } do |f| %>
+    <div class='control-group'>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do Mini mental', :texto_data => 'Data do questionário' %>
+    
+      <%= f.label :escore, 'Escore total', :class => 'control-label' %>
+      <%= f.text_field :escore %>
+      
+      <%= f.label :usuario_id, nil, :class => 'control-label' %>
+      <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
+      
+      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id %>
+      <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_MINI_MENTAL %>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Voltar', selecao_questionarios_path, :class => 'btn' %>
+    </div>
+  <% end %>
+<% end %>
+

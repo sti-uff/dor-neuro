@@ -1,0 +1,192 @@
+<fieldset>
+
+  <h2>Questionário do doente</h2>
+
+  <div class="row">
+
+    <div class="span5">
+      
+      <p>1) A dor apresenta uma, ou mais, das características seguintes?</p>
+      
+      <div class="control-group">
+        <label>1 - Queimadura</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :queimadura, true %>
+            <%= f.label :queimadura_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :queimadura, false %>
+            <%= f.label :queimadura_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <div class="clear"></div> -->
+      
+      <div class="control-group">
+        <label>2 - Sensação de frio doloroso</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :frio_doloroso, true %>
+            <%= f.label :frio_doloroso_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :frio_doloroso, false %>
+            <%= f.label :frio_doloroso_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label>3 - Choques elétricos</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :choques_eletricos, true %>
+            <%= f.label :choques_eletricos_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :choques_eletricos, false %>
+            <%= f.label :choques_eletricos_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="span5">
+      
+      <p>2) Na mesma região da dor, sente também um ou mais dos seguintes sintomas?</p>
+      
+      <div class="control-group">
+        <label>4 - Formigueiro</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :formigueiro, true %>
+            <%= f.label :formigueiro_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :formigueiro, false %>
+            <%= f.label :formigueiro_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <div class="clear"></div> -->
+      
+      <div class="control-group">
+        <label>5 - Picadas</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :picadas, true %>
+            <%= f.label :picadas_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :picadas, false %>
+            <%= f.label :picadas_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label>6 - Dormência</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :dormencia, true %>
+            <%= f.label :dormencia_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :dormencia, false %>
+            <%= f.label :dormencia_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label>7 - Comichão</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :comichao, true %>
+            <%= f.label :comichao_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :comichao, false %>
+            <%= f.label :comichao_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    
+  <h2>Exame do doente</h2>
+  
+  <div class="row">
+    <div class="span5">
+      
+      <p>3) A dor está localizada numa zona onde o exame físico evidencia:</p>
+      
+      <div class="control-group">
+        <label>8 - Hipoestesia ao tato</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :hipoestesia_tato, true %>
+            <%= f.label :hipoestesia_tato_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :hipoestesia_tato, false %>
+            <%= f.label :hipoestesia_tato_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label>9 - Hipoestesia à picada</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :hipoestesia_picada, true %>
+            <%= f.label :hipoestesia_picada_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :hipoestesia_picada, false %>
+            <%= f.label :hipoestesia_picada_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+    </div><!--end span5-->
+    
+    <div class="span5">
+      
+      <p>4) A dor é provocada ou aumentada por:</p>
+      
+      <div class="control-group">
+        <label>10 - Fricção leve ("brushing")</label>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :friccao_leve, true %>
+            <%= f.label :friccao_leve_true, 'Sim' %>
+          </div>
+          
+          <div class='radio inline'>
+            <%= f.radio_button :friccao_leve, false %>
+            <%= f.label :friccao_leve_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+      
+    </div><!--end span5-->
+    
+  </div><!--end row-->
+  
+  <h2></h2>
+</fieldset>

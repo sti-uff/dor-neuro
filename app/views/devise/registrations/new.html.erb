@@ -1,0 +1,40 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'jquery.meio.mask', 'mascaras' %>
+<% end %>
+
+<h2>Cadastro</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :nome %>
+  <%= f.text_field :nome %></div>
+  
+  <div><%= f.label :email %>
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %>
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %></div>
+  
+  <div><%= f.label :centro_id %>
+  <%= f.select :centro_id, options_from_collection_for_select(Centro.all, 'id', 'nome') %></div>
+  
+  <div><%= f.label :cargo_id %>
+  <%= f.select :cargo_id, options_from_collection_for_select(Cargo.all, 'id', 'nome') %></div>
+  
+  <div><%= f.label :profissao_id %>
+  <%= f.select :profissao_id, options_from_collection_for_select(Profissao.all, 'id', 'nome') %></div>
+  
+  <div><%= f.label :registro %>
+  <%= f.text_field :registro %></div>
+  
+  <div><%= f.label :celular %>
+  <%= f.text_field :celular, :class => '_celular' %></div>
+
+  <div><%= f.submit "Cadastrar", :class => 'btn btn-primary' %></div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

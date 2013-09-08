@@ -1,0 +1,20 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'dialog_voluntario' %>
+<% end %>
+
+<div class="info">
+	<h1>Novo voluntário</h1>
+	<span class="btn btn-small btn-info _info_voluntario">
+		<i class="icon-info-sign icon-white"></i>
+	</span>
+	<div class="clear"></div>
+</div>
+
+<%= render 'form', :voltar => voluntarios_path %>
+
+<div class="_dialog_voluntario" title='Ajuda' style="display:none">
+  <p>Um profissional qualificado identificará o possível voluntário na rede de atendimento, fornecerá informações mínimas sobre o protocolo e entregará o termo de consentimento para que o voluntário leia.
+  </p>
+  <p>Depois, uma ficha cadastral deverá ser preenchida e as informações deverão ser enviadas ao centro de pesquisa.
+  </p>
+</div>

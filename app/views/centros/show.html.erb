@@ -1,0 +1,38 @@
+<p>
+  <b>Nome:</b>
+  <%= @centro.nome %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%= Centro::CATEGORIAS[@centro.categoria] %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%= @centro.telefone %>
+</p>
+
+<p>
+  <b>Ramal:</b>
+  <%= @centro.ramal %>
+</p>
+
+<p>
+  <b>Responsável:</b>
+  <%= @centro.responsavel %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @centro.email %>
+</p>
+
+<p>
+  <b>Endereco:</b>
+  <%= @centro.endereco.to_s %>
+</p>
+
+
+<%= link_to 'Editar', edit_centro_path(@centro), :class => 'btn' %>
+<%= link_to 'Voltar', centros_path, :class => 'btn' %>

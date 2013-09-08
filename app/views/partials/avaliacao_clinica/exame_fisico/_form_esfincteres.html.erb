@@ -1,0 +1,28 @@
+<%= form_for @avaliacao_clinica, :url => url do |f| %>
+  <% if @avaliacao_clinica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</h2>
+
+      <ul>
+      <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'avaliacao_clinica[usuario_id]', session[:usuario] %>
+  
+  <div class='control-group'>
+    <%= f.fields_for :exame_fisico do |e| %>
+      <%= e.fields_for :exame_complemento do |c| %>
+        <%= c.label :esfincteres, nil, :class => 'control-label' %>
+        <%= c.text_area :esfincteres, :rows => 4 %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+  </div>
+<% end %>

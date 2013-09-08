@@ -1,0 +1,17 @@
+<h1>Analisar prontuários</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <ul class="unstyled horizontal-list">
+    <li><%= link_to 'Avaliação clínica', show_avaliacao_clinica_path %></li>
+    <li><%= link_to 'Critérios I/E', show_criterios_path %></li>
+    <li><%= link_to 'Biópsia', show_biopsia_path %></li>
+    <li><%= link_to 'Neurofisiologia', show_neurofisiologia_path %></li>
+    <li><%= link_to 'Questionários', show_questionarios_path %></li>
+    <li><%= link_to 'Exames complementares', show_exames_path %></li>
+  </ul>
+  <div class="clear"></div>
+<% end %>
+
+<%= link_to 'Voltar', alocacao_path, :class => 'btn' %>

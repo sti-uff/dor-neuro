@@ -1,0 +1,28 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'date_picker' %>
+<% end %>
+
+<h1>Aplicar critérios de inclusão e exclusão</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @voluntario, :url => alocacao_salvar_criterios_path do |f| %>
+  
+    <div class='control-group'>
+      <%#= hidden_field_tag 'criterio[voluntario_id]', session[:voluntario] %>
+      <%= f.fields_for :criterios, @voluntario.criterios.last, :criterio do |c| %>
+        <%= render 'partials/form_criterio', :f => c, :usuario => @voluntario.criterios.last.usuario_id %>
+      <% end %>
+    
+      <%= f.fields_for :inclusoes, @voluntario.inclusoes.last, :inclusao do |i| %>
+        <%= render 'partials/form_inclusao', :f => i, :motivo => 'Critérios I/E' %>
+      <% end %>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Voltar', alocacao_path, :class => 'btn' %>
+    </div>
+  <% end %>
+<% end %>

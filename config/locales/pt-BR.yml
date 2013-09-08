@@ -1,0 +1,328 @@
+pt-BR:
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    - 
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! "%d/%m/%Y"
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %B'
+    month_names:
+    - 
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      confirmation: não está de acordo com a confirmação
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: ! 'A validação falhou: %{errors}'
+      taken: já está em uso
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Salvar
+      submit: Salvar
+      update: Salvar
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: .
+    precision:
+      format:
+        delimiter: .
+  support:
+    array:
+      last_word_connector: ! ' e '
+      two_words_connector: ! ' e '
+      words_connector: ! ', '
+  time:
+    am: ''
+    formats:
+      default: ! '%A, %d de %B de %Y, %H:%M h'
+      long: ! '%A, %d de %B de %Y, %H:%M h'
+      short: ! '%d/%m, %H:%M h'
+    pm: ''
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    models:
+      usuario: Usuário
+      profissao: Profissão
+      voluntario: Voluntário
+      municipio: Município
+    attributes:
+      usuario:
+        current_password: Senha Atual
+        password: Senha
+        password_confirmation: Confirmação da senha
+        remember_me: Lembrar meu login
+        profissao_id: Profissão
+      voluntario:
+        data_nascimento_formatada: Data de nascimento
+        prontuario: Prontuário
+        profissao: Profissão
+        centro_id: Centro de pesquisa
+        data_entrevista_formatada: Data da entrevista
+        nome: Iniciais
+      endereco:
+        logradouro: "Endereço"
+        cep: "CEP"
+        municipio_id: "Município"
+      agenda:
+        voluntario_id: "Voluntário"
+        data_formatada: Data
+      criterio:
+        inclusao_idade: "Idade entre 18 e 65 anos (inclusive)?"
+        inclusao_diagnostico_hanseniase: "Diagnóstico de hanseníase segundo os critérios clínicos da OMS?"
+        inclusao_duracao_sintomas: "Duração dos sintomas maior ou igual a 1 mês e menor ou igual a cinco anos?"
+        inclusao_duracao_dor: "A dor tem duração maior ou igual a 1 mês e menor ou igual a cinco anos?"
+        inclusao_virgem_tratamento: "Paciente virgem de tratamento específico para dor neuropática e/ou imunossupressores?"
+        inclusao_assinou_tcle: "Assinou TCLE?"
+        exclusao_gravidez_amamentacao: "Gravidez/amamentação e lactação?"
+        exclusao_deficit_cognitivo: "Déficit cognitivo de moderado a grave aferido pelo Mini Exame do Estado Mental?"
+        exclusao_incapaz_pontuar_dor: "Incapacidade para pontuar a intensidade de dor (déficits visual ou auditivo)?"
+        exclusao_neoplasia_maligna: "Portador de neoplasias malignas?"
+        exclusao_imunodeficiente: "Paciente é imunodeficiente?"
+        exclusao_disfuncao_renal_hepatica: "Disfunção renal ou hepática já reconhecida?"
+        exclusao_medicacoes: "Uso de medicações que possam interferir na avaliação?"
+        exclusao_neuropatia_periferica: "Outras causas de neuropatia periférica?"
+        exclusao_idade_fertil_sem_anticoncepcionais: "Voluntária em idade fértil sem uso de medidas anticoncepcionais eficazes?"
+        data_formatada: "Data da aplicação do critério de I/E"
+        usuario_id: "Médico responsável"
+      inclusao:
+        incluido: "Excluir voluntário?"
+      laudo:
+        usuario_id: "Médico responsável"
+      avaliacao_clinica:
+        frequencia_cardiaca: "Frequência cardíaca"
+        frequencia_respiratoria: "Frequência respiratória"
+        data_sinais_vitais_formatada: "Data"
+        queixa_principal: "Queixa principal (QP)"
+        historia_doenca_atual: "História da doença atual (HDA)"
+        historia_medica_pregressa: "História médica pregressa (HPP)"
+        historico_familiar: "Histórico familiar/familial (HF)"
+        historia_pessoal_social: "História pessoal e social"
+        tabagista: "É tabagista?"
+        carga_tabagica: "Carga tabágica"
+        alcoolista: "É alcoolista?"
+        quantidade_alcool: "Quantidade"
+        revisao_sistemas: "Revisão de sistemas"
+        data_anamnese_formatada: "Data"
+      exame_fisico:
+        exame_respiratorio: "Exame respiratório"
+        exame_abdome: "Exame do abdome"
+        exame_marcha: "Exame da marcha"
+        estatica: "Estática"
+      exame_complemento:
+        esfincteres: "Esfíncteres"
+        coordenacao: "Coordenação"
+        tonus_muscular: "Tônus muscular"
+        espessamento_nervo: "Existe espessamento de nervo?"
+        nervo_espessado: "Qual o nervo espessado?"
+      evento_adverso:
+        sinal_desfavoravel_bool: "Qualquer sinal desfavorável e não intencional (incluindo um achado laboratorial anormal)"
+        sintoma_temporario_bool: "Sintoma ou doença temporariamente associada ao uso da medicação do estudo, relacionados ou não a ela"
+        procedimento_cirurgico_bool: "Procedimento cirúrgico realizado durante o estudo"
+        valores_fora_da_referencia_bool: "Valores laboratoriais fora do valor de referência, clinicamente relevantes, excluindo os exames da seleção"
+        valores_alterados_bool: "Valores laboratoriais alterados em relação aos exames prévios"
+        achados_fisicos_bool: "Achados físicos pré-existentes (incluindo a medição de sinais vitais), que pioram e que são clinicamente relevantes"
+        observacoes: "Outros achados e observações"
+        data_formatada: "Data do registro"
+        usuario_id: "Médico responsável"
+      gravidez:
+        data_formatada: "Data do registro"
+        usuario_id: "Médico responsável"
+      superdose:
+        observacoes: "Observações"
+        data_formatada: "Data do registro"
+        usuario_id: "Médico responsável"
+      evento_adverso_grave:
+        obito: "Óbito"
+        ameaca_vida: "Ameaça à vida"
+        invalidez: "Invalidez/incapacidade significativa ou persistente"
+        anomalia_congenita: "Anomalia congênita/defeito de nascimento"
+        hospitalizacao: "Hospitalização ou prolongação de hospitalização"
+        observacoes: "Observações"
+        data_formatada: "Data do registro"
+        usuario_id: "Médico responsável"
+      alocacao:
+        grupo: "Alocar voluntário no grupo"
+      dispensacao:
+        medicamento: "Medicamento a ser dispensado"
+        quantidade: "Quantidade de medicamento dispensado"
+        data_formatada: "Data da dispensação"
+        usuario_id: "Médico responsável"
+      adesao:
+        observacoes: "Observações"
+        data_formatada: "Data do registro"
+        usuario_id: "Médico responsável"
+      centro:
+        responsavel: "Responsável"
+      dados_biopsia:
+        celulas_inflamatorias: "Presença de células inflamatórias"
+        vasculite: "Presença de vasculite, microvasculite, ou sinais indiretos (angiogênese, trombose)"
+        bacilos: "Presença de bacilos"
+        perda_fibras: "Perda de fibras"
+        degeneracao_axonal: "Degeneração axonal"
+        regeneracao_axonal: "Regeneração axonal"
+        desmielinizacao_ativa: "Desmielinização ativa"
+    errors:
+      <<: *errors

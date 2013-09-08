@@ -1,0 +1,19 @@
+<h1>Função renal</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @laudo, :url => encerramento_salvar_func_renal_path, :html => { :multipart => true } do |f| %>
+    <div class='control-group'>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do resultado da função renal', :texto_data => 'Data do exame' %>
+      
+      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 8).id %>
+      <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_FUNC_RENAL %>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Voltar', encerramento_exames_path, :class => 'btn' %>
+    </div>
+  <% end %>
+<% end %>

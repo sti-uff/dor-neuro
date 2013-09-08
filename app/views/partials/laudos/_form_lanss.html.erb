@@ -1,0 +1,134 @@
+<fieldset>
+
+  <!-- <h2>Cortes parafina</h2> -->
+
+  <div class="row">
+
+    <div class="span9">
+
+      <div class="control-group">
+        <p>1) A sua dor se parece com uma sensação estranha e desagradável na pele? Palavras do tipo "agulhadas", "choques elétricos" e "formigamento" são as que melhor descrevem estas sensações.</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :dor_desagradavel, false %>
+            <%= f.label :dor_desagradavel_false, 'a) NÃO - Minha dor não se parece com isso - 0 pontos' %>
+          </div>
+          <div class="clear"></div>
+          <div class='radio inline'>
+            <%= f.radio_button :dor_desagradavel, true %>
+            <%= f.label :dor_desagradavel_true, 'b) SIM - Eu tenho este tipo de sensação com frequência - 5 pontos' %>
+          </div>
+        </div>
+      </div>
+      
+      <h2></h2>
+      
+      <div class="control-group">
+        <p>2) A sua dor faz com que a cor da pele dolorida mude de cor? Palavras do tipo "manchada" ou "avermelhada ou rosada" descrevem a aparência da sua pele.</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :pele_manchada, false %>
+            <%= f.label :pele_manchada_false, 'a) NÃO - Minha dor não afeta a cor da minha pele - 0 pontos' %>
+          </div>
+          <div class="clear"></div>
+          <div class='radio inline'>
+            <%= f.radio_button :pele_manchada, true %>
+            <%= f.label :pele_manchada_true, 'b) SIM - Eu percebi que a dor faz com que minha pele mude de cor - 5 pontos' %>
+          </div>
+        </div>
+      </div>
+      
+      <h2></h2>
+
+      <div class="control-group">
+        <p>3) A sua dor faz com que a pele afetada fique sensível ao toque? A ocorrência de sensações desagradáveis e/ou dolorosas ao toque leve ou mesmo ao toque da roupa ao vestir-se descrevem esta sensibilidade anormal.</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :pele_sensivel, false %>
+            <%= f.label :pele_sensivel_false, 'a) NÃO - Minha dor não faz com que minha pele fique mais sensível nesta área - 0 pontos' %>
+          </div>
+          <div class="clear"></div>
+          <div class='radio inline'>
+            <%= f.radio_button :pele_sensivel, true %>
+            <%= f.label :pele_sensivel_true, 'b) SIM - Minha pele é mais sensível ao toque nesta área - 5 pontos' %>
+          </div>
+        </div>
+      </div>
+      
+      <h2></h2>
+
+      <div class="control-group">
+        <p>4) A sua dor inicia de repente, sem nenhuma razão aparente, quando você está parado? Palavras tipo "choques elétricos", "dor em pontada" ou "dor explosiva" descrevem estas sensações.</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :dor_repentina, false %>
+            <%= f.label :dor_repentina_false, 'a) NÃO - Minha dor não se comporta desta forma - 0 pontos' %>
+          </div>
+          <div class="clear"></div>
+          <div class='radio inline'>
+            <%= f.radio_button :dor_repentina, true %>
+            <%= f.label :dor_repentina_true, 'b) SIM - Eu tenho estas sensações com muita frequência - 5 pontos' %>
+          </div>
+        </div>
+      </div>
+      
+      <h2></h2>
+      
+      <div class="control-group">
+        <p>5) A sua dor faz com que a temperatura da sua pele na área dolorida mude? Palavras tipo "calor" e "queimação" descrevem estas sensações?</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :pele_queimacao, false %>
+            <%= f.label :pele_queimacao_false, 'a) NÃO - Eu não tenho este tipo de sensação - 0 pontos' %>
+          </div>
+          <div class="clear"></div>
+          <div class='radio inline'>
+            <%= f.radio_button :pele_queimacao, true %>
+            <%= f.label :pele_queimacao_true, 'b) SIM - Eu tenho estas sensações com frequência - 5 pontos' %>
+          </div>
+        </div>
+      </div>
+      
+      <h2></h2>
+      
+      <div class="control-group">
+        <p>6) ALODINIA: Examine a resposta ao toque leve com algodão sobre a área não-dolorida e, a seguir, na área dolorida. Caso sensações normais forem percebidas na área afetada, então a alodinia está presente.</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :alodinia, false %>
+            <%= f.label :alodinia_false, 'a) NÃO - Sensação normal em ambas as áreas - 0 pontos' %>
+          </div>
+          <div class="clear"></div>
+          <div class='radio inline'>
+            <%= f.radio_button :alodinia, true %>
+            <%= f.label :alodinia_true, 'b) SIM - Alodinia somente na área dolorida - 5 pontos' %>
+          </div>
+        </div>
+      </div>
+      
+      <h2></h2>
+      
+      <div class="control-group">
+        <p>7) ALTERAÇÃO DO LIMIAR POR ESTÍMULO DE AGULHA</p>
+        <p>a) Determine o limiar por estímulo de agulha através da comparação da resposta a uma agulha de espessura 23 (cor azul) conectada a uma seringa de 2 mL - sem a parte interna - suavemente colocada nas áreas doloridas da pele e depois nas não-doloridas.</p>
+        <p>b) Caso uma sensação de agulhada normal for sentida na área da pele não-dolorida, mas uma sensação diferente for sentida na área dolorida como, por exemplo, "nenhuma sensação" ou "somente sensação de toque" (LSA aumentado) ou "dor muito intensa" (LSA diminuído), isso significa que há um LSA alterado.</p>
+        <p>c) Caso a sensação de agulhada não for percebida em nenhuma área, conecte a parte interna da seringa à agulha para aumentar o peso e repita a manobra.</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :alteracao_limiar, false %>
+            <%= f.label :alteracao_limiar_false, 'a) NÃO - Sensação igual em ambas as áreas - 0 pontos' %>
+          </div>
+          <div class="clear"></div>
+          <div class='radio inline'>
+            <%= f.radio_button :alteracao_limiar, true %>
+            <%= f.label :alteracao_limiar_true, 'b) SIM - Limiar por estímulo de agulha alterado no lado dolorido - 5 pontos' %>
+          </div>
+        </div>
+      </div>
+      
+      <h2></h2>
+
+    </div><!--end span4-->
+
+  </div><!--end row-->
+</fieldset>

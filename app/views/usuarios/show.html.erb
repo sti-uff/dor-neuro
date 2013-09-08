@@ -1,0 +1,35 @@
+<p>
+  <b>Nome:</b>
+  <%= @usuario.nome %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @usuario.email %>
+</p>
+
+<p>
+  <b>Centro:</b>
+  <%= Centro.find(@usuario.centro).nome %>
+</p>
+
+<p>
+  <b>Cargo:</b>
+  <%= Cargo.find(@usuario.cargo).nome %>
+</p>
+
+<p>
+  <b>Profissão:</b>
+  <%= Profissao.find(@usuario.profissao).nome %>
+</p>
+
+<p>
+  <b>Celular:</b>
+  <%= @usuario.celular %>
+</p>
+
+<% if @usuario == current_usuario %>
+  <%= link_to 'Editar', edit_usuario_path(current_usuario), :class => 'btn' %>
+  <%= link_to 'Alterar senha', edit_usuario_registration_path(current_usuario), :class => 'btn' %>
+<% end %>
+<%= link_to 'Voltar', usuarios_path, :class => 'btn' %>

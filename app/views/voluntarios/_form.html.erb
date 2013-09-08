@@ -1,0 +1,160 @@
+<% content_for(:head) do %>
+  <%= stylesheet_link_tag 'token-input-facebook' %>
+  <%= javascript_include_tag 'date_picker', 'jquery.meio.mask', 'mascaras', 'jquery.tokeninput', 'token_input' %>
+<% end %>
+
+<%= form_for(@voluntario) do |f| %>
+  <% if @voluntario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voluntario.errors.count, "erro impediu") %> este voluntário de ser salvo:</h2>
+
+      <ul>
+      <% @voluntario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+
+    <h2>Dados Pessoais</h2>
+
+    <div class="row">
+      <div class="span4">
+
+        <div class="control-group">
+          <%= f.label :nome, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :nome, :maxlength => 8, :class => '_iniciais' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :data_nascimento_formatada, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :data_nascimento_formatada, :class => '_data_nascimento' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :profissao, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :profissao %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :email, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :email %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :sexo, nil, :class => 'control-label' %>
+          <div class="controls">
+            <div class='radio inline'>
+              <%= f.radio_button :sexo, 0 %>
+              <%= f.label :sexo_0, 'Masculino' %>
+            </div>
+            <div class='radio inline'>
+              <%= f.radio_button :sexo, 1 %>
+              <%= f.label :sexo_1, 'Feminino' %>
+            </div>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+
+      <div class="span4">
+
+        <div class="control-group">
+          <%= f.label :nacionalidade, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :nacionalidade, options_for_select([['Brasil', 0], ['Outro', 1]], @voluntario.nacionalidade) %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :naturalidade, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :naturalidade, options_from_collection_for_select(Uf.order(:nome), 'id', 'nome', @voluntario.naturalidade) %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :telefone, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :telefone, :class => '_telefone' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :celular, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :celular, :class => '_celular' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :estado_civil, nil, :class => 'control-label' %>
+          <div class="controls">
+            <div class='radio inline'>
+              <%= f.radio_button :estado_civil, 0 %>
+              <%= f.label :estado_civil_0, 'Casado' %>
+            </div>
+            <div class='radio inline'>
+              <%= f.radio_button :estado_civil, 1 %>
+              <%= f.label :estado_civil_1, 'Solteiro' %>
+            </div>
+            <div class='radio inline'>
+              <%= f.radio_button :estado_civil, 2 %>
+              <%= f.label :estado_civil_2, 'Divorciado' %>
+            </div>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+
+      <div class="span4">
+
+        <div class="control-group">
+          <%= f.label :centro_id, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :centro_id, options_from_collection_for_select(Centro.all, 'id', 'nome') %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :prontuario, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :prontuario %>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+
+    </div><!--end row-->
+  </fieldset>
+
+  <%= f.fields_for :endereco do |endereco| %>
+    <%= render 'partials/form_endereco', :f => endereco %>
+  <% end %>
+
+
+  <%= f.fields_for :criterios, @voluntario.criterios.first do |criterio| %>
+    <%= render 'partials/form_criterio', :f => criterio, :usuario => @voluntario.criterios.first.usuario_id %>
+  <% end %>
+
+  <%= f.fields_for :inclusoes, @voluntario.inclusoes.first do |inclusao| %>
+    <%= render 'partials/form_inclusao', :f => inclusao, :motivo => "Critérios I/E" %>
+  <% end %>
+  
+
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>Verificar questionários</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <ul class="unstyled horizontal-list">
+    <li><%= link_to 'EVA', show_eva_path %></li>
+    <li><%= link_to 'DN4', show_dn4_path %></li>
+    <li><%= link_to 'LANSS', show_lanss_path %></li>
+    <li><%= link_to 'SF36', show_sf36_path %></li>
+    <li><%= link_to 'Mini mental', show_mini_mental_path %></li>
+  </ul>
+  <div class="clear"></div>
+<% end %>
+
+<%= link_to 'Voltar', analisar_prontuarios_path, :class => 'btn' %>

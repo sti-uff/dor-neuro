@@ -1,0 +1,56 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'date_picker' %>
+<% end %>
+
+<h1>Listagem de agendas</h1>
+
+<%= form_tag agendas_path, :method => :get, :class => 'well form-search' do %>
+  <%= label_tag :data %>
+  <%= text_field_tag :data, params[:data], :class => '_data_calendario' %>
+  
+  <%= label_tag :tipo %>
+  <%= select_tag :tipo, options_for_select(Agenda::TIPOS.map{|key,value| [value, key]}, params[:tipo]), :include_blank => "Todos" %>
+  
+  <%= submit_tag 'Buscar', :class => 'btn' %>
+<% end %>
+
+<%= link_to new_agenda_path, :class => "btn btn-primary" do %>
+  Nova agenda
+  <i class="icon-plus icon-white"></i>
+<% end %>
+
+<div>
+  <% unless @agendas.blank? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Tipo</th>
+        <th>Voluntário</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @agendas.each do |agenda| %>
+      <% if agenda.voluntario_id %>
+        <% voluntario = Voluntario.find(agenda.voluntario_id) %>
+      <% end %>
+      <tr>
+        <td><%= agenda.data_formatada %></td>
+        <td><%= Agenda::TIPOS[agenda.tipo] %></td>
+        <td><%= voluntario ? "#{voluntario.id} - #{voluntario.nome}" : '' %></td>
+        <td>
+          <%= link_to edit_agenda_path(agenda), :title=>"Editar", :class=>"btn btn-primary" do %>
+            <i class="icon-pencil icon-white"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <p>Nenhuma agenda foi encontrada.
+  <% end %>
+</div>
+
+<%= link_to 'Voltar', agenda_menu_path, :class => 'btn' %>

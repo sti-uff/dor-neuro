@@ -1,0 +1,30 @@
+encerramento:
+  eva: laudo, data, nota
+  sf36: laudo, data, escore
+  gravidez: laudo, data
+  hemograma: laudo, data
+  func_renal: laudo, data
+  func_hep: laudo, data
+execucao:
+  eva: laudo, data, nota
+  gravidez: laudo, data
+  hemograma: laudo, data
+  func_renal: laudo, data
+  func_hep: laudo, data
+selecao:
+  tcle: laudo, data
+  biopsia: laudo, data, neurite
+  enmg: laudo, data
+  cheps: laudo, data
+  qst: laudo, data
+  eva: laudo, data, nota
+  dn4: laudo, data
+  lanss: laudo, data, escore, escore_bool
+  sf36: laudo, data, escore
+  mini_mental: laudo, data, escore
+  gravidez: laudo, data
+  hemograma: laudo, data
+  func_renal: laudo, data
+  func_hep: laudo, data
+  urinocultura: laudo, data
+  ppd: laudo, data

@@ -1,0 +1,311 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'dialogs_criterio' %>
+<% end %>
+
+<fieldset>
+
+  <h2>Critérios de Inclusão</h2>
+
+  <div class="row">
+
+    <div class="span4">
+
+      <div class="control-group">
+        <%= f.label :inclusao_idade, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_idade, true %>
+            <%= f.label :inclusao_idade_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_idade, false %>
+            <%= f.label :inclusao_idade_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :inclusao_diagnostico_hanseniase, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_diagnostico_hanseniase, true %>
+            <%= f.label :inclusao_diagnostico_hanseniase_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_diagnostico_hanseniase, false %>
+            <%= f.label :inclusao_diagnostico_hanseniase_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+    </div><!--end span4-->
+
+    <div class="span4">
+
+      <div class="control-group">
+        <%= f.label :inclusao_duracao_sintomas, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_duracao_sintomas, true %>
+            <%= f.label :inclusao_duracao_sintomas_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_duracao_sintomas, false %>
+            <%= f.label :inclusao_duracao_sintomas_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :inclusao_duracao_dor, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_duracao_dor, true %>
+            <%= f.label :inclusao_duracao_dor_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_duracao_dor, false %>
+            <%= f.label :inclusao_duracao_dor_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+    </div><!--end span4-->
+
+    <div class="span4">
+
+      <div class="control-group">
+        <%= f.label :inclusao_virgem_tratamento, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_virgem_tratamento, true %>
+            <%= f.label :inclusao_virgem_tratamento_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_virgem_tratamento, false %>
+            <%= f.label :inclusao_virgem_tratamento_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :inclusao_assinou_tcle, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_assinou_tcle, true %>
+            <%= f.label :inclusao_assinou_tcle_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :inclusao_assinou_tcle, false %>
+            <%= f.label :inclusao_assinou_tcle_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+    </div><!--end span4-->
+  </div><!--end row-->
+</fieldset>
+
+<fieldset>
+
+  <h2>Critérios de Exclusão</h2>
+
+  <div class="row">
+
+    <div class="span4">
+
+      <div class="control-group">
+        <%= f.label :exclusao_gravidez_amamentacao, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_gravidez_amamentacao, true %>
+            <%= f.label :exclusao_gravidez_amamentacao_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_gravidez_amamentacao, false %>
+            <%= f.label :exclusao_gravidez_amamentacao_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :exclusao_deficit_cognitivo, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_deficit_cognitivo, true %>
+            <%= f.label :exclusao_deficit_cognitivo_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_deficit_cognitivo, false %>
+            <%= f.label :exclusao_deficit_cognitivo_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :exclusao_incapaz_pontuar_dor, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_incapaz_pontuar_dor, true %>
+            <%= f.label :exclusao_incapaz_pontuar_dor_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_incapaz_pontuar_dor, false %>
+            <%= f.label :exclusao_incapaz_pontuar_dor_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :exclusao_neoplasia_maligna, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_neoplasia_maligna, true %>
+            <%= f.label :exclusao_neoplasia_maligna_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_neoplasia_maligna, false %>
+            <%= f.label :exclusao_neoplasia_maligna_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+    </div><!--end span4-->
+
+    <div class="span4">
+
+      <div class="control-group">
+       <%= f.label :exclusao_imunodeficiente, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_imunodeficiente, true %>
+            <%= f.label :exclusao_imunodeficiente_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_imunodeficiente, false %>
+            <%= f.label :exclusao_imunodeficiente_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :exclusao_disfuncao_renal_hepatica, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_disfuncao_renal_hepatica, true %>
+            <%= f.label :exclusao_disfuncao_renal_hepatica_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_disfuncao_renal_hepatica, false %>
+            <%= f.label :exclusao_disfuncao_renal_hepatica_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="info">
+          <%= f.label :exclusao_medicacoes, nil, :class => 'control-label' %>
+          <span class="btn btn-small btn-info _medicacoes">
+            <i class="icon-info-sign icon-white"></i>
+          </span>
+          <div class="clear"></div>
+        </div>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_medicacoes, true %>
+            <%= f.label :exclusao_medicacoes_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_medicacoes, false %>
+            <%= f.label :exclusao_medicacoes_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="info">
+          <%= f.label :exclusao_neuropatia_periferica, nil, :class => 'control-label' %>
+          <span class="btn btn-small btn-info _neuropatia">
+            <i class="icon-info-sign icon-white"></i>
+          </span>
+          <div class="clear"></div>
+        </div>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_neuropatia_periferica, true %>
+            <%= f.label :exclusao_neuropatia_periferica_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_neuropatia_periferica, false %>
+            <%= f.label :exclusao_neuropatia_periferica_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+    </div><!--end span4-->
+
+    <div class="span4">
+
+      <div class="control-group">
+        <%= f.label :exclusao_idade_fertil_sem_anticoncepcionais, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_idade_fertil_sem_anticoncepcionais, true %>
+            <%= f.label :exclusao_idade_fertil_sem_anticoncepcionais_true, 'Sim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :exclusao_idade_fertil_sem_anticoncepcionais, false %>
+            <%= f.label :exclusao_idade_fertil_sem_anticoncepcionais_false, 'Não' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :data_formatada, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :data_formatada, :class => '_data_calendario' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :usuario_id, nil, :class => 'control-label' %>
+        <div class='controls'>
+          <%#= f.text_field :usuario_id, :class => '_medico' %>
+          <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome', usuario) %>
+        </div>
+      </div>
+
+    </div><!--end span4-->
+  </div><!--end row-->
+</fieldset>
+
+<div class="_dialog_medicacoes" title='Lista de medicamentos contraindicados' style="display:none">
+  <table class="table table-striped">
+    <tr><td>Aminoglicosídeos injetáveis</td><td>Docetaxel</td><td>Mexiletina</td></tr>
+    <tr><td>Carbamazepina</td><td>Estavudina</td><td>Nitrofurantoína</td></tr>
+    <tr><td>Carboplatina</td><td>Etambutol</td><td>Oxaminiquina</td></tr>
+    <tr><td>Ciclosporina</td><td>Hidantoína</td><td>Penicilinas injetáveis</td></tr>
+    <tr><td>Ciprofloxacino</td><td>Hidroxicloroquina</td><td>Polimixina injetável</td></tr>
+    <tr><td>Cisplatina</td><td>Imipenem</td><td>Quinidina</td></tr>
+    <tr><td>Citarabina</td><td>Interferons alfa</td><td>Quinina</td></tr>
+    <tr><td>Cloranfenicol</td><td>Isoniazida</td><td>Tetraciclinas</td></tr>
+    <tr><td>Cloroquina</td><td>Lítio</td><td>Vincristina</td></tr>
+    <tr><td>Didanosina</td><td>Metotraxato intratecal</td><td>Vitamina B6 com uso prolongado</td></tr>
+    <tr><td>Dissulfiram</td><td>Metronidazol</td><td>Zalcitabina</td></tr>
+  </table>
+</div>
+
+<div class="_dialog_neuropatia" title='Causas de neuropatia periférica' style="display:none">
+  <table class="table table-striped">
+    <tr><td>Acromegalia</td><td>Esclerodermia</td><td>Linfoma</td></tr>
+    <tr><td>Amiloidose sistêmica primária ou secundária</td><td>Gamopatia monoclonal de causa desconhecida (MGUS)</td><td>Lúpus eritematoso sistêmico</td></tr>
+    <tr><td>Artrite reumatóide</td><td>Hepatite B</td><td>Macroglobulinemia de Waldenström</td></tr>
+    <tr><td>Crioglobulinemia</td><td>Hepatite C</td><td>Mal-absorção intestinal</td></tr>
+    <tr><td>Deficiências nutricionais (tiamina, piridoxina, ácido fólico, vitamina B12)</td><td>Hipotireoidismo</td><td>Mieloma múltiplo</td></tr>
+    <tr><td>Diabetes Mellitus</td><td>HIV</td><td>Sarcoidose</td></tr>
+    <tr><td>Doença de Castleman</td><td>HTLV</td><td>Síndrome de Sjögren</td></tr>
+    <tr><td>Doença hepática crônica</td><td>Imipenem</td><td>Vasculites primárias sistêmicas</td></tr>
+    <tr><td>Doença pulmonar obstrutiva crônica grave</td><td>Insuficiência renal</td><td></td></tr>
+  </table>
+</div>
+
+  

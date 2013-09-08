@@ -1,0 +1,13 @@
+<h1>Verificar função hepática</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% if @hepatica %>
+  <div>
+    <%= image_tag @hepatica.imagem.url %>
+  </div>
+<% else %>
+  <p>A função hepática deste voluntário não foi registrada.</p>
+<% end %>
+
+<%= link_to 'Voltar', show_exames_path, :class => 'btn' %>

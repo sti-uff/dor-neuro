@@ -1,0 +1,98 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag "jquery.tokeninput", "token_input" %>
+<% end %>
+
+<% if !session[:voluntario].blank? %>
+  <% disable = true
+     voluntario = Voluntario.find session[:voluntario]
+     dados = [{:id => voluntario.id, :name => "#{voluntario.id} - #{voluntario.nome}"}].to_json
+     centro = voluntario.centro.nome
+     idade = ((Date.today - voluntario.data_nascimento)/365).to_i %>
+<% else %>
+  <% disable = false
+     dados = ''
+     centro = ''
+     idade = '' %>
+<% end %>
+<%= form_tag escolher_voluntario_path, :method => :get do %>
+
+  <fieldset>
+
+    <h2>Informações</h2>
+
+    <%= hidden_field_tag 'pagina', params[:pagina] %>
+
+    <div class="row">
+      <div class="span4">
+
+        <div class="control-group">
+          <%= label_tag :voluntario, 'Voluntário' %>
+          <div class="controls">
+            <%= text_field_tag :voluntario, '', :class => '_voluntario', 'data-pre' => dados %>
+          </div>
+        </div>
+
+        <% if usuario %>
+          <div class="control-group">
+            <%= label_tag :usuario, 'Médico' %>
+            <div class="controls">
+              <%= select_tag :usuario, options_from_collection_for_select(Usuario.all, 'id', 'nome', session[:usuario]) %>
+            </div>
+          </div>
+        <% end %>
+
+      </div><!--end span4-->
+
+      
+      <div class="span4">
+
+        <div class="control-group">
+          <%= label_tag :numero, 'Número da visita', :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag :numero, session[:numero] %>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+      
+
+      <div class="span4 btn_choose">
+
+        <% if !session[:voluntario].blank? %>
+          <%= submit_tag 'Alterar', :class => 'btn' %>
+        <% else %>
+          <%= submit_tag 'Escolher', :class => 'btn' %>
+        <% end %>
+
+      </div><!--end span4-->
+
+    </div><!--end row-->
+
+    <div class="row">
+
+      <div class="span4">
+
+        <div class="control-group">
+          <%= label_tag :centro, 'Centro de pesquisa' %>
+          <div class="controls">
+            <%= text_field_tag :centro, centro, :disabled => true %>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+
+      <div class="span4">
+
+        <div class="control-group">
+          <%= label_tag :idade, 'Idade' %>
+          <div class="controls">
+            <%= text_field_tag :idade, idade, :disabled => true %>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+
+    </div><!--end row-->
+  </fieldset>
+
+<% end %>

@@ -1,0 +1,104 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'date_picker' %>
+<% end %>
+
+<%= form_for @avaliacao_clinica, :url => url do |f| %>
+  <% if @avaliacao_clinica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</h2>
+
+      <ul>
+      <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'avaliacao_clinica[usuario_id]', session[:usuario] %>
+  
+  <%= f.fields_for :exame_fisico do |e| %>
+  
+    <div class="row">
+      <div class="span4">
+        
+        <div class='control-group'>
+          <%= e.label :ectoscopia, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_area :ectoscopia, :rows => 4 %>
+          </div>
+        </div>
+    
+        <div class='control-group'>
+          <%= e.label :exame_cardiovascular, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_area :exame_cardiovascular, :rows => 4 %>
+          </div>
+        </div>
+    
+        <div class='control-group'>
+          <%= e.label :exame_respiratorio, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_area :exame_respiratorio, :rows => 4 %>
+          </div>
+        </div>
+        
+      </div><!--end span4-->
+
+      <div class="span4">
+    
+        <div class='control-group'>
+          <%= e.label :exame_abdome, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_area :exame_abdome, :rows => 4 %>
+          </div>
+        </div>
+    
+        <div class='control-group'>
+          <%= e.label :exame_marcha, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_area :exame_marcha, :rows => 4 %>
+          </div>
+        </div>
+    
+        <div class='control-group'>
+          <%= e.label :estatica, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_area :estatica, :rows => 4 %>
+          </div>
+        </div>
+        
+      </div><!--end span4-->
+    
+      <div class="span4">
+    
+        <div class='control-group'>
+          <%= e.label :nervos_cranianos, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_area :nervos_cranianos, :rows => 4 %>
+          </div>
+        </div>
+    
+        <div class='control-group'>
+          <%= e.label :sensibilidade_superficial, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_area :sensibilidade_superficial, :rows => 4 %>
+          </div>
+        </div>
+    
+        <div class='control-group'>
+          <%= e.label :data_formatada, nil, :class => 'control-label' %>
+          <div class='controls'>
+            <%= e.text_field :data_formatada, :class => '_data_calendario' %>
+          </div>
+        </div>
+        
+      </div><!--end span4-->
+
+    </div><!--end row-->
+    
+  <% end %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+  </div>
+<% end %>

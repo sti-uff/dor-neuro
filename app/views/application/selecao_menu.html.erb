@@ -1,0 +1,41 @@
+<h1>Seleção</h1>
+
+<ul class="unstyled list">
+  <li><%= link_to 'Registrar assinatura do TCLE', selecao_new_tcle_path, :class => "btn" %></li>
+  <li><%= link_to 'Aplicar critérios I/E de seleção', selecao_new_criterio_path, :class => "btn" %></li>
+  <li><%= link_to 'Avaliação clínica de seleção', selecao_new_avaliacao_clinica_path, :class => "btn" %></li>
+  <li><%= link_to 'Registrar biópsia', selecao_new_biopsia_path, :class => "btn" %></li>
+  <li>
+    <%= link_to 'Neurofisiologia', selecao_neurofisiologia_path, :class => "btn" %>
+    <ul class="unstyled horizontal-list">
+      <li><%= link_to 'ENMG', selecao_enmg_path, :class => "btn" %></li>
+      <li><%= link_to 'CHEPS', selecao_cheps_path, :class => "btn" %></li>
+      <li><%= link_to 'QST', selecao_qst_path, :class => "btn" %></li>
+      <div class="clear"></div>
+    </ul>
+  </li>
+  <li>
+    <%= link_to 'Aplicar questionários', selecao_questionarios_path, :class => "btn" %>
+    <ul class="unstyled horizontal-list">
+      <li><%= link_to 'EVA', selecao_eva_path, :class => "btn" %></li>
+      <li><%= link_to 'DN4', selecao_dn4_path, :class => "btn" %></li>
+      <li><%= link_to 'SF36', selecao_sf36_path, :class => "btn" %></li>
+      <li><%= link_to 'LANSS', selecao_lanss_path, :class => "btn" %></li>
+      <li><%= link_to 'Mini mental', selecao_mini_mental_path, :class => "btn" %></li>
+      <div class="clear"></div>
+    </ul>
+  </li>
+  <li>
+    <%= link_to 'Exames complementares', selecao_exames_path, :class => "btn" %>
+    <ul class="unstyled horizontal-list">
+      <li><%= link_to 'Teste de gravidez', selecao_teste_gravidez_path, :class => "btn" %></li>
+      <li><%= link_to 'Hemograma completo', selecao_hemograma_path, :class => "btn" %></li>
+      <li><%= link_to 'Função renal', selecao_func_renal_path, :class => "btn" %></li>
+      <li><%= link_to 'Função hepática', selecao_func_hepatica_path, :class => "btn" %></li>
+      <li><%= link_to 'Urinocultura', selecao_urinocultura_path, :class => "btn" %></li>
+      <li><%= link_to 'PPD', selecao_ppd_path, :class => "btn" %></li>
+      <li><%= link_to 'Rx tórax', selecao_rx_torax_path, :class => "btn" %></li>
+      <div class="clear"></div>
+    </ul>
+  </li>
+</ul>

@@ -1,0 +1,40 @@
+<h1>Listagem de centros</h1>
+
+<%= link_to new_centro_path, :class => "btn btn-primary" do %>
+  Novo centro 
+  <i class="icon-plus icon-white"></i>
+<% end %>
+
+<div>
+  <% unless @centros.blank? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Telefone</th>
+        <th>Ramal</th>
+        <th>Responsável</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <% @centros.each do |centro| %>
+      <tr>
+        <td><%= link_to centro.nome, centro %></td>
+        <td><%= Centro::CATEGORIAS[centro.categoria] %></td>
+        <td><%= centro.telefone %></td>
+        <td><%= centro.ramal %></td>
+        <td><%= centro.responsavel %></td>
+        <td><%= centro.email %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <p>Nenhum centro foi encontrado.</p>
+  <% end %>
+</div>
+
+<%= link_to 'Voltar', admin_path, :class => 'btn' %>

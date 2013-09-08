@@ -1,0 +1,58 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+pt-BR:
+  errors:
+    messages:
+      expired: "expirou, por favor solicite uma nova"
+      not_found: "não encontrado"
+      already_confirmed: "Já foi confirmado"
+      not_locked: "Conta não bloqueada"
+      not_saved:
+        one: "1 erro impediu que %{resource} fosse salvo:"
+        other: '%{count} erros impediram que %{resource} fosse salvo:'
+
+  devise:
+    failure:
+      already_authenticated: 'Você já está logado.'
+      unauthenticated: '' #'Você precisa logar ou se cadastrar antes de continuar.'
+      unconfirmed: 'Você precisa confirmar sua conta antes de continuar.'
+      locked: 'Sua conta está bloqueada.'
+      invalid: 'Email ou senha inválidos.'
+      invalid_token: 'Token inválido.'
+      timeout: 'Sua sessão expirou, por favor faça o login novamente para continuar.'
+      inactive: 'Sua conta ainda não foi ativada.'
+    sessions:
+      signed_in: '' #'Signed in successfully.'
+      signed_out: 'Fez logout com sucesso.'
+    passwords:
+      send_instructions: 'Você receberá um email com instruções sobre como alterar sua senha em alguns instantes.'
+      updated: 'Sua senha foi alterada com sucesso. Você está logado agora.'
+      updated_not_active: 'Sua senha foi alterada com sucesso.'
+      send_paranoid_instructions: "Se o seu email existir em nosso banco de dados, você receberá um link para recuperação de sua senha"
+    confirmations:
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      send_paranoid_instructions: 'If your e-mail exists on our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: 'Você se cadastrou com sucesso.'
+      inactive_signed_up: 'Você se cadastrou com sucesso. No entanto, você não pôde logar porque sua conta está %{reason}.'
+      updated: 'Você atualizou sua conta com sucesso.'
+      destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
+      reasons:
+        inactive: 'inativo'
+        unconfirmed: 'não confirmado'
+        locked: 'bloqueado'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+      send_paranoid_instructions: 'If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
+    omniauth_callbacks:
+      success: 'Successfully authorized from %{kind} account.'
+      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmação de cadastro'
+      reset_password_instructions:
+        subject: 'Instruções de alteração de senha'
+      unlock_instructions:
+        subject: 'Instruções de desbloqueio de conta'

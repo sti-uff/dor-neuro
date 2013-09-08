@@ -1,0 +1,17 @@
+<h1>Verificar exames complementares</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <ul class="unstyled horizontal-list">
+    <li><%= link_to 'Teste de gravidez', show_gravidez_path %></li>
+    <li><%= link_to 'Hemograma completo', show_hemograma_path %></li>
+    <li><%= link_to 'Função renal', show_func_renal_path %></li>
+    <li><%= link_to 'Função hepática', show_func_hepatica_path %></li>
+    <li><%= link_to 'Urinocultura', show_urinocultura_path %></li>
+    <li><%= link_to 'PPD', show_ppd_path %></li>
+  </ul>
+  <div class="clear"></div>
+<% end %>
+
+<%= link_to 'Voltar', analisar_prontuarios_path, :class => 'btn' %>

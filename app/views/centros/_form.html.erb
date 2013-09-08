@@ -1,0 +1,91 @@
+<% content_for(:head) do %>
+  <%= stylesheet_link_tag 'token-input-facebook' %>
+  <%= javascript_include_tag 'jquery.meio.mask', 'mascaras', 'jquery.tokeninput', 'token_input' %>
+<% end %>
+
+<%= form_for(@centro) do |f| %>
+  <% if @centro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@centro.errors.count, "erro impediu") %> este centro de ser salvo:</h2>
+
+      <ul>
+      <% @centro.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+
+    <h2>Dados Gerais</h2>
+
+    <div class="row">
+      <div class="span4">
+
+        <div class="control-group">
+          <%= f.label :nome, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :nome %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :categoria, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :categoria, options_for_select([['Centro coordenador', Centro::CATEGORIA_COORDENADOR], ['Centro participante', Centro::CATEGORIA_PARTICIPANTE]], @centro.categoria) %>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+
+    <div class="row">
+      <div class="span4">
+
+        <div class="control-group">
+          <%= f.label :email, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :email %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :telefone, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :telefone, :class => '_telefone' %>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+
+    <div class="row">
+      <div class="span4">
+
+        <div class="control-group">
+          <%= f.label :ramal, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :ramal %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :responsavel, nil, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :responsavel %>
+          </div>
+        </div>
+
+      </div><!--end span4-->
+  </fieldset>
+
+  <%= f.fields_for :endereco do |endereco| %>
+    <%= render 'partials/form_endereco', :f => endereco %>
+  <% end %>
+
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+  </div>
+ 
+<% end %>

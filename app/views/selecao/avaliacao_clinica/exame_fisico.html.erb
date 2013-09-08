@@ -1,0 +1,15 @@
+<h1>Exame físico</h1>
+
+<%= render 'partials/avaliacao_clinica/form_exame_fisico', :url => selecao_exame_fisico_path %>
+
+<ul class='unstyled horizontal-list'>
+  <li><%= link_to 'Exame da força', selecao_exame_forca_path %></li>
+  <li><%= link_to 'Reflexos', selecao_reflexos_path %></li>
+  <li><%= link_to 'Esfíncteres', selecao_esfincteres_path %></li>
+  <li><%= link_to 'Coordenação', selecao_coordenacao_path %></li>
+  <li><%= link_to 'Tônus muscular', selecao_tonus_muscular_path %></li>
+  <li><%= link_to 'Nervos periféricos', selecao_nervos_perifericos_path %></li>
+  <div class="clear">
+</ul>
+
+<%= link_to 'Voltar', selecao_new_avaliacao_clinica_path, :class => 'btn' %>

@@ -1,0 +1,26 @@
+<h1>Raio x do tórax</h1>
+
+<% @laudo.build_dados_rx_torax %>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @laudo, :url => selecao_salvar_rx_torax_path, :html => { :multipart => true } do |f| %>
+    
+    <%= f.fields_for :dados_rx_torax do |dados| %>
+      <%= render 'partials/laudos/form_rx_torax', :f => dados %>
+    <% end %>
+    
+    <div class='control-group'>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do raio x', :texto_data => 'Data do exame' %>
+      
+      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id %>
+      <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_RX_TORAX %>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Voltar', selecao_exames_path, :class => 'btn' %>
+    </div>
+  <% end %>
+<% end %>

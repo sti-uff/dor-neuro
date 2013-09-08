@@ -1,0 +1,1232 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'sf36' %>
+<% end %>
+
+<fieldset>
+  
+  <!-- <h2>Cortes parafina</h2> -->
+  
+  <div class="row">
+    
+    <div class="span9">
+      
+      <div class="control-group">
+        <p>1) Em geral, você diria que sua saúde é:</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :saude, '5.0' %>
+            <%= f.label :saude_50, 'Excelente' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :saude, '4.4' %>
+            <%= f.label :saude_44, 'Muito boa' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :saude, '3.4' %>
+            <%= f.label :saude_34, 'Boa' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :saude, 2.0 %>
+            <%= f.label :saude_20, 'Ruim' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :saude, 1.0 %>
+            <%= f.label :saude_10, 'Muito ruim' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <p>2) Comparada a um ano atrás, como você classificaria sua saúde em geral, agora?</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :comparacao_saude, 1 %>
+            <%= f.label :comparacao_saude_1, 'Muito melhor agora do que um ano atrás' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :comparacao_saude, 2 %>
+            <%= f.label :comparacao_saude_2, 'Um pouco melhor agora do que um ano atrás' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :comparacao_saude, 3 %>
+            <%= f.label :comparacao_saude_3, 'Quase a mesma de um ano atrás' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :comparacao_saude, 4 %>
+            <%= f.label :comparacao_saude_4, 'Um pouco pior agora do que um ano atrás' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :comparacao_saude, 5 %>
+            <%= f.label :comparacao_saude_5, 'Muito pior agora do que um ano atrás' %>
+          </div>
+        </div>
+      </div>
+      
+      <p>3) Os seguintes itens são sobre atividades que você poderia fazer atualmente durante um dia comum. Devido à sua saúde, você tem dificuldade para fazer essas atividades? Neste caso, quanto?</p>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Atividades</th>
+            <th>Sim, muita dificuldade</th>
+            <th>Sim, um pouco de dificuldade</th>
+            <th>Sem dificuldade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>a) Atividades vigorosas, que exigem muito esforço, tais como correr, levantar objetos pesados, participar em esportes árduos</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_vigorosas, 1 %>
+                    <%= f.label :atividades_vigorosas_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_vigorosas, 2 %>
+                    <%= f.label :atividades_vigorosas_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_vigorosas, 3 %>
+                    <%= f.label :atividades_vigorosas_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>b) Atividades moderadas, tais como mover uma mesa, passar aspirador de pó, jogar bola, varrer a casa</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_moderadas, 1 %>
+                    <%= f.label :atividades_moderadas_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_moderadas, 2 %>
+                    <%= f.label :atividades_moderadas_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_moderadas, 3 %>
+                    <%= f.label :atividades_moderadas_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>c) Levantar ou carregar mantimentos</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_carregar_mantimentos, 1 %>
+                    <%= f.label :atividades_carregar_mantimentos_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_carregar_mantimentos, 2 %>
+                    <%= f.label :atividades_carregar_mantimentos_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_carregar_mantimentos, 3 %>
+                    <%= f.label :atividades_carregar_mantimentos_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>d) Subir vários lances de escada</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_varios_lances_escada, 1 %>
+                    <%= f.label :atividades_varios_lances_escada_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_varios_lances_escada, 2 %>
+                    <%= f.label :atividades_varios_lances_escada_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_varios_lances_escada, 3 %>
+                    <%= f.label :atividades_varios_lances_escada_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>e) Subir um lance de escada</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_um_lance_escada, 1 %>
+                    <%= f.label :atividades_um_lance_escada_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_um_lance_escada, 2 %>
+                    <%= f.label :atividades_um_lance_escada_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_um_lance_escada, 3 %>
+                    <%= f.label :atividades_um_lance_escada_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>f) Curvar-se, ajoelhar-se ou dobrar-se</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_ajoelhar, 1 %>
+                    <%= f.label :atividades_ajoelhar_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_ajoelhar, 2 %>
+                    <%= f.label :atividades_ajoelhar_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_ajoelhar, 3 %>
+                    <%= f.label :atividades_ajoelhar_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>g) Andar mais de 1 quilômetro</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_andar_mais_de_1_km, 1 %>
+                    <%= f.label :atividades_andar_mais_de_1_km_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_andar_mais_de_1_km, 2 %>
+                    <%= f.label :atividades_andar_mais_de_1_km_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_andar_mais_de_1_km, 3 %>
+                    <%= f.label :atividades_andar_mais_de_1_km_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>h) Andar vários quarteirões</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_varios_quarteiroes, 1 %>
+                    <%= f.label :atividades_varios_quarteiroes_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_varios_quarteiroes, 2 %>
+                    <%= f.label :atividades_varios_quarteiroes_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_varios_quarteiroes, 3 %>
+                    <%= f.label :atividades_varios_quarteiroes_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>i) Andar um quarteirão</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_um_quarteirao, 1 %>
+                    <%= f.label :atividades_um_quarteirao_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_um_quarteirao, 2 %>
+                    <%= f.label :atividades_um_quarteirao_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_um_quarteirao, 3 %>
+                    <%= f.label :atividades_um_quarteirao_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>j) Tomar banho ou vestir-se</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_banho, 1 %>
+                    <%= f.label :atividades_banho_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_banho, 2 %>
+                    <%= f.label :atividades_banho_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :atividades_banho, 3 %>
+                    <%= f.label :atividades_banho_3, '3' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p>4) Durante as últimas 4 semanas, você teve algum dos seguintes problemas no seu trabalho ou com alguma atividade regular, como consequência de sua saúde física?</p>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Sim</th>
+            <th>Não</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>a) Você diminuiu a quantidade de tempo que se dedicava ao seu trabalho ou a outras atividades?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :fisico_menos_tempo_trabalho, 1 %>
+                    <%= f.label :fisico_menos_tempo_trabalho_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :fisico_menos_tempo_trabalho, 2 %>
+                    <%= f.label :fisico_menos_tempo_trabalho_2, '2' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>b) Realizou menos tarefas do que você gostaria?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :fisico_menos_tarefas, 1 %>
+                    <%= f.label :fisico_menos_tarefas_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :fisico_menos_tarefas, 2 %>
+                    <%= f.label :fisico_menos_tarefas_2, '2' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>c) Esteve limitado no seu tipo de trabalho ou a outras atividades?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :fisico_limitado, 1 %>
+                    <%= f.label :fisico_limitado_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :fisico_limitado, 2 %>
+                    <%= f.label :fisico_limitado_2, '2' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>d) Teve dificuldade de executar seu trabalho ou outras atividades (p. ex. necessitou de um esforço extra)?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :fisico_dificuldade, 1 %>
+                    <%= f.label :fisico_dificuldade_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :fisico_dificuldade, 2 %>
+                    <%= f.label :fisico_dificuldade_2, '2' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p>5) Durante as últimas 4 semanas, você teve algum dos seguintes problemas com seu trabalho ou outra atividade regular diária, como consequência de algum problema emocional (como sentir-se deprimido ou ansioso)?</p>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Sim</th>
+            <th>Não</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>a) Você diminuiu a quantidade de tempo que se dedicava ao seu trabalho ou a outras atividades?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :emocional_menos_tempo_trabalho, 1 %>
+                    <%= f.label :emocional_menos_tempo_trabalho_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :emocional_menos_tempo_trabalho, 2 %>
+                    <%= f.label :emocional_menos_tempo_trabalho_2, '2' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>b) Realizou menos tarefas do que você gostaria?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :emocional_menos_tarefas, 1 %>
+                    <%= f.label :emocional_menos_tarefas_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :emocional_menos_tarefas, 2 %>
+                    <%= f.label :emocional_menos_tarefas_2, '2' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>c) Não realizou ou fez qualquer das atividades com tanto cuidado como geralmente faz.</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :emocional_nao_realizou_tarefas, 1 %>
+                    <%= f.label :emocional_nao_realizou_tarefas_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :emocional_nao_realizou_tarefas, 2 %>
+                    <%= f.label :emocional_nao_realizou_tarefas_2, '2' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="control-group">
+        <p>6) Durante as últimas 4 semanas, de que maneira sua saúde física ou problemas emocionais interferiram nas suas atividades sociais normais, em relação à família, amigos ou em grupo?</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :social_atividade, 5 %>
+            <%= f.label :social_atividade_5, 'De forma nenhuma' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :social_atividade, 4 %>
+            <%= f.label :social_atividade_4, 'Ligeiramente' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :social_atividade, 3 %>
+            <%= f.label :social_atividade_3, 'Moderadamente' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :social_atividade, 2 %>
+            <%= f.label :social_atividade_2, 'Bastante' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :social_atividade, 1 %>
+            <%= f.label :social_atividade_1, 'Extremamente' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <p>7) Quanta dor no corpo você teve durante as últimas 4 semanas?</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :dor, 6.0 %>
+            <%= f.label :dor_60, 'Nenhuma' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :dor, 5.4 %>
+            <%= f.label :dor_54, 'Muito leve' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :dor, 4.2 %>
+            <%= f.label :dor_42, 'Leve' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :dor, 3.1 %>
+            <%= f.label :dor_31, 'Moderada' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :dor, 2.0 %>
+            <%= f.label :dor_20, 'Grave' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :dor, 1.0 %>
+            <%= f.label :dor_10, 'Muito grave' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <p>8) Durante as últimas 4 semanas, quanto a dor interferiu com seu trabalho normal (incluindo o trabalho dentro de casa)?</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :interferencia_dor, 5 %>
+            <%= f.label :interferencia_dor_5, 'De maneira alguma' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :interferencia_dor, 4 %>
+            <%= f.label :interferencia_dor_4, 'Um pouco' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :interferencia_dor, 3 %>
+            <%= f.label :interferencia_dor_3, 'Moderadamente' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :interferencia_dor, 2 %>
+            <%= f.label :interferencia_dor_2, 'Bastante' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :interferencia_dor, 1 %>
+            <%= f.label :interferencia_dor_1, 'Extremamente' %>
+          </div>
+        </div>
+      </div>
+      
+      <p>9) Estas questões são sobre como você se sente e como tudo tem acontecido com você durante as últimas 4 semanas. Para cada questão, por favor dê uma resposta que mais se aproxime da maneira como você se sente. Em relação às últimas 4 semanas.</p>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Sempre</th>
+            <th>A maior parte do tempo</th>
+            <th>Boa parte do tempo</th>
+            <th>Às vezes</th>
+            <th>Poucas vezes</th>
+            <th>Nunca</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>a) Quanto tempo você tem se sentido cheio de vigor, cheio de vontade, cheio de força?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_vigor, 6 %>
+                    <%= f.label :sentimento_vigor_6, '6' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_vigor, 5 %>
+                    <%= f.label :sentimento_vigor_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_vigor, 4 %>
+                    <%= f.label :sentimento_vigor_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_vigor, 3 %>
+                    <%= f.label :sentimento_vigor_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_vigor, 2 %>
+                    <%= f.label :sentimento_vigor_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_vigor, 1 %>
+                    <%= f.label :sentimento_vigor_1, '1' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>b) Quanto tempo você tem se sentido uma pessoa muito nervosa?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_nervoso, 1 %>
+                    <%= f.label :sentimento_nervoso_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_nervoso, 2 %>
+                    <%= f.label :sentimento_nervoso_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_nervoso, 3 %>
+                    <%= f.label :sentimento_nervoso_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_nervoso, 4 %>
+                    <%= f.label :sentimento_nervoso_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_nervoso, 5 %>
+                    <%= f.label :sentimento_nervoso_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_nervoso, 6 %>
+                    <%= f.label :sentimento_nervoso_6, '6' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>c) Quanto tempo você tem se sentido tão deprimido que nada pode animá-lo?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_deprimido, 1 %>
+                    <%= f.label :sentimento_deprimido_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_deprimido, 2 %>
+                    <%= f.label :sentimento_deprimido_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_deprimido, 3 %>
+                    <%= f.label :sentimento_deprimido_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_deprimido, 4 %>
+                    <%= f.label :sentimento_deprimido_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_deprimido, 5 %>
+                    <%= f.label :sentimento_deprimido_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_deprimido, 6 %>
+                    <%= f.label :sentimento_deprimido_6, '6' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>d) Quanto tempo você tem se sentido calmo ou tranquilo?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_calmo, 6 %>
+                    <%= f.label :sentimento_calmo_6, '6' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_calmo, 5 %>
+                    <%= f.label :sentimento_calmo_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_calmo, 4 %>
+                    <%= f.label :sentimento_calmo_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_calmo, 3 %>
+                    <%= f.label :sentimento_calmo_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_calmo, 2 %>
+                    <%= f.label :sentimento_calmo_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_calmo, 1 %>
+                    <%= f.label :sentimento_calmo_1, '1' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>e) Quanto tempo você tem se sentido com muita energia?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_energico, 6 %>
+                    <%= f.label :sentimento_energico_6, '6' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_energico, 5 %>
+                    <%= f.label :sentimento_energico_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_energico, 4 %>
+                    <%= f.label :sentimento_energico_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_energico, 3 %>
+                    <%= f.label :sentimento_energico_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_energico, 2 %>
+                    <%= f.label :sentimento_energico_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_energico, 1 %>
+                    <%= f.label :sentimento_energico_1, '1' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>f) Quanto tempo você tem se sentido desanimado e abatido?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_abatido, 1 %>
+                    <%= f.label :sentimento_abatido_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_abatido, 2 %>
+                    <%= f.label :sentimento_abatido_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_abatido, 3 %>
+                    <%= f.label :sentimento_abatido_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_abatido, 4 %>
+                    <%= f.label :sentimento_abatido_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_abatido, 5 %>
+                    <%= f.label :sentimento_abatido_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_abatido, 6 %>
+                    <%= f.label :sentimento_abatido_6, '6' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>g) Quanto tempo você tem se sentido esgotado?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_esgotado, 1 %>
+                    <%= f.label :sentimento_esgotado_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_esgotado, 2 %>
+                    <%= f.label :sentimento_esgotado_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_esgotado, 3 %>
+                    <%= f.label :sentimento_esgotado_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_esgotado, 4 %>
+                    <%= f.label :sentimento_esgotado_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_esgotado, 5 %>
+                    <%= f.label :sentimento_esgotado_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_esgotado, 6 %>
+                    <%= f.label :sentimento_esgotado_6, '6' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>h) Quanto tempo você tem se sentido uma pessoa feliz?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_feliz, 6 %>
+                    <%= f.label :sentimento_feliz_6, '6' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_feliz, 5 %>
+                    <%= f.label :sentimento_feliz_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_feliz, 4 %>
+                    <%= f.label :sentimento_feliz_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_feliz, 3 %>
+                    <%= f.label :sentimento_feliz_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_feliz, 2 %>
+                    <%= f.label :sentimento_feliz_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_feliz, 1 %>
+                    <%= f.label :sentimento_feliz_1, '1' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>i) Quanto tempo você tem se sentido cansado?</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_cansado, 1 %>
+                    <%= f.label :sentimento_cansado_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_cansado, 2 %>
+                    <%= f.label :sentimento_cansado_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_cansado, 3 %>
+                    <%= f.label :sentimento_cansado_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_cansado, 4 %>
+                    <%= f.label :sentimento_cansado_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_cansado, 5 %>
+                    <%= f.label :sentimento_cansado_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :sentimento_cansado, 6 %>
+                    <%= f.label :sentimento_cansado_6, '6' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="control-group">
+        <p>10) Durante as últimas 4 semanas, quanto do seu tempo a sua saúde física ou problemas emocionais interferiram com as suas atividades sociais (como visitar amigos, parentes, etc.)?</p>
+        <div class='controls'>
+          <div class='radio inline'>
+            <%= f.radio_button :social_visita, 1 %>
+            <%= f.label :social_visita_1, 'Todo o tempo' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :social_visita, 2 %>
+            <%= f.label :social_visita_2, 'A maior parte do tempo' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :social_visita, 3 %>
+            <%= f.label :social_visita_3, 'Alguma parte do tempo' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :social_visita, 4 %>
+            <%= f.label :social_visita_4, 'Uma pequena parte do tempo' %>
+          </div>
+          <div class='radio inline'>
+            <%= f.radio_button :social_visita, 5 %>
+            <%= f.label :social_visita_5, 'Nenhuma parte do tempo' %>
+          </div>
+        </div>
+      </div>
+      
+      <p>11) O quanto verdadeiro ou falso é cada uma das afirmações para você?</p>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Definitivamente verdadeiro</th>
+            <th>A maioria das vezes verdadeiro</th>
+            <th>Não sei</th>
+            <th>A maioria das vezes falso</th>
+            <th>Definitivamente falso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>a) Eu costumo adoecer um pouco mais facilmente que as outras pessoas</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :adoece_facilmente, 1 %>
+                    <%= f.label :adoece_facilmente_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :adoece_facilmente, 2 %>
+                    <%= f.label :adoece_facilmente_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :adoece_facilmente, 3 %>
+                    <%= f.label :adoece_facilmente_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :adoece_facilmente, 4 %>
+                    <%= f.label :adoece_facilmente_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :adoece_facilmente, 5 %>
+                    <%= f.label :adoece_facilmente_5, '5' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>b) Eu sou tão saudável quanto qualquer pessoa que eu conheço</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saudavel, 5 %>
+                    <%= f.label :saudavel_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saudavel, 4 %>
+                    <%= f.label :saudavel_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saudavel, 3 %>
+                    <%= f.label :saudavel_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saudavel, 2 %>
+                    <%= f.label :saudavel_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saudavel, 1 %>
+                    <%= f.label :saudavel_1, '1' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>c) Eu acho que a minha saúde vai piorar</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_vai_piorar, 1 %>
+                    <%= f.label :saude_vai_piorar_1, '1' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_vai_piorar, 2 %>
+                    <%= f.label :saude_vai_piorar_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_vai_piorar, 3 %>
+                    <%= f.label :saude_vai_piorar_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_vai_piorar, 4 %>
+                    <%= f.label :saude_vai_piorar_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_vai_piorar, 5 %>
+                    <%= f.label :saude_vai_piorar_5, '5' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="control-group">
+              <td>
+                <label>d) Minha saúde é excelente</label>
+              </td>
+              <div class='controls'>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_excelente, 5 %>
+                    <%= f.label :saude_excelente_5, '5' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_excelente, 4 %>
+                    <%= f.label :saude_excelente_4, '4' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_excelente, 3 %>
+                    <%= f.label :saude_excelente_3, '3' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_excelente, 2 %>
+                    <%= f.label :saude_excelente_2, '2' %>
+                  </div>
+                </td>
+                <td>
+                  <div class='radio inline'>
+                    <%= f.radio_button :saude_excelente, 1 %>
+                    <%= f.label :saude_excelente_1, '1' %>
+                  </div>
+                </td>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div><!--end span4-->
+    
+  </div><!--end row-->
+</fieldset>
