@@ -1,4 +1,4 @@
-# Clinical Research Management: Dor Neuro
+# Dor Neuro
 
 ## About
 
