@@ -1,11 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '< 0.3'
+gem 'json', '1.8.0'
+gem 'mysql2', '0.3.11'
 # gem 'mysql', '2.8.1'
 gem 'devise', '1.5.3'
 gem 'schema_plus', '0.4.1'
@@ -13,7 +14,17 @@ gem 'paperclip', '~> 2.0' #'3.1.1'
 gem 'whenever', '0.6.8', :require => false
 gem "httparty", "0.6.1"
 # gem 'sqlite3'
-  
+gem 'newrelic_rpm', '3.6.3.104'
+
+###### UFF ADDITIONS
+group :production do
+  gem 'SyslogLogger', '1.4.1'
+  gem 'gelf'
+  gem 'better_logging'
+end
+
+###### END UFF ADDITIONS
+
 
 group :development, :test do
   gem "factory_girl_rails", '1.1.0' #, "3.4.0"
@@ -48,5 +59,5 @@ end
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 # group :development, :test do
-#   gem 'webrat'
+# gem 'webrat'
 # end
