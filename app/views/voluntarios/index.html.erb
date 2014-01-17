@@ -1,42 +1,45 @@
-<h1>Listagem de voluntários</h1>
+<div class="page-header">
+  <h1>Listagem de voluntários</h1>
+</div>
 
 <%= form_tag voluntarios_path, :method => :get, :class => "well form-search" do %>
   <%= label_tag :centro, 'Centro de pesquisa' %>
   <%= select_tag :centro, options_from_collection_for_select(Centro.all, 'id', 'nome', params[:centro]), :include_blank => 'Todos' %>
-  
-  <%= submit_tag 'Buscar', :class => 'btn' %>
+
+  <%= submit_tag 'Buscar', :class => 'btn btn-primary' %>
+
 <% end %>
 
 <%= link_to new_voluntario_path, :class => "btn btn-primary" do %>
-  Novo voluntário 
-  <i class="icon-plus icon-white"></i>
+  Novo voluntário
+  <i class="glyphicon-plus icon-white"></i>
 <% end %>
 
-<div>
+<div class="bs-example" style="margin-top: 20px">
   <% unless @voluntarios.blank? %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Código</th>
-        <th>Iniciais</th>
-        <th>Data de nascimento</th>
-        <th>Celular</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @voluntarios.each do |voluntario| %>
-      <tr>
-        <td><%= voluntario.id %></td>
-        <td><%= link_to voluntario.nome, voluntario %></td>
-        <td><%= voluntario.data_nascimento %></td>
-        <td><%= voluntario.celular %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Iniciais</th>
+          <th>Data de nascimento</th>
+          <th>Celular</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @voluntarios.each do |voluntario| %>
+          <tr>
+            <td><%= voluntario.id %></td>
+            <td><%= link_to voluntario.nome, voluntario %></td>
+            <td><%= voluntario.data_nascimento %></td>
+            <td><%= voluntario.celular %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% else %>
     <p>Nenhum voluntário foi encontrado.</p>
   <% end %>
 </div>
 
-<%= link_to 'Voltar', pre_selecao_path, :class => 'btn' %>
+<%= link_to 'Voltar', pre_selecao_path, :class => 'btn btn-primary' %>
