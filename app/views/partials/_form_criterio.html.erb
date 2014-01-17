@@ -14,7 +14,7 @@
         <%= f.label :inclusao_idade, nil, :class => 'control-label' %>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :inclusao_idade, true %>
+            <%= f.radio_button :inclusao_idade, true, :checked => true %>
             <%= f.label :inclusao_idade_true, 'Sim' %>
           </div>
           <div class='radio inline'>
@@ -28,7 +28,7 @@
         <%= f.label :inclusao_diagnostico_hanseniase, nil, :class => 'control-label' %>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :inclusao_diagnostico_hanseniase, true %>
+            <%= f.radio_button :inclusao_diagnostico_hanseniase, true, :checked => true %>
             <%= f.label :inclusao_diagnostico_hanseniase_true, 'Sim' %>
           </div>
           <div class='radio inline'>
@@ -46,7 +46,7 @@
         <%= f.label :inclusao_duracao_sintomas, nil, :class => 'control-label' %>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :inclusao_duracao_sintomas, true %>
+            <%= f.radio_button :inclusao_duracao_sintomas, true, :checked => true  %>
             <%= f.label :inclusao_duracao_sintomas_true, 'Sim' %>
           </div>
           <div class='radio inline'>
@@ -60,7 +60,7 @@
         <%= f.label :inclusao_duracao_dor, nil, :class => 'control-label' %>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :inclusao_duracao_dor, true %>
+            <%= f.radio_button :inclusao_duracao_dor, true, :checked => true  %>
             <%= f.label :inclusao_duracao_dor_true, 'Sim' %>
           </div>
           <div class='radio inline'>
@@ -78,7 +78,7 @@
         <%= f.label :inclusao_virgem_tratamento, nil, :class => 'control-label' %>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :inclusao_virgem_tratamento, true %>
+            <%= f.radio_button :inclusao_virgem_tratamento, true, :checked => true  %>
             <%= f.label :inclusao_virgem_tratamento_true, 'Sim' %>
           </div>
           <div class='radio inline'>
@@ -92,7 +92,7 @@
         <%= f.label :inclusao_assinou_tcle, nil, :class => 'control-label' %>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :inclusao_assinou_tcle, true %>
+            <%= f.radio_button :inclusao_assinou_tcle, true, :checked => true  %>
             <%= f.label :inclusao_assinou_tcle_true, 'Sim' %>
           </div>
           <div class='radio inline'>
@@ -121,7 +121,7 @@
             <%= f.label :exclusao_gravidez_amamentacao_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_gravidez_amamentacao, false %>
+            <%= f.radio_button :exclusao_gravidez_amamentacao, false, :checked => true  %>
             <%= f.label :exclusao_gravidez_amamentacao_false, 'Não' %>
           </div>
         </div>
@@ -135,7 +135,7 @@
             <%= f.label :exclusao_deficit_cognitivo_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_deficit_cognitivo, false %>
+            <%= f.radio_button :exclusao_deficit_cognitivo, false, :checked => true  %>
             <%= f.label :exclusao_deficit_cognitivo_false, 'Não' %>
           </div>
         </div>
@@ -149,7 +149,7 @@
             <%= f.label :exclusao_incapaz_pontuar_dor_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_incapaz_pontuar_dor, false %>
+            <%= f.radio_button :exclusao_incapaz_pontuar_dor, false, :checked => true  %>
             <%= f.label :exclusao_incapaz_pontuar_dor_false, 'Não' %>
           </div>
         </div>
@@ -163,7 +163,7 @@
             <%= f.label :exclusao_neoplasia_maligna_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_neoplasia_maligna, false %>
+            <%= f.radio_button :exclusao_neoplasia_maligna, false, :checked => true  %>
             <%= f.label :exclusao_neoplasia_maligna_false, 'Não' %>
           </div>
         </div>
@@ -181,7 +181,7 @@
             <%= f.label :exclusao_imunodeficiente_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_imunodeficiente, false %>
+            <%= f.radio_button :exclusao_imunodeficiente, false, :checked => true  %>
             <%= f.label :exclusao_imunodeficiente_false, 'Não' %>
           </div>
         </div>
@@ -195,7 +195,7 @@
             <%= f.label :exclusao_disfuncao_renal_hepatica_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_disfuncao_renal_hepatica, false %>
+            <%= f.radio_button :exclusao_disfuncao_renal_hepatica, false, :checked => true  %>
             <%= f.label :exclusao_disfuncao_renal_hepatica_false, 'Não' %>
           </div>
         </div>
@@ -215,7 +215,7 @@
             <%= f.label :exclusao_medicacoes_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_medicacoes, false %>
+            <%= f.radio_button :exclusao_medicacoes, false, :checked => true  %>
             <%= f.label :exclusao_medicacoes_false, 'Não' %>
           </div>
         </div>
@@ -235,7 +235,7 @@
             <%= f.label :exclusao_neuropatia_periferica_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_neuropatia_periferica, false %>
+            <%= f.radio_button :exclusao_neuropatia_periferica, false, :checked => true  %>
             <%= f.label :exclusao_neuropatia_periferica_false, 'Não' %>
           </div>
         </div>
@@ -253,7 +253,7 @@
             <%= f.label :exclusao_idade_fertil_sem_anticoncepcionais_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :exclusao_idade_fertil_sem_anticoncepcionais, false %>
+            <%= f.radio_button :exclusao_idade_fertil_sem_anticoncepcionais, false, :checked => true  %>
             <%= f.label :exclusao_idade_fertil_sem_anticoncepcionais_false, 'Não' %>
           </div>
         </div>

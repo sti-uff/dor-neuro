@@ -1,6 +1,14 @@
-<h1>Agendas</h1>
+<div class="page-header">
+  <h1>Agendas</h1>
+</div>
+<div class="bs-example">
+  <p>
+    <%= link_to 'Lista de agendas', agendas_path, :class => "btn btn-primary btn-lg" %>
+  </p>
+</div>
 
-<ul class="unstyled list">
-  <li><%= link_to 'Lista de agendas', agendas_path, :class => "btn" %></li>
-  <li><%= link_to 'Agendar consulta', new_agenda_path, :class => "btn" %></li>
-</ul>
+<div class="bs-example">
+  <p>
+    <%= link_to 'Agendar consulta', new_agenda_path, :class => "btn btn-primary btn-lg" %>
+  </p>
+</div>
