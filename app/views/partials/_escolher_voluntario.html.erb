@@ -8,7 +8,7 @@
      voluntario = Voluntario.find session[:voluntario]
      dados = [{:id => voluntario.id, :name => "#{voluntario.id} - #{voluntario.nome}"}].to_json
      centro = voluntario.centro.nome
-     idade = ((Date.today - voluntario.data_nascimento)/365).to_i %>
+     #idade = ((Date.today - voluntario.data_nascimento)/365).to_i %>
 <% else %>
   <% #url = escolher_voluntario_path
      disable = true
