@@ -29,10 +29,12 @@ end
 group :development, :test do
   gem "factory_girl_rails", '1.1.0' #, "3.4.0"
   gem 'rspec-rails', '2.10.1'
+  gem 'awesome_print'
+  gem 'pry'
 end
 
 group :development do
-  gem 'rails-erd', '0.4.5'
+  gem 'rails-erd'
 end
 
 group :test do

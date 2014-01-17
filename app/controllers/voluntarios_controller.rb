@@ -19,7 +19,9 @@ class VoluntariosController < ApplicationController
   # GET /voluntarios/1.xml
   def show
     @voluntario = Voluntario.find(params[:id])
-
+    @agendas = @voluntario.agendas
+    @criterios = @voluntario.criterios
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @voluntario }

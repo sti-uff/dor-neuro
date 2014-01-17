@@ -72,5 +72,47 @@
   <%= endereco.municipio ? endereco.municipio.nome : '' %>
 </p>
 
+<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+  <li class="active"><a href="#agenda" data-toggle="tab">Agenda</a></li>
+  <li class=""><a href="#criterio" data-toggle="tab">Critérios</a></li>
+  <li class=""><a href="#inclusao" data-toggle="tab">Inclusões</a></li>
+  <li class=""><a href="#visita" data-toggle="tab">Visitas</a></li>
+  <li class=""><a href="#eventos_adversos" data-toggle="tab">Eventos Adversos</a></li>
+  <li class=""><a href="#gravidez" data-toggle="tab">Gravidez</a></li>
+  <li class=""><a href="#superdose" data-toggle="tab">Superdoses</a></li>
+  <li class=""><a href="#eventos_adversos_graves" data-toggle="tab">Eventos Adversos Graves</a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+  
+  <div class="tab-pane fade active in" id="agenda">
+    <%= render :partial => "tabela_agenda" %>
+  </div>
+
+  <div class="tab-pane fade" id="criterio">
+ <%= render :partial => "tabela_criterios" %>
+  </div>
+
+  <div class="tab-pane fade" id="inclusao">
+  </div>
+
+  <div class="tab-pane fade" id="visita">
+  </div>
+
+  <div class="tab-pane fade" id="eventos_adversos">
+  </div>
+
+  <div class="tab-pane fade" id="gravidez">
+  </div>
+
+  <div class="tab-pane fade" id="superdose">
+  </div>
+
+  <div class="tab-pane fade" id="eventos_adversos_graves">
+  </div>
+
+</div>
+
+
 <%= link_to 'Editar', edit_voluntario_path(@voluntario), :class => 'btn' %>
 <%= link_to 'Voltar', voluntarios_path, :class => 'btn' %>

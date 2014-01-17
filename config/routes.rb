@@ -264,6 +264,8 @@ Dorneuro::Application.routes.draw do
   end
 
   resources :centros
+
+  resources :criterios, :only => :show
   
   resources :municipios do
     collection do

@@ -1,0 +1,26 @@
+<div>
+  <% unless @criterios.blank? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @criterios.each do |criterio| %>
+      <tr>
+        <td><%= criterio.data_formatada %></td>
+        <td>
+          <%= link_to criterio_path(criterio), :title=> "visualizar", :class=>"btn btn-primary" do %>
+            <i class="icon-pencil icon-white"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% else %>
+  <p>Nenhuma agenda foi encontrada.</p>
+  <% end %>
+</div>
