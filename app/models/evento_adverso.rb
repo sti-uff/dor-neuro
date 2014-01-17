@@ -9,6 +9,6 @@ class EventoAdverso < ActiveRecord::Base
   end
   
   def data_formatada=(data)
-    self.data = "#{data[3..4]}/#{data[0..1]}/#{data[6..9]}"
+    self.data = data
   end
 end
