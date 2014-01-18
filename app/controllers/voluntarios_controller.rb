@@ -21,7 +21,7 @@ class VoluntariosController < ApplicationController
     @voluntario = Voluntario.find(params[:id])
     @agendas = @voluntario.agendas
     @criterios = @voluntario.criterios
-    
+    @laudos = Laudo.por_voluntario_id(@voluntario.id)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @voluntario }

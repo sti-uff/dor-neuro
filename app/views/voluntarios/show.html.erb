@@ -8,75 +8,88 @@
   <%= @voluntario.nome %>
 </p>
 
-<p>
-  <b>Data de nascimento:</b>
-  <%= @voluntario.data_nascimento %>
-</p>
+<div class="panel panel-info">
 
-<p>
-  <b>Prontuário:</b>
-  <%= @voluntario.prontuario %>
-</p>
+  <div class="panel-heading">
+    <h3 class="panel-title toggle" data-target="detalhes">Exibir Detalhes <span class="plus_minus">[+]</span></h3>
+  </div>
 
-<p>
-  <b>Sexo:</b>
-  <%= @voluntario.sexo_str %>
-</p>
+  <div class="panel-body" id="detalhes">
 
-<p>
-  <b>Estado civil:</b>
-  <%= @voluntario.estado_civil_str %>
-</p>
+    <p>
+      <b>Data de nascimento:</b>
+      <%= @voluntario.data_nascimento %>
+    </p>
 
-<p>
-  <b>Profissão:</b>
-  <%= @voluntario.profissao %>
-</p>
+    <p>
+      <b>Prontuário:</b>
+      <%= @voluntario.prontuario %>
+    </p>
 
-<p>
-  <b>Email:</b>
-  <%= @voluntario.email %>
-</p>
+    <p>
+      <b>Sexo:</b>
+      <%= @voluntario.sexo_str %>
+    </p>
 
-<p>
-  <b>Nacionalidade:</b>
-  <%= @voluntario.nacionalidade_str %>
-</p>
+    <p>
+      <b>Estado civil:</b>
+      <%= @voluntario.estado_civil_str %>
+    </p>
 
-<p>
-  <b>Telefone:</b>
-  <%= @voluntario.telefone %>
-</p>
+    <p>
+      <b>Profissão:</b>
+      <%= @voluntario.profissao %>
+    </p>
 
-<p>
-  <b>Celular:</b>
-  <%= @voluntario.celular %>
-</p>
+    <p>
+      <b>Email:</b>
+      <%= @voluntario.email %>
+    </p>
 
-<p>
-  <b>Centro:</b>
-  <%= @voluntario.centro.nome %>
-</p>
+    <p>
+      <b>Nacionalidade:</b>
+      <%= @voluntario.nacionalidade_str %>
+    </p>
 
-<p>
-  <b>Naturalidade:</b>
-  <%= @voluntario.uf.nome %>
-</p>
+    <p>
+      <b>Telefone:</b>
+      <%= @voluntario.telefone %>
+    </p>
 
-<p>
-  <b>Endereco:</b>
-  <% endereco = @voluntario.endereco %>
-  <%= endereco.logradouro %>
-  <%= endereco.complemento %>
-  <%= endereco.bairro %>,
-  <%= endereco.municipio ? endereco.municipio.nome : '' %>
-</p>
+    <p>
+      <b>Celular:</b>
+      <%= @voluntario.celular %>
+    </p>
 
-<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+    <p>
+      <b>Centro:</b>
+      <%= @voluntario.centro.nome %>
+    </p>
+
+    <p>
+      <b>Naturalidade:</b>
+      <%= @voluntario.uf.nome %>
+    </p>
+
+    <p>
+      <b>Endereco:</b>
+      <% endereco = @voluntario.endereco %>
+      <%= endereco.logradouro %>
+      <%= endereco.complemento %>
+      <%= endereco.bairro %>,
+      <%= endereco.municipio ? endereco.municipio.nome : '' %>
+    </p>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_voluntario_path(@voluntario), :class => 'btn btn btn-success' %>
+<%= link_to 'Voltar', voluntarios_path, :class => 'btn btn-danger' %>
+
+
+<ul class="nav nav-tabs" style="margin: 30px 0px 15px 0px;">
   <li class="active"><a href="#agenda" data-toggle="tab">Agenda</a></li>
   <li class=""><a href="#criterio" data-toggle="tab">Critérios</a></li>
-  <li class=""><a href="#inclusao" data-toggle="tab">Inclusões</a></li>
-  <li class=""><a href="#visita" data-toggle="tab">Visitas</a></li>
+  <li class=""><a href="#laudo" data-toggle="tab">Laudos</a></li>
   <li class=""><a href="#eventos_adversos" data-toggle="tab">Eventos Adversos</a></li>
   <li class=""><a href="#gravidez" data-toggle="tab">Gravidez</a></li>
   <li class=""><a href="#superdose" data-toggle="tab">Superdoses</a></li>
@@ -84,19 +97,18 @@
 </ul>
 
 <div id="myTabContent" class="tab-content">
-  
+
   <div class="tab-pane fade active in" id="agenda">
     <%= render :partial => "tabela_agenda" %>
   </div>
 
   <div class="tab-pane fade" id="criterio">
- <%= render :partial => "tabela_criterios" %>
+    <%= render :partial => "tabela_criterios" %>
   </div>
 
-  <div class="tab-pane fade" id="inclusao">
-  </div>
 
-  <div class="tab-pane fade" id="visita">
+  <div class="tab-pane fade" id="laudo">
+    <%= render :partial => "tabela_laudos" %>
   </div>
 
   <div class="tab-pane fade" id="eventos_adversos">
@@ -114,5 +126,22 @@
 </div>
 
 
-<%= link_to 'Editar', edit_voluntario_path(@voluntario), :class => 'btn' %>
-<%= link_to 'Voltar', voluntarios_path, :class => 'btn' %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".toggle").each(function () {
+      $('#' + $(this).attr('data-target')).hide();
+    });
+
+    $(".toggle").click(function () {
+      var _el = $('#' + $(this).attr('data-target'));
+      if (_el.is(':visible')) {
+        $(this).find(".plus_minus").html("[+]")
+      } else {
+        $(this).find(".plus_minus").html("[-]")
+      }
+      _el.toggle(500);
+    });
+  });
+
+</script>

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Laudo < ActiveRecord::Base
   has_attached_file :imagem
   belongs_to :visita
@@ -33,6 +34,14 @@ class Laudo < ActiveRecord::Base
   TIPO_URINOCULTURA = 14
   TIPO_PPD = 15
   TIPO_RX_TORAX = 16
+
+
+  scope :por_voluntario_id, lambda { |voluntario_id|
+    {
+        :include => {:visita => :voluntario},
+        :conditions => ("visitas.voluntario_id = #{voluntario_id}"),
+    }
+  }
   
   def data_formatada
     self.data.strftime("%d/%m/%Y") if self.data
@@ -40,6 +49,46 @@ class Laudo < ActiveRecord::Base
   
   def data_formatada=(data)
     self.data = data
+  end
+
+
+  def tipo_to_s(tipo)
+    case(tipo)
+    when TIPO_TCLE
+      "TCLE"
+    when TIPO_BIOPSIA
+      "Biopsia"
+    when TIPO_ENMG
+      "ENMG"
+    when TIPO_CHEPS
+      "CHEPS"
+    when TIPO_QST
+      "QST"
+    when TIPO_EVA
+      "EVA"
+    when TIPO_DN4
+      "DN4"
+    when TIPO_LANSS
+      "LANSS"
+    when TIPO_SF36
+      "SF36"
+    when TIPO_MINI_MENTAL
+      "Mini Mental"
+    when TIPO_GRAVIDEZ
+      "Gravidez"
+    when TIPO_HEMOGRAMA
+      "Hemograma"
+    when TIPO_FUNC_RENAL
+      "Função Renal"
+    when TIPO_FUNC_HEPATICA
+      "Função Hepática"
+    when TIPO_URINOCULTURA
+      "Urinocultura"
+    when TIPO_PPD
+      "PPD"
+    when TIPO_RX_TORAX
+      "Raio-X Torax"
+    end
   end
   
 end

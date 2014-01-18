@@ -1,0 +1,26 @@
+<div>
+  <% unless @laudos.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Visita</th>
+          <th>Tipo</th>
+          <th>Escore</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @laudos.each do |laudo| %>
+          <tr>
+            <td><%= laudo.data_formatada %></td>
+            <td><%= laudo.visita.id %></td>
+            <td><%= laudo.tipo_to_s(laudo.tipo) %></td>
+            <td><%= laudo.escore %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="alert alert-dismissable alert-warning">Nenhum laudo foi encontrado.</p>
+  <% end %>
+</div>
