@@ -123,6 +123,7 @@
 			// <input type="text" name="some_name" id="some_name" alt="msk" />
 			masks : {
 				'phone'				: { mask : '(99) 9999-9999' },
+                'phone9digitos'		: { mask : '(99) 99999-9999' },
 				'phone-us'			: { mask : '(999) 999-9999' },
 				'cpf'				: { mask : '999.999.999-99' }, // cadastro nacional de pessoa fisica
 				'cnpj'				: { mask : '99.999.999/9999-99' },
