@@ -1,0 +1,20 @@
+<div>
+  <% unless @eventos_adversos.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @eventos_adversos.each do |evento| %>
+          <tr>
+            <td><%= evento.data_formatada %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="alert alert-dismissable alert-warning">Nenhum evento adverso foi encontrado.</p>
+  <% end %>
+</div>

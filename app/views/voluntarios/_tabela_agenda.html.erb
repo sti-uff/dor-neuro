@@ -1,0 +1,28 @@
+<div>
+  <% unless @agendas.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Tipo</th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @agendas.each do |agenda| %>
+          <tr>
+            <td><%= agenda.data_formatada %></td>
+            <td><%= Agenda::TIPOS[agenda.tipo] %></td>
+            <td>
+              <%= link_to edit_agenda_path(agenda), :title=>"Editar", :class=>"btn btn-primary" do %>
+                <i class="glyphicon-pencil icon-white"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="alert alert-dismissable alert-warning">Nenhuma agenda foi encontrada.</p>
+  <% end %>
+</div>

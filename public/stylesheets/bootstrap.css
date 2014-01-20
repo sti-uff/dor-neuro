@@ -15,6 +15,15 @@ summary {
   display: block;
 }
 
+.span4 {
+  width:300px;
+}
+
+[class*="span"] {
+  float:left;
+  margin-left:20px;
+}
+
 audio,
 canvas,
 video {
@@ -7270,6 +7279,12 @@ td.visible-lg {
 
 table.hidden-xs {
   display: table;
+}
+
+table .span4 {
+  float:none;
+  margin-left:0;
+  width:284px;
 }
 
 tr.hidden-xs {
