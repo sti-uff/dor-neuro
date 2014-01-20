@@ -22,6 +22,8 @@ class VoluntariosController < ApplicationController
     @agendas = @voluntario.agendas
     @criterios = @voluntario.criterios
     @laudos = Laudo.por_voluntario_id(@voluntario.id)
+    @eventos_adversos = @voluntario.evento_adversos
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @voluntario }
@@ -91,4 +93,11 @@ class VoluntariosController < ApplicationController
       render :text => ""
     end
   end
+
+
+#  def get_imagem_laudo
+#    send_file "#{AgendamentoVisita::PATH_FOTOS}/#{params[:id]}_sacra.jpeg", :type => 'image/jpeg', :disposition => 'inline'
+#  end
+
+
 end

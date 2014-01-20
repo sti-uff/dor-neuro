@@ -243,6 +243,8 @@ Dorneuro::Application.routes.draw do
   end
   
   get 'escolher_voluntario' => 'application#escolher_voluntario'
+
+#  get "get_imagem_laudo" => "voluntarios#get_imagem_laudo"
   
   resources :agendas
 
