@@ -6,7 +6,7 @@
 
 <% unless session[:voluntario].blank? %>
   <%= form_for @laudo, :url => encerramento_salvar_rx_torax_path, :html => { :multipart => true } do |f| %>
-    
+    <br/>
     <%= f.fields_for :dados_rx_torax do |dados| %>
       <%= render 'partials/laudos/form_rx_torax', :f => dados %>
     <% end %>
