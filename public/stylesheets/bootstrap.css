@@ -5658,17 +5658,21 @@ a.thumbnail.active {
   color: inherit;
 }
 
-.alert-success {
+.alert-success,
+.alert-notice {
   color: #468847;
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
 
-.alert-success hr {
+.alert-success,
+.alert-notice hr {
   border-top-color: #c9e2b3;
 }
 
-.alert-success .alert-link {
+.alert-success,
+.alert-notice
+ .alert-link {
   color: #356635;
 }
 
@@ -5700,17 +5704,19 @@ a.thumbnail.active {
   color: #a47e3c;
 }
 
-.alert-danger {
+.alert-danger,
+.alert-error{
   color: #b94a48;
   background-color: #f2dede;
   border-color: #eed3d7;
 }
 
-.alert-danger hr {
+.alert-danger,
+.alert-error hr {
   border-top-color: #e6c1c7;
 }
 
-.alert-danger .alert-link {
+.alert-danger,.alert-error .alert-link {
   color: #953b39;
 }
 
