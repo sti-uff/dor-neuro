@@ -19,20 +19,20 @@
       <div class="controls">
         <label class="checkbox">
           <div class="checkbox inline">
-            <%= f.check_box :sinal_desfavoravel_bool %>
+            <%= f.check_box :sinal_desfavoravel_bool, "nome_radio" => "sinal_desfavoravel", :onclick => "habilita_desabilita_radio(this)", "data-validate" => "validate(checks) on(submit)" %>
             <%= f.label :sinal_desfavoravel_bool, nil, :class => 'control-label' %>
           </div>
-          <div class='pull-right'>
+          <div>
             <div class="radio inline">
-              <%= f.radio_button :sinal_desfavoravel, 0 %>
+              <%= f.radio_button :sinal_desfavoravel, 0, :disabled => true %>
               <%= f.label :sinal_desfavoravel_0, 'Leve' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :sinal_desfavoravel, 1 %>
+              <%= f.radio_button :sinal_desfavoravel, 1, :disabled => true %>
               <%= f.label :sinal_desfavoravel_1, 'Moderado' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :sinal_desfavoravel, 2 %>
+              <%= f.radio_button :sinal_desfavoravel, 2, :disabled => true %>
               <%= f.label :sinal_desfavoravel_2, 'Severo' %>
             </div>
           </div>
@@ -41,20 +41,20 @@
       <div class="controls">
         <label class="checkbox">
           <div class="checkbox inline">
-            <%= f.check_box :sintoma_temporario_bool %>
+            <%= f.check_box :sintoma_temporario_bool, "nome_radio" => "sintoma_temporario", :onclick => "habilita_desabilita_radio(this)", "data-validate" => "validate(checks) on(submit)" %>
             <%= f.label :sintoma_temporario_bool, nil, :class => 'control-label' %>
           </div>
-          <div class='pull-right'>
+          <div >
             <div class="radio inline">
-              <%= f.radio_button :sintoma_temporario, 0 %>
+              <%= f.radio_button :sintoma_temporario, 0, :disabled => true %>
               <%= f.label :sintoma_temporario_0, 'Leve' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :sintoma_temporario, 1 %>
+              <%= f.radio_button :sintoma_temporario, 1, :disabled => true %>
               <%= f.label :sintoma_temporario_1, 'Moderado' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :sintoma_temporario, 2 %>
+              <%= f.radio_button :sintoma_temporario, 2, :disabled => true %>
               <%= f.label :sintoma_temporario_2, 'Severo' %>
             </div>
           </div>
@@ -63,20 +63,20 @@
       <div class="controls">
         <label class="checkbox">
           <div class="checkbox inline">
-            <%= f.check_box :procedimento_cirurgico_bool %>
+            <%= f.check_box :procedimento_cirurgico_bool, "nome_radio" => "procedimento_cirurgico", :onclick => "habilita_desabilita_radio(this)", "data-validate" => "validate(checks) on(submit)" %>
             <%= f.label :procedimento_cirurgico_bool, nil, :class => 'control-label' %>
           </div>
-          <div class='pull-right'>
+          <div >
             <div class="radio inline">
-              <%= f.radio_button :procedimento_cirurgico, 0 %>
+              <%= f.radio_button :procedimento_cirurgico, 0, :disabled => true %>
               <%= f.label :procedimento_cirurgico_0, 'Leve' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :procedimento_cirurgico, 1 %>
+              <%= f.radio_button :procedimento_cirurgico, 1, :disabled => true %>
               <%= f.label :procedimento_cirurgico_1, 'Moderado' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :procedimento_cirurgico, 2 %>
+              <%= f.radio_button :procedimento_cirurgico, 2, :disabled => true %>
               <%= f.label :procedimento_cirurgico_2, 'Severo' %>
             </div>
           </div>
@@ -85,20 +85,20 @@
       <div class="controls">
         <label class="checkbox">
           <div class="checkbox inline">
-            <%= f.check_box :valores_fora_da_referencia_bool %>
+            <%= f.check_box :valores_fora_da_referencia_bool, "nome_radio" => "valores_fora_da_referencia", :onclick => "habilita_desabilita_radio(this)", "data-validate" => "validate(checks) on(submit)" %>
             <%= f.label :valores_fora_da_referencia_bool, nil, :class => 'control-label' %>
           </div>
-          <div class='pull-right'>
+          <div >
             <div class="radio inline">
-              <%= f.radio_button :valores_fora_da_referencia, 0 %>
+              <%= f.radio_button :valores_fora_da_referencia, 0, :disabled => true %>
               <%= f.label :valores_fora_da_referencia_0, 'Leve' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :valores_fora_da_referencia, 1 %>
+              <%= f.radio_button :valores_fora_da_referencia, 1, :disabled => true %>
               <%= f.label :valores_fora_da_referencia_1, 'Moderado' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :valores_fora_da_referencia, 2 %>
+              <%= f.radio_button :valores_fora_da_referencia, 2, :disabled => true %>
               <%= f.label :valores_fora_da_referencia_2, 'Severo' %>
             </div>
           </div>
@@ -107,20 +107,20 @@
       <div class="controls">
         <label class="checkbox">
           <div class="checkbox inline">
-            <%= f.check_box :valores_alterados_bool %>
+            <%= f.check_box :valores_alterados_bool, "nome_radio" => "valores_alterados", :onclick => "habilita_desabilita_radio(this)", "data-validate" => "validate(checks) on(submit) " %>
             <%= f.label :valores_alterados_bool, nil, :class => 'control-label' %>
           </div>
-          <div class='pull-right'>
+          <div >
             <div class="radio inline">
-              <%= f.radio_button :valores_alterados, 0 %>
+              <%= f.radio_button :valores_alterados, 0, :disabled => true %>
               <%= f.label :valores_alterados_0, 'Leve' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :valores_alterados, 1 %>
+              <%= f.radio_button :valores_alterados, 1, :disabled => true %>
               <%= f.label :valores_alterados_1, 'Moderado' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :valores_alterados, 2 %>
+              <%= f.radio_button :valores_alterados, 2, :disabled => true %>
               <%= f.label :valores_alterados_2, 'Severo' %>
             </div>
           </div>
@@ -129,20 +129,20 @@
       <div class="controls">
         <label class="checkbox">
           <div class="checkbox inline">
-            <%= f.check_box :achados_fisicos_bool %>
+            <%= f.check_box :achados_fisicos_bool, "nome_radio" => "achados_fisicos", :onclick => "habilita_desabilita_radio(this)", "data-validate" => "validate(checks) on(submit)" %>
             <%= f.label :achados_fisicos_bool, nil, :class => 'control-label' %>
           </div>
-          <div class='pull-right'>
+          <div >
             <div class="radio inline">
-              <%= f.radio_button :achados_fisicos, 0 %>
+              <%= f.radio_button :achados_fisicos, 0, :disabled => true %>
               <%= f.label :achados_fisicos_0, 'Leve' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :achados_fisicos, 1 %>
+              <%= f.radio_button :achados_fisicos, 1, :disabled => true %>
               <%= f.label :achados_fisicos_1, 'Moderado' %>
             </div>
             <div class="radio inline">
-              <%= f.radio_button :achados_fisicos, 2 %>
+              <%= f.radio_button :achados_fisicos, 2, :disabled => true %>
               <%= f.label :achados_fisicos_2, 'Severo' %>
             </div>
           </div>
@@ -182,3 +182,31 @@
   <p>Os eventos adversos deverão ser verificados a partir da assinatura do termo de consentimento livre e esclarecido. Todos deverão ser registrados no documento fonte e na ficha clínica, mesmo se a medicação do estudo estiver suspensa. O sujeito de pesquisa terá a oportunidade de relatar EAs espontaneamente. Uma instrução também será dada a cada visita para detectar EAs.
   </p>
 </div>
+
+<script type="text/javascript">
+  function habilita_desabilita_radio(element) {
+    var radio = "input:radio[name='evento_adverso["+$(element).attr("nome_radio")+"]']"
+    if ($(element).is(":checked")) {
+      $(radio).attr('disabled',false);
+    }
+    else {
+      //$(radio).prop('checked',false);
+      $(radio).attr('disabled',true);
+    }
+  }
+
+  $(document).ready(function() {
+        $('#new_evento_adverso').ketchup();
+    })
+
+  $.ketchup.validation('checks', 'Ao assinalar a presença do evento adverso, deve-se informar o nível (Leve, Moderado ou Severo).', function(form, el, value) {
+    if ($(el).is(":checked")) {
+      var radio = "input:radio[name='evento_adverso["+$(el).attr("nome_radio")+"]']"
+      if (!$(radio).is(':checked')){
+        return false
+      }
+    }
+    return true;
+  });
+
+</script>
