@@ -10,7 +10,7 @@ gem 'mysql2', '0.3.11'
 # gem 'mysql', '2.8.1'
 gem 'devise', '1.5.3'
 gem 'schema_plus', '0.4.1'
-gem 'paperclip', '~> 2.0' #'3.1.1'
+gem 'paperclip', '3.5.2'
 gem 'whenever', '0.6.8', :require => false
 gem "httparty", "0.6.1"
 # gem 'sqlite3'

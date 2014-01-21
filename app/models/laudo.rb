@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: utf-8
 class Laudo < ActiveRecord::Base
   has_attached_file :imagem
   belongs_to :visita
@@ -16,6 +16,9 @@ class Laudo < ActiveRecord::Base
   accepts_nested_attributes_for :dados_dn4
   accepts_nested_attributes_for :dados_sf36
   accepts_nested_attributes_for :dados_rx_torax
+
+  validates :data, :presence => true
+  validates :imagem, :attachment_presence => true
   
   TIPO_TCLE = 0
   TIPO_BIOPSIA = 1
@@ -48,7 +51,11 @@ class Laudo < ActiveRecord::Base
   }
   
   def data_formatada
-    self.data.strftime("%d/%m/%Y") if self.data
+    if self.data
+      self.data.strftime("%d/%m/%Y")
+    else
+      "NÃO INFORMADA"
+    end
   end
   
   def data_formatada=(data)

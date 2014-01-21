@@ -74,19 +74,6 @@
 
     <div class="span4">
 
-      <div class="control-group">
-        <%= f.label :inclusao_virgem_tratamento, nil, :class => 'control-label' %>
-        <div class='controls'>
-          <div class='radio inline'>
-            <%= f.radio_button :inclusao_virgem_tratamento, true, :checked => true  %>
-            <%= f.label :inclusao_virgem_tratamento_true, 'Sim' %>
-          </div>
-          <div class='radio inline'>
-            <%= f.radio_button :inclusao_virgem_tratamento, false %>
-            <%= f.label :inclusao_virgem_tratamento_false, 'Não' %>
-          </div>
-        </div>
-      </div>
 
       <div class="control-group">
         <%= f.label :inclusao_assinou_tcle, nil, :class => 'control-label' %>
@@ -260,7 +247,7 @@
       <div class="control-group">
         <%= f.label :data_formatada, nil, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_field :data_formatada, :class => '_data_calendario' %>
+          <%= f.text_field :data_formatada, :value => $data_formatada, :class => '_data_calendario' %>
         </div>
       </div>
 
