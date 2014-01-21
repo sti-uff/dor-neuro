@@ -1,0 +1,32 @@
+<div>
+  <% unless @eventos_adversos_graves.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data do registro</th>
+          <th>Óbito</th>
+          <th>Ameaça a vida</th>
+          <th>Invalidez</th>
+          <th>Anomalia</th>
+          <th>Hospitalização</th>
+          <th>Médico responsável</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @eventos_adversos_graves.each do |evento| %>
+          <tr>
+            <td><%= evento.data_formatada %></td>
+            <td><%= evento.obito ? 'Sim' : 'Não'%></td>
+            <td><%= evento.ameaca_vida ? 'Sim' : 'Não' %></td>
+            <td><%= evento.invalidez ? 'Sim' : 'Não'%></td>
+            <td><%= evento.anomalia_congenita ? 'Sim' : 'Não'%></td>
+            <td><%= evento.hospitalizacao ? 'Sim' : 'Não'%></td>
+            <td><%= evento.usuario.nome%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="alert alert-dismissable alert-warning">Nenhum evento adverso grave foi encontrado.</p>
+  <% end %>
+</div>
