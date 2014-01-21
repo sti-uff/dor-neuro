@@ -244,8 +244,6 @@ Dorneuro::Application.routes.draw do
   
   get 'escolher_voluntario' => 'application#escolher_voluntario'
 
-#  get "get_imagem_laudo" => "voluntarios#get_imagem_laudo"
-  
   resources :agendas
 
   resources :voluntarios do
@@ -274,6 +272,8 @@ Dorneuro::Application.routes.draw do
       get :listar_municipios
     end
   end
+
+  resources :laudos, :only => :show
   
   get '/pre_selecao' => "application#pre_selecao"
   get '/agenda_menu' => "application#agenda_menu"

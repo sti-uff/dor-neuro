@@ -1,13 +1,17 @@
 jQuery.ketchup
 
 .validation('required', 'Este campo é obrigatório.', function(form, el, value) {
-  var type = el.attr('type').toLowerCase();
-  
-  if(type == 'checkbox' || type == 'radio') {
-    return (el.attr('checked') == true);
-  } else {
-    return (value.length != 0);
-  }
+    var type = el.attr('type');
+    if (typeof type !== 'undefined') {
+        type = type.toLowerCase();
+    }
+
+    if (type == 'checkbox' || type == 'radio') {
+        return (el.attr('checked') == true);
+    }
+    else {
+        return ($.trim(value).length > 0);
+    }
 })
 
 .validation('minlength', 'Campo deve possuir o mínimo de {arg1} caracteres.', function(form, el, value, min) {

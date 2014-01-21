@@ -6,6 +6,7 @@
 <p>
   <b>Nome:</b>
   <%= @voluntario.nome %>
+  <%= link_to 'Editar', edit_voluntario_path(@voluntario), :class => 'btn btn-xs btn-success', :style => "margin-left:20px;" %>
 </p>
 
 <div class="panel panel-info">
@@ -82,9 +83,6 @@
   </div>
 </div>
 
-<%= link_to 'Editar', edit_voluntario_path(@voluntario), :class => 'btn btn btn-success' %>
-<%= link_to 'Voltar', voluntarios_path, :class => 'btn btn-danger' %>
-
 
 <ul class="nav nav-tabs" style="margin: 30px 0px 15px 0px;">
   <li class="active"><a href="#agenda" data-toggle="tab">Agenda</a></li>
@@ -129,7 +127,7 @@
 
 </div>
 
-
+<%= link_to 'Voltar', voluntarios_path, :class => 'btn btn-danger' %>
 
 <script type="text/javascript">
   $(document).ready(function () {
