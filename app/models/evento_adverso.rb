@@ -5,7 +5,11 @@ class EventoAdverso < ActiveRecord::Base
   attr_accessor :data_formatada
   
   def data_formatada
-    self.data.strftime("%d/%m/%Y") if self.data
+    if self.data
+      self.data.strftime("%d/%m/%Y")
+    else
+      "NÃO INFORMADA"
+    end
   end
   
   def data_formatada=(data)
