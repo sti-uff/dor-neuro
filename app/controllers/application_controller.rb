@@ -53,9 +53,12 @@ class ApplicationController < ActionController::Base
   def setar_data
     if params["laudo"]
       unless  params["laudo"]["data_formatada"].blank?
-        $data_formatada ||= params["laudo"]["data_formatada"]
+        $data_formatada = params["laudo"]["data_formatada"]
+      end
+    else
+      if params['voluntario'] and params['voluntario']['criterios'] and params['voluntario']['criterios']['data_formatada']
+         $data_formatada = params['voluntario']['criterios']['data_formatada']
       end
     end
   end
-
 end
