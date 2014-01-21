@@ -46,6 +46,10 @@ jQuery.ketchup
   return this.isEmail(value);
 })
 
+.validation('emailOpcional', 'E-mail inválido.', function(form, el, value) {
+  return this.isEmail(value) || value == "";
+})
+
 .validation('url', 'URL inválida.', function(form, el, value) {
   return this.isUrl(value);
 })

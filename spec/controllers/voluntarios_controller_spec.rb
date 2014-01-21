@@ -23,8 +23,19 @@ describe VoluntariosController do
   # This should return the minimal set of attributes required to create a valid
   # Voluntario. As you add validations to Voluntario, be sure to
   # update the return value of this method accordingly.
+  Uf.create! :nome => "Brasil", :sigla => "BR"
+  Uf.create! :nome => "Outro", :sigla => "Ot"
+  
   def valid_attributes
-    {}
+    { :nome => "test",
+  :data_nascimento => "01/01/1980",
+  :profissao => "tester",
+  :email=> "test@test.com",
+  :sexo => 0,
+  :estado_civil => 1,
+  :nacionalidade => 0,
+  :naturalidade => 2,
+  :centro => Centro.new}
   end
   
   # This should return the minimal set of values that should be in the session
