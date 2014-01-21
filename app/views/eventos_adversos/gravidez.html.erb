@@ -10,24 +10,29 @@
   <%= form_for @gravidez, :url => salvar_gravidez_path do |f| %>
     <div class='control-group'>
       
-      <div class="controls">
+      <div class="controls" style="padding: 20px 0px 10px 0px;">
         <%= label_tag 'inclusao[incluido]', 'Descontinuar voluntária?', :class => 'control-label' %>
-        <div class="radio inline">
-          <%= radio_button_tag 'inclusao[incluido]', false, "data-validate" => "validate(required)" %>
+        <div></div>
+        <div class="radio-inline">
+          <%= radio_button_tag 'inclusao[incluido]', false %>
           <%= label_tag 'inclusao_incluido_false', 'Sim' %>
         </div>
-        <div class="radio inline">
-          <%= radio_button_tag 'inclusao[incluido]', true, "data-validate" => "validate(required)" %>
+        <div class="radio-inline">
+          <%= radio_button_tag 'inclusao[incluido]', true, :checked => true %>
           <%= label_tag 'inclusao_incluido_true', 'Não' %>
         </div>
       </div>
-      
+
+      <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :data_formatada, nil, :class => 'control-label' %>
       <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required)" %>
-      
+      </div>
+
+      <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :usuario_id, nil, :class => 'control-label' %>
       <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
-      
+      </div>
+
       <%= hidden_field_tag 'gravidez[voluntario_id]', session[:voluntario] %>
       <%= hidden_field_tag 'inclusao[voluntario_id]', session[:voluntario] %>
       <%= hidden_field_tag 'inclusao[motivo]', 'Gravidez' %>
