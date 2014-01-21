@@ -7,6 +7,7 @@
           <th>Visita</th>
           <th>Tipo</th>
           <th>Escore</th>
+          <th>Imagem</th>
         </tr>
       </thead>
       <tbody>
@@ -16,11 +17,33 @@
             <td><%= laudo.visita.id %></td>
             <td><%= laudo.tipo_to_s(laudo.tipo) %></td>
             <td><%= laudo.escore %></td>
-          </tr>
-        <% end %>
+            <td><%= link_to (image_tag laudo.imagem.url, :size => "50x40"), "#myModal#{laudo.id}", "data-toggle"=>"modal", "data-target"=> "#myModal#{laudo.id}"  %></td>
+            <!-- Modal -->
+        <div class="modal fade" id=<%="myModal#{laudo.id}"%> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><%= laudo.visita.voluntario.nome%> - <%= laudo.tipo_to_s(laudo.tipo) %> - <%= laudo.data_formatada %></h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag laudo.imagem.url, :size => "600x480" %>
+                <%= laudo.id %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        </tr>
+      <% end %>
       </tbody>
     </table>
   <% else %>
     <p class="alert alert-dismissable alert-warning">Nenhum laudo foi encontrado.</p>
   <% end %>
 </div>
+
+<!-- Button trigger modal -->
