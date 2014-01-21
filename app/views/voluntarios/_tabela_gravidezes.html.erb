@@ -1,5 +1,5 @@
 <div>
-  <% unless @eventos_adversos.blank? %>
+  <% unless @gravidezes.blank? %>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -8,15 +8,15 @@
         </tr>
       </thead>
       <tbody>
-        <% @eventos_adversos.each do |evento| %>
+        <% @gravidezes.each do |gravidez| %>
           <tr>
-            <td><%= evento.data_formatada %></td>
-            <td><%= evento.usuario.nome %></td>
+            <td><%= gravidez.data_formatada %></td>
+            <td><%= gravidez.usuario.nome %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   <% else %>
-    <p class="alert alert-dismissable alert-warning">Nenhum evento adverso foi encontrado.</p>
+    <p class="alert alert-dismissable alert-warning">Nenhuma gravidez registrada.</p>
   <% end %>
 </div>

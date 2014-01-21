@@ -23,6 +23,9 @@ class VoluntariosController < ApplicationController
     @criterios = @voluntario.criterios
     @laudos = Laudo.por_voluntario_id(@voluntario.id)
     @eventos_adversos = @voluntario.evento_adversos
+    @gravidezes = @voluntario.gravidezes
+    @superdoses = @voluntario.superdoses
+    @eventos_adversos_graves = @voluntario.evento_adverso_graves
 
     respond_to do |format|
       format.html # show.html.erb

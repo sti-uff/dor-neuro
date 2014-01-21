@@ -46,7 +46,7 @@
     <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
   </div>
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+    <%= f.submit nil, :class => 'btn btn-success' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>

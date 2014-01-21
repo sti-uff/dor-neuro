@@ -1,0 +1,24 @@
+<div>
+  <% unless @superdoses.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data do registro</th>
+          <th>Médico responsável</th>
+          <th>Observações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @superdoses.each do |superdose| %>
+          <tr>
+            <td><%= superdose.data_formatada %></td>
+            <td><%= superdose.usuario.nome %></td>
+            <td><%= superdose.observacoes %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="alert alert-dismissable alert-warning">Nenhuma superdose foi registrada.</p>
+  <% end %>
+</div>
