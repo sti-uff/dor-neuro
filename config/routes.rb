@@ -123,7 +123,6 @@ Dorneuro::Application.routes.draw do
       get '/func_renal' => 'alocacao#show_func_renal', :as => :show_func_renal
       get '/func_hepatica' => 'alocacao#show_func_hepatica', :as => :show_func_hepatica
       get '/urinocultura' => 'alocacao#show_urinocultura', :as => :show_urinocultura
-      get '/ppd' => 'alocacao#show_ppd', :as => :show_ppd
     end
     scope "/randomizar" do
       get '/criterios' => 'alocacao#criterios', :as => :alocacao_criterios
@@ -235,8 +234,6 @@ Dorneuro::Application.routes.draw do
       post '/func_hepatica' => 'selecao#create_laudo', :as => :selecao_salvar_func_hepatica
       get '/urinocultura' => 'selecao#new_laudo', :as => :selecao_urinocultura
       post '/urinocultura' => 'selecao#create_laudo', :as => :selecao_salvar_urinocultura
-      get '/ppd' => 'selecao#new_laudo', :as => :selecao_ppd
-      post '/ppd' => 'selecao#create_laudo', :as => :selecao_salvar_ppd
       get '/rx_torax' => 'selecao#new_laudo', :as => :selecao_rx_torax
       post '/rx_torax' => 'selecao#create_laudo', :as => :selecao_salvar_rx_torax
     end
