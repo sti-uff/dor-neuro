@@ -7,6 +7,7 @@
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
+<br/>
   <%= form_for @superdose, :url => salvar_superdose_path do |f| %>
     <div class='control-group'>
       
@@ -21,7 +22,7 @@
       
       <%= hidden_field_tag 'superdose[voluntario_id]', session[:voluntario] %>
     </div>
-    
+
     <div class='form-actions'>
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Voltar', eventos_adversos_menu_path, :class => 'btn' %>
