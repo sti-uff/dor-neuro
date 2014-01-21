@@ -16,6 +16,9 @@ class Laudo < ActiveRecord::Base
   accepts_nested_attributes_for :dados_dn4
   accepts_nested_attributes_for :dados_sf36
   accepts_nested_attributes_for :dados_rx_torax
+
+  validates :data, :presence => true
+  validates :imagem, :attachment_presence => true
   
   TIPO_TCLE = 0
   TIPO_BIOPSIA = 1

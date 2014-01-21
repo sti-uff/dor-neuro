@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   before_filter :authenticate_usuario!
-  
+  before_filter :setar_data
+
   def home
     session.delete :voluntario
     session.delete :usuario
@@ -49,4 +50,12 @@ class ApplicationController < ActionController::Base
   #   redirect_to params[:pagina]
   # end
   
+  def setar_data
+    if params["laudo"]
+      unless  params["laudo"]["data_formatada"].blank?
+        $data_formatada ||= params["laudo"]["data_formatada"]
+      end
+    end
+  end
+
 end

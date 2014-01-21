@@ -4,6 +4,19 @@
 
 <h1>Aplicar critérios de inclusão e exclusão</h1>
 
+  <% if @voluntario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voluntario.errors.count, "erro impediu") %> este voluntário de ser salvo:</h2>
+
+      <ul>
+      <% @voluntario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
