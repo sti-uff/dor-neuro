@@ -51,7 +51,6 @@ class ApplicationController < ActionController::Base
   # end
   
   def setar_data
-    binding.pry
     if params["laudo"]
       unless  params["laudo"]["data_formatada"].blank?
         $data_formatada ||= params["laudo"]["data_formatada"]
