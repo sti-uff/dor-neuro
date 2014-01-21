@@ -4,6 +4,11 @@ class Endereco < ActiveRecord::Base
   
   accepts_nested_attributes_for :municipio
   
+  validates :logradouro, :presence => true
+  validates :bairro,     :presence => true
+  validates :cep,        :presence => true
+  validates :municipio,  :presence => true
+
   def token_municipio
     if self.municipio
       Array(self.municipio).collect { |m| { :id => m.id, :name => "#{m.nome} - #{m.uf.sigla}" } }.to_json

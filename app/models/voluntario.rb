@@ -17,6 +17,18 @@ class Voluntario < ActiveRecord::Base
   accepts_nested_attributes_for :inclusoes
   
   #attr_accessor :data_nascimento
+
+  validates :nome,            :presence => true
+  validates :data_nascimento, :presence => true
+  validates :profissao,       :presence => true
+  validates :sexo,            :presence => true
+  validates :telefone,        :presence => true
+  validates :celular,         :presence => true
+  validates :estado_civil,    :presence => true
+  validates :nacionalidade,   :presence => true
+  validates :naturalidade,    :presence => true
+  validates :centro,          :presence => true
+  validates :prontuario,      :presence => true
   
   SEXO_MASC = 0
   SEXO_FEM = 1
