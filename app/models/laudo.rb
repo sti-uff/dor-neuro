@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: utf-8
 class Laudo < ActiveRecord::Base
   has_attached_file :imagem
   belongs_to :visita

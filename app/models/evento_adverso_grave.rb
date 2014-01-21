@@ -1,3 +1,4 @@
+# encoding: utf-8
 class EventoAdversoGrave < ActiveRecord::Base
   belongs_to :voluntario
   belongs_to :usuario

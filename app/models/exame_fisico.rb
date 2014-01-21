@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ExameFisico < ActiveRecord::Base
   belongs_to :avaliacao_clinica
   has_one :exame_complemento

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Adesao < ActiveRecord::Base
   belongs_to :visita
   belongs_to :usuario
