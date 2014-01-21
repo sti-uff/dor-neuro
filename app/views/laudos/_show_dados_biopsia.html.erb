@@ -1,0 +1,49 @@
+<%  @dados_biopsia = DadosBiopsia.find_by_laudo_id @laudo.id  %>
+
+
+<h2 class ="h2_show">Cortes parafina</h2>
+
+<p>
+  <b>Presença de células inflamatórias:</b>
+  <%= leve_moderada_intensa? @dados_biopsia.celulas_inflamatorias %>
+</p>
+
+<p>
+  <b>Presença de vasculite, microvasculite, ou sinais indiretos (angiogênese, trombose):</b>
+  <%=  leve_moderada_intensa? @dados_biopsia.vasculite %>
+</p>
+
+<p>
+  <b>Fibrose:</b>
+  <%= leve_moderada_intensa? @dados_biopsia.fibrose %>
+</p>
+
+<p>
+  <b>Presença de bacilos:</b>
+  <%= leve_moderada_intensa?  @dados_biopsia.bacilos %>
+</p>
+
+
+<h2 class ="h2_show">Cortes semifinos corados pelo azul de toluidina</h2>
+
+<p>
+  <b>Perda de fibras:</b>
+  <%= leve_moderada_intensa? @dados_biopsia.perda_fibras %>
+</p>
+
+<p>
+  <b>Degeneração axonal:</b>
+  <%= leve_moderada_intensa? @dados_biopsia.degeneracao_axonal %>
+</p>
+
+<p>
+  <b>Regeneração axonal:</b>
+  <%= leve_moderada_intensa? @dados_biopsia.regeneracao_axonal %>
+</p>
+
+<p>
+  <b>Desmielinização ativa:</b>
+  <%= leve_moderada_intensa?  @dados_biopsia.desmielinizacao_ativa %>
+</p>
+
+

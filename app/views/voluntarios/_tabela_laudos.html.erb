@@ -13,7 +13,7 @@
       <tbody>
         <% @laudos.each do |laudo| %>
           <tr>
-            <td><%= laudo.data_formatada %></td>
+            <td><%= link_to laudo.data_formatada, laudo_path(laudo)%></td>
             <td><%= laudo.visita.id %></td>
             <td><%= laudo.tipo_to_s(laudo.tipo) %></td>
             <td><%= laudo.escore %></td>

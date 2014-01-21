@@ -74,6 +74,12 @@ form fieldset h2{
   margin-top: 10px;
 }
 
+.h2_show{
+  border-bottom: 2px dotted #CCC;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
 .btn_choose{
   margin-top: 20px;
 }
