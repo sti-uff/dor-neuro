@@ -1,0 +1,17 @@
+<% if @exame_complemento %>
+  <div class="panel-body" id="">
+
+    <p>
+      <b>Reflexos profundos:</b>
+      <%= @exame_complemento.reflexos_profundos %>
+    </p>
+
+    <p>
+      <b>Reflexos superficiais:</b>
+      <%= @exame_complemento.reflexos_superficiais %>
+    </p>
+
+  </div>
+<% else %>
+  <p>Os exames complementares deste voluntário não foram aplicados.</p>
+<% end %>

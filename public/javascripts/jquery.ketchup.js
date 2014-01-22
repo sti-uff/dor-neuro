@@ -509,10 +509,20 @@
         this.defaults.showErrorContainer = form;
         return this;
       } else {
-        container.show().animate({
-          top    : el.offset().top - container.height(),
-          opacity: 1
-        }, 'fast');
+          if (el.attr('token_input') != undefined) {
+              container.show().animate({
+              top    : (el.offset().top - 30) - container.height(),
+              left   : el.offset().left + el.width() - 10,
+              opacity: 1
+            }, 'fast');
+          }
+          else {
+            container.show().animate({
+              top    : (el.offset().top) - (container.height()),
+              left   : el.offset().left + el.width() - 10,
+              opacity: 1
+            }, 'fast');
+          }
       }
     },
     

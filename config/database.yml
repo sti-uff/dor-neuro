@@ -12,13 +12,13 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: dorneuro_test
+  database: dorneuro
   username: root
   password: tzzk7662
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: dorneuro_prod
+  database: dorneuro
   username: root
   password: tzzk7662
