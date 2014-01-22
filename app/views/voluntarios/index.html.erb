@@ -1,3 +1,16 @@
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li>
+			<%= link_to 'Pré-Seleção', pre_selecao_path %><span class="divider"></span>	
+		</li>
+		<li class="active">Listagem de voluntários</li>
+	</ul>
+</div>
+
 <div class="page-header">
   <h1>Listagem de voluntários</h1>
 </div>
@@ -10,7 +23,7 @@
 
 <% end %>
 
-<%= link_to new_voluntario_path, :class => "btn btn-primary" do %>
+<%= link_to new_voluntario_path, :class => "btn btn-success" do %>
   Novo voluntário
   <i class="glyphicon-plus icon-white"></i>
 <% end %>
@@ -38,8 +51,8 @@
       </tbody>
     </table>
   <% else %>
-    <p>Nenhum voluntário foi encontrado.</p>
+    <p class="msg_tabela_vazia">Nenhum voluntário foi encontrado.</p>
   <% end %>
 </div>
 
-<%= link_to 'Voltar', pre_selecao_path, :class => 'btn btn-primary' %>
+<%= link_to 'Voltar', pre_selecao_path, :class => 'btn btn-danger' %>

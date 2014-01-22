@@ -63,8 +63,8 @@ class Laudo < ActiveRecord::Base
   end
 
 
-  def tipo_to_s(tipo)
-    case(tipo)
+  def tipo_to_s
+    case(self.tipo)
     when TIPO_TCLE
       "TCLE"
     when TIPO_BIOPSIA

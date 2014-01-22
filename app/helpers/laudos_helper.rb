@@ -6,10 +6,10 @@ module LaudosHelper
       "Leve"
     when Laudo::MODERADA
       "Moderada"
-    when Laudo::MODERADA
+    when Laudo::INTENSA
       "Intensa"
     else
-      nil
+      "N/A"
     end
   end
 

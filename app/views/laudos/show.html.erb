@@ -1,12 +1,19 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<h2>Data do registro: <%= @laudo.data_formatada %></h2>
 
-<%if @laudo.tipo == Laudo::TIPO_BIOPSIA %>
-  <%= render :partial => "show_dados_biopsia" %>
-<%elsif @laudo.tipo == Laudo::TIPO_DN4 %>
-  <%= render :partial => "show_dados_dn4" %>
-<%elsif @laudo.tipo == Laudo::TIPO_LANSS %>
-  <%= render :partial => "show_dados_lanss" %>
-<% end %>
+<% @voluntario = @laudo.visita.voluntario %>
+
+<%= render :partial => "voluntarios/detalhes_voluntario" %>
+<div class="alert alert-dismissable alert-info">
+  <h2><%= @laudo.tipo_to_s %></h2>
+  <%if @laudo.tipo == Laudo::TIPO_BIOPSIA %>
+    <%= render :partial => "show_dados_biopsia" %>
+  <%elsif @laudo.tipo == Laudo::TIPO_DN4 %>
+    <%= render :partial => "show_dados_dn4" %>
+  <%elsif @laudo.tipo == Laudo::TIPO_LANSS %>
+    <%= render :partial => "show_dados_lanss" %>
+  <%elsif @laudo.tipo == Laudo::TIPO_RX_TORAX %>
+    <%= render :partial => "show_dados_rx_torax" %>
+  <% end %>
+</div>
+
+<%= link_to 'Voltar', :back, :class => 'btn btn-danger' %>

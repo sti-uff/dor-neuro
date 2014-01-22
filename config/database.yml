@@ -5,20 +5,20 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: dorneuro
+  database: dorneuro_dev
   username: root
-  password: tzzk7662
+  password: 
 
 test:
   adapter: mysql2
   encoding: utf8
-  database: dorneuro
+  database: dorneuro_test
   username: root
-  password: tzzk7662
+  password: 
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: dorneuro
-  username: dorneuro
-  password: dorneuro
+  database: dorneuro_prod
+  username: root
+  password: 

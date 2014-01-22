@@ -1,27 +1,46 @@
-<div class="page-header">
-  <h1>Pré-Seleção</h1>
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li class="active">Pré-Seleção</li>
+	</ul>
 </div>
 
-<div class="bs-example">
-  <p>
-    <%= link_to 'Lista de voluntários', voluntarios_path, :class => "btn btn-primary btn-lg" %>
-  </p>
+<div class   = "page-header">
+	<h1>Pré-Seleção</h1>
+	<p>Nessa etapa são pré-selecionados os voluntários para o ensaio clínico</p>
 </div>
 
-<div class="bs-example">
-  <p>
-    <%= link_to 'Cadastrar voluntário', new_voluntario_path, :class => "btn btn-primary btn-lg" %>
-  </p>
+<div class="div_icones_interno">
+	<ul class="icones_principal">
+		<li class="item_icone" id="btn_lista_voluntarios">
+			<%= link_to 'Lista de voluntários', voluntarios_path, :class => "btn btn-primary btn-lg btn-popover", 
+			"data-placement"=>"top", "data-content"=>"Ver a lista dos voluntários", 
+			"data-original-title"=>"Visualizar listagem dos voluntários" %>
+		</li>
+		<li class="item_icone" id="btn_cadastrar_voluntario">
+			<%= link_to 'Cadastrar voluntário', new_voluntario_path, :class => "btn btn-primary btn-lg btn-popover",
+			"data-placement"=>"top", "data-content"=>"Cadastrar novo voluntário", 
+			"data-original-title"=>"Cadastrar um novo voluntário para os ensaios"%>
+		</li>
+		<li class="item_icone" id="btn_lista_agendas">
+			<%= link_to 'Lista de agendas', agendas_path, :class => "btn btn-primary btn-lg btn-popover",
+			"data-placement"=>"top", "data-content"=>"Visualizar lista de agendas", 
+			"data-original-title"=>"Visualizar listagem completa das agendas criadas anteriormente" %>
+		</li>
+		<li class="item_icone">
+			<%= link_to('Agendar consulta', new_agenda_path, :class => "btn btn-primary btn-lg btn-popover",
+			"data-placement"=>"top", "data-content"=>"Aqui você poderá agendar as consultas para os voluntários.", 
+			"data-original-title"=>"Agendar uma consulta") %>
+		</li>
+	</ul>
 </div>
 
-<div class="bs-example">
-  <p>
-    <%= link_to 'Lista de agendas', agendas_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p>
-    <%= link_to 'Agendar consulta', new_agenda_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
+<%= content_for(:js)  do %>
+$('.btn-popover').hover(
+	function() {$(this).popover('show');},
+	function() {$(this).popover('hide');}
+);
+<%  end %>
