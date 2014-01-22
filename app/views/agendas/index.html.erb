@@ -2,6 +2,19 @@
   <%= javascript_include_tag 'date_picker' %>
 <% end %>
 
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li>
+			<%= link_to 'Pré-Seleção', pre_selecao_path %><span class="divider"></span>	
+		</li>
+		<li class="active">Visualização de Agendas</li>
+	</ul>
+</div>
+
 <h1>Listagem de agendas</h1>
 
 <%= form_tag agendas_path, :method => :get, :class => 'well form-search' do %>
@@ -49,8 +62,6 @@
     </tbody>
   </table>
   <% else %>
-    <p>Nenhuma agenda foi encontrada.
+    <p class="msg_tabela_vazia" >Nenhuma agenda foi encontrada.
   <% end %>
 </div>
-
-<%= link_to 'Voltar', agenda_menu_path, :class => 'btn' %>

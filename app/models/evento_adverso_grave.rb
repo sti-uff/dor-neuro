@@ -9,7 +9,7 @@ class EventoAdversoGrave < ActiveRecord::Base
     if self.data
       self.data.strftime("%d/%m/%Y")
     else
-      "NÃO INFORMADA"
+      nil
     end
   end
   

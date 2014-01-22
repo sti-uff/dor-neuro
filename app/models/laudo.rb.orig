@@ -38,10 +38,6 @@ class Laudo < ActiveRecord::Base
   TIPO_PPD = 15
   TIPO_RX_TORAX = 16
 
-  LEVE = 1
-  MODERADA = 2
-  INTENSA = 3
-
 
   scope :por_voluntario_id, lambda { |voluntario_id|
     {
@@ -63,8 +59,8 @@ class Laudo < ActiveRecord::Base
   end
 
 
-  def tipo_to_s
-    case(self.tipo)
+  def tipo_to_s(tipo)
+    case(tipo)
     when TIPO_TCLE
       "TCLE"
     when TIPO_BIOPSIA
@@ -101,5 +97,5 @@ class Laudo < ActiveRecord::Base
       "Raio-X Torax"
     end
   end
-
+  
 end
