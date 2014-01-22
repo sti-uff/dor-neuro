@@ -1,0 +1,24 @@
+<div>
+  <% unless @avaliacoes_clinicas.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data dos sinais vitais</th>
+          <th>Data da anamnese</th>
+          <th>Médico responsável</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @avaliacoes_clinicas.each do |avaliacao| %>
+          <tr>
+            <td><%= link_to avaliacao.data_sinais_vitais, avaliacao_clinica_path(avaliacao) %></td>
+            <td><%= link_to avaliacao.data_anamnese, avaliacao_clinica_path(avaliacao) %></td>
+            <td><%= avaliacao.usuario.nome %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="alert alert-dismissable alert-warning">Nenhuma avaliação clínica foi registrada.</p>
+  <% end %>
+</div>

@@ -38,7 +38,7 @@ class Voluntario < ActiveRecord::Base
   
   NACIONALIDADE_BRASIL = 0
   NACIONALIDADE_OUTRO = 1
-  
+
   def sexo_str
     case self.sexo
     when SEXO_MASC

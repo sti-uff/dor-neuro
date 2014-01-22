@@ -266,6 +266,8 @@ Dorneuro::Application.routes.draw do
   resources :criterios, :only => :show
 
   resources :exame_fisicos, :only => :show
+
+  resources :avaliacao_clinicas, :only => :show
   
   resources :municipios do
     collection do
