@@ -8,9 +8,9 @@ class Laudo < ActiveRecord::Base
   has_one :dados_dn4
   has_one :dados_sf36
   has_one :dados_rx_torax
-  
+
   attr_accessor :data_formatada
-  
+
   accepts_nested_attributes_for :dados_biopsia
   accepts_nested_attributes_for :dados_lanss
   accepts_nested_attributes_for :dados_dn4
@@ -19,7 +19,7 @@ class Laudo < ActiveRecord::Base
 
   validates :data, :presence => true
   validates :imagem, :attachment_presence => true
-  
+
   TIPO_TCLE = 0
   TIPO_BIOPSIA = 1
   TIPO_ENMG = 2
@@ -49,7 +49,7 @@ class Laudo < ActiveRecord::Base
         :conditions => ("visitas.voluntario_id = #{voluntario_id}"),
     }
   }
-  
+
   def data_formatada
     if self.data
       self.data.strftime("%d/%m/%Y")
@@ -57,7 +57,7 @@ class Laudo < ActiveRecord::Base
       nil
     end
   end
-  
+
   def data_formatada=(data)
     self.data = data
   end
@@ -102,4 +102,20 @@ class Laudo < ActiveRecord::Base
     end
   end
 
+  def dados
+    case tipo
+      when TIPO_BIOPSIA
+        return dados_biopsia
+      when TIPO_DN4
+        return dados_dn4
+      when TIPO_LANSS
+        return dados_lanss
+      when TIPO_SF36
+        return dados_sf36
+      when TIPO_RX_TORAX
+        return dados_rx_torax
+      else
+        nil
+    end
+  end
 end
