@@ -4,10 +4,9 @@
 
 <h1>Aplicar critérios de inclusão e exclusão</h1>
 
-  <% if @voluntario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@voluntario.errors.count, "erro impediu") %> este voluntário de ser salvo:</h2>
-
+  <% if !session[:voluntario].blank? && @voluntario.errors.any? %>
+    <div class="alert alert-dismissable alert-danger">
+      <strong><%= pluralize(@voluntario.errors.count, "erro impediu") %> estes critérios de serem salvos:</strong>
       <ul>
       <% @voluntario.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -39,3 +38,9 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $('#new_voluntario').ketchup();
+});
+</script>

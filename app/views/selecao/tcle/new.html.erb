@@ -1,9 +1,8 @@
 <h1>Registrar assinatura do TCLE</h1>
 
   <% if @laudo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@laudo.errors.count, "erro impediu") %> este voluntário de ser salvo:</h2>
-
+    <div class="alert alert-dismissable alert-danger">
+      <strong><%= pluralize(@laudo.errors.count, "erro impediu") %> esta assinatura de TCLE de ser salva:</strong>
       <ul>
       <% @laudo.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -15,7 +14,7 @@
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
-  <%= form_for @laudo, :url => selecao_tcles_path, :html => { :multipart => true } do |f| %>
+  <%= form_for @laudo, :url => selecao_tcles_path, :html => { :multipart => true, :id => "form_laudo" } do |f| %>
     <div class='control-group'>
       <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do TCLE assinado', :texto_data => 'Data da assinatura' %>
       
@@ -29,3 +28,9 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $('#form_laudo').ketchup();
+});
+</script>

@@ -94,13 +94,14 @@ class SelecaoController < ApplicationController
   
   def salvar_dados_demograficos
     @voluntario = Voluntario.find session[:voluntario]
+    @voluntario.atualiza_dados_demograficos
     
     respond_to do |format|
       if @voluntario.update_attributes(params[:voluntario])
         format.html { redirect_to(selecao_new_avaliacao_clinica_path, :notice => 'Dados demográficos atualizados com sucesso.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "dados_demograficos" }
+        format.html { render request.fullpath }
         format.xml  { render :xml => @voluntario.errors, :status => :unprocessable_entity }
       end
     end

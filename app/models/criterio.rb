@@ -4,6 +4,8 @@ class Criterio < ActiveRecord::Base
   belongs_to :usuario
   
   attr_accessor :data_formatada
+
+  validates :data, :presence => true
   
   def data_formatada
     if self.data

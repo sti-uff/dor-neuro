@@ -247,7 +247,7 @@
       <div class="control-group">
         <%= f.label :data_formatada, nil, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_field :data_formatada, :value => $data_formatada, :class => '_data_calendario' %>
+          <%= f.text_field :data_formatada, :value => $data_formatada, :class => '_data_calendario', "data-validate" => "validate(required,date) on(blur change)" %>
         </div>
       </div>
 
