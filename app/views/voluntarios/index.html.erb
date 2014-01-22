@@ -46,6 +46,12 @@
             <td><%= link_to voluntario.nome, voluntario %></td>
             <td><%= voluntario.data_nascimento %></td>
             <td><%= voluntario.celular %></td>
+            <td>
+              <%= link_to edit_voluntario_path(voluntario), :class=>"btn btn-primary" do %>
+                <i class="glyphicon glyphicon-pencil"></i>
+                Editar
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

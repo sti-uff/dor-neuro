@@ -23,7 +23,6 @@ class Voluntario < ActiveRecord::Base
   validates :profissao,       :presence => true
   validates :sexo,            :presence => true
   validates :telefone,        :presence => true
-  validates :celular,         :presence => true
   validates :estado_civil,    :presence => true
   validates :nacionalidade,   :presence => true
   validates :naturalidade,    :presence => true

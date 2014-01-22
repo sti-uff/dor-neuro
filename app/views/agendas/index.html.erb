@@ -53,8 +53,9 @@
         <td><%= Agenda::TIPOS[agenda.tipo] %></td>
         <td><%= voluntario ? "#{voluntario.id} - #{voluntario.nome}" : '' %></td>
         <td>
-          <%= link_to edit_agenda_path(agenda), :title=>"Editar", :class=>"btn btn-primary" do %>
-            <i class="icon-pencil icon-white"></i>
+          <%= link_to edit_agenda_path(agenda), :class=>"btn btn-primary" do %>
+            <i class="glyphicon glyphicon-pencil"></i>
+            Editar
           <% end %>
         </td>
       </tr>
