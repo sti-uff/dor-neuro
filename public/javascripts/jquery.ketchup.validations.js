@@ -14,6 +14,12 @@ jQuery.ketchup
     }
 })
 
+.validation('token_input', 'Este campo é obrigatório.', function(form, el, value) {
+    el.css('display','block').css('visibility','hidden');
+    el.attr('token_input', true);
+    return el.val() != '';
+})
+
 .validation('minlength', 'Campo deve possuir o mínimo de {arg1} caracteres.', function(form, el, value, min) {
   return (value.length >= +min);
 })
@@ -71,7 +77,8 @@ jQuery.ketchup
 })
 
 .validation('date', 'Formato de data inválido.', function(form, el, value) {
-  return this.isDate(value);
+  var dateRegEx = /^(0[1-9]|[12][0-9]|3[01]|[1-9])[- /.](0[1-9]|1[012]|[1-9])[- /.](19|20)\d\d$/
+  return value.match(dateRegEx) !== null;
 })
 
 .validation('minselect', 'Select at least {arg1} checkboxes.', function(form, el, value, min) {

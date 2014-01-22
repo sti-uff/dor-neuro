@@ -3,11 +3,10 @@
   <%= javascript_include_tag "date_picker", "jquery.tokeninput", "token_input" %>
 <% end %>
 
-<%= form_for(@agenda) do |f| %>
+<%= form_for(@agenda, :html => { :id => "form_agenda" } ) do |f| %>
   <% if @agenda.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@agenda.errors.count, "erro impediu") %> esta agenda de ser salva:</h2>
-
+    <div class="alert alert-dismissable alert-danger">
+      <strong><%= pluralize(@agenda.errors.count, "erro impediu") %> esta agenda de ser salva:</strong>
       <ul>
       <% @agenda.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -26,7 +25,7 @@
         <div class="control-group">
           <%= f.label :data_formatada, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :data_formatada, :class => '_data_calendario' %>
+            <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required,date) on(blur change)" %>
           </div>
         </div>
 
@@ -48,7 +47,7 @@
         <div class="control-group">
           <%= f.label :voluntario_id, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :voluntario_id, :class => '_voluntario', 'data-pre' => @agenda.token_voluntario %>
+            <%= f.text_field :voluntario_id, :class => '_voluntario', 'data-pre' => @agenda.token_voluntario,  "data-validate" => "validate(token_input)  on(blur change)" %>
           </div>
         </div>
 
@@ -62,3 +61,10 @@
     <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+   $('#form_agenda').ketchup();
+});
+</script>
