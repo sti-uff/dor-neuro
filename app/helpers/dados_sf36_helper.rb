@@ -99,4 +99,40 @@ module DadosSf36Helper
     end
   end
 
+  def sentimento_to_s(sentimento, inverso = false)
+    a = [1,2,3,4,5,6]
+    a.reverse! if inverso
+    case sentimento
+      when a[0]
+        "Sempre"
+      when a[1]
+        "A maior parte do tempo"
+      when a[2]
+        "Boa parte do tempo"
+      when a[3]
+        "Às vezes"
+      when a[4]
+        "Poucas vezes"
+      when a[5]
+        "Nunca"
+    end
+  end
+
+  def adoece_facilmente_to_s(adoece_facilmente, inverso = false)
+    a = [1,2,3,4,5]
+    a.reverse! if inverso
+    case adoece_facilmente
+      when a[0]
+        "Definitivamente verdadeiro"
+      when a[1]
+        "A maioria das vezes verdadeiro"
+      when a[2]
+        "Não sei"
+      when a[3]
+        "A maioria das vezes falso"
+      when a[4]
+        "Definitivamente falso"
+    end
+  end
+
 end

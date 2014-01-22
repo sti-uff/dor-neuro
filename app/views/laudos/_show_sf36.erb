@@ -9,14 +9,16 @@
 <div class="span9">
 
 <div class="control-group">
-  <p>1) Em geral, você diria que sua saúde é:</p>
+  <b>1) Em geral, você diria que sua saúde é:</b>
   <div class='controls'>
     <p><%= saude_to_s @dados.saude %></p>
   </div>
 </div>
 
+<h2 class="h2_show"></h2>
+
 <div class="control-group">
-  <p>2) Comparada a um ano atrás, como você classificaria sua saúde em geral, agora?</p>
+  <b>2) Comparada a um ano atrás, como você classificaria sua saúde em geral, agora?</b>
   <div class='controls'>
     <p>
       <%= comparacao_saude_to_s @dados.comparacao_saude %>
@@ -24,7 +26,9 @@
   </div>
 </div>
 
-<p>3) Os seguintes itens são sobre atividades que você poderia fazer atualmente durante um dia comum. Devido à sua saúde, você tem dificuldade para fazer essas atividades? Neste caso, quanto?</p>
+<h2 class="h2_show"></h2>
+
+<b>3) Os seguintes itens são sobre atividades que você poderia fazer atualmente durante um dia comum. Devido à sua saúde, você tem dificuldade para fazer essas atividades? Neste caso, quanto?</b>
 
 <table class="table table-striped">
   <thead>
@@ -157,7 +161,9 @@
   </tbody>
 </table>
 
-<p>4) Durante as últimas 4 semanas, você teve algum dos seguintes problemas no seu trabalho ou com alguma atividade regular, como consequência de sua saúde física?</p>
+<h2 class="h2_show"></h2>
+
+<b>4) Durante as últimas 4 semanas, você teve algum dos seguintes problemas no seu trabalho ou com alguma atividade regular, como consequência de sua saúde física?</b>
 
 <table class="table table-striped">
   <thead>
@@ -218,7 +224,9 @@
   </tbody>
 </table>
 
-<p>5) Durante as últimas 4 semanas, você teve algum dos seguintes problemas com seu trabalho ou outra atividade regular diária, como consequência de algum problema emocional (como sentir-se deprimido ou ansioso)?</p>
+<h2 class="h2_show"></h2>
+
+<b>5) Durante as últimas 4 semanas, você teve algum dos seguintes problemas com seu trabalho ou outra atividade regular diária, como consequência de algum problema emocional (como sentir-se deprimido ou ansioso)?</b>
 
 <table class="table table-striped">
   <thead>
@@ -267,8 +275,10 @@
   </tbody>
 </table>
 
+<h2 class="h2_show"></h2>
+
 <div class="control-group">
-  <p>6) Durante as últimas 4 semanas, de que maneira sua saúde física ou problemas emocionais interferiram nas suas atividades sociais normais, em relação à família, amigos ou em grupo?</p>
+  <b>6) Durante as últimas 4 semanas, de que maneira sua saúde física ou problemas emocionais interferiram nas suas atividades sociais normais, em relação à família, amigos ou em grupo?</b>
   <div class='controls'>
     <p>
       <%= social_atividade_to_s @dados.social_atividade %>
@@ -276,8 +286,10 @@
   </div>
 </div>
 
+<h2 class="h2_show"></h2>
+
 <div class="control-group">
-  <p>7) Quanta dor no corpo você teve durante as últimas 4 semanas?</p>
+  <b>7) Quanta dor no corpo você teve durante as últimas 4 semanas?</b>
   <div class='controls'>
     <p>
       <%= dor_to_s @dados.dor %>
@@ -285,8 +297,10 @@
   </div>
 </div>
 
+<h2 class="h2_show"></h2>
+
 <div class="control-group">
-  <p>8) Durante as últimas 4 semanas, quanto a dor interferiu com seu trabalho normal (incluindo o trabalho dentro de casa)?</p>
+  <b>8) Durante as últimas 4 semanas, quanto a dor interferiu com seu trabalho normal (incluindo o trabalho dentro de casa)?</b>
   <div class='controls'>
     <p>
       <%= social_atividade_to_s @dados.interferencia_dor %>
@@ -294,7 +308,9 @@
   </div>
 </div>
 
-<p>9) Estas questões são sobre como você se sente e como tudo tem acontecido com você durante as últimas 4 semanas. Para cada questão, por favor dê uma resposta que mais se aproxime da maneira como você se sente. Em relação às últimas 4 semanas.</p>
+<h2 class="h2_show"></h2>
+
+<b>9) Estas questões são sobre como você se sente e como tudo tem acontecido com você durante as últimas 4 semanas. Para cada questão, por favor dê uma resposta que mais se aproxime da maneira como você se sente. Em relação às últimas 4 semanas.</b>
 
 <table class="table table-striped">
   <thead>
@@ -312,7 +328,7 @@
       <div class='controls'>
         <!-- Vai do 6 ao 1-->
         <td>
-          <%= @dados.sentimento_vigor %>
+          <%= sentimento_to_s @dados.sentimento_vigor, true %>
         </td>
       </div>
     </div>
@@ -325,7 +341,7 @@
       <div class='controls'>
         <!-- Vai do 1 ao 6-->
         <td>
-          <%= @dados.sentimento_nervoso %>
+          <%= sentimento_to_s @dados.sentimento_nervoso %>
         </td>
       </div>
     </div>
@@ -338,7 +354,7 @@
       <div class='controls'>
         <!-- Vai do 1 ao 6-->
         <td>
-          <%= @dados.sentimento_deprimido %>
+          <%= sentimento_to_s @dados.sentimento_deprimido %>
         </td>
       </div>
     </div>
@@ -351,7 +367,7 @@
       <div class='controls'>
         <!-- Vai do 6 ao 1-->
         <td>
-          <%= @dados.sentimento_calmo %>
+          <%= sentimento_to_s @dados.sentimento_calmo, true %>
         </td>
       </div>
     </div>
@@ -364,7 +380,7 @@
       <div class='controls'>
         <!-- Vai do 6 ao 1-->
         <td>
-          <%= @dados.sentimento_energico %>
+          <%= sentimento_to_s @dados.sentimento_energico, true %>
         </td>
       </div>
     </div>
@@ -377,7 +393,7 @@
       <div class='controls'>
         <!-- Vai do 1 ao 6-->
         <td>
-          <%= @dados.sentimento_abatido %>
+          <%= sentimento_to_s @dados.sentimento_abatido %>
         </td>
       </div>
     </div>
@@ -390,7 +406,7 @@
       <div class='controls'>
         <!-- Vai do 1 ao 6-->
         <td>
-          <%= @dados.sentimento_esgotado %>
+          <%= sentimento_to_s @dados.sentimento_esgotado %>
         </td>
       </div>
     </div>
@@ -403,7 +419,7 @@
       <div class='controls'>
         <!-- Vai do 6 ao 1-->
         <td>
-          <%= @dados.sentimento_feliz %>
+          <%= sentimento_to_s @dados.sentimento_feliz, true %>
         </td>
       </div>
     </div>
@@ -416,7 +432,7 @@
       <div class='controls'>
         <!-- Vai do 1 ao 6-->
         <td>
-          <%= @dados.sentimento_cansado %>
+          <%= sentimento_to_s @dados.sentimento_cansado %>
         </td>
       </div>
     </div>
@@ -424,8 +440,10 @@
   </tbody>
 </table>
 
+<h2 class="h2_show"></h2>
+
 <div class="control-group">
-  <p>10) Durante as últimas 4 semanas, quanto do seu tempo a sua saúde física ou problemas emocionais interferiram com as suas atividades sociais (como visitar amigos, parentes, etc.)?</p>
+  <b>10) Durante as últimas 4 semanas, quanto do seu tempo a sua saúde física ou problemas emocionais interferiram com as suas atividades sociais (como visitar amigos, parentes, etc.)?</b>
   <div class='controls'>
     <p>
       <%= social_visita_to_s @dados.social_visita %>
@@ -433,7 +451,9 @@
   </div>
 </div>
 
-<p>11) O quanto verdadeiro ou falso é cada uma das afirmações para você?</p>
+<h2 class="h2_show"></h2>
+
+<b>11) O quanto verdadeiro ou falso é cada uma das afirmações para você?</b>
 
 <table class="table table-striped">
   <thead>
@@ -450,7 +470,7 @@
       </td>
       <div class='controls'>
         <td>
-          <%= @dados.adoece_facilmente %>
+          <%= adoece_facilmente_to_s @dados.adoece_facilmente %>
         </td>
       </div>
     </div>
@@ -462,7 +482,7 @@
       </td>
       <div class='controls'>
         <td>
-          <%= @dados.saudavel %>
+          <%= adoece_facilmente_to_s @dados.saudavel, true %>
         </td>
       </div>
     </div>
@@ -474,7 +494,7 @@
       </td>
       <div class='controls'>
         <td>
-          <%= @dados.saude_vai_piorar %>
+          <%= adoece_facilmente_to_s @dados.saude_vai_piorar %>
         </td>
       </div>
     </div>
@@ -486,7 +506,7 @@
       </td>
       <div class='controls'>
         <td>
-          <%= @dados.saude_excelente %>
+          <%= adoece_facilmente_to_s @dados.saude_excelente, true %>
         </td>
       </div>
     </div>

@@ -1,8 +1,25 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<h2>Data do registro: <%= @laudo.data_formatada %></h2>
 
-<%= "show.html" %>
+<%= render :partial => "voluntarios/detalhes_voluntario" %>
 
-<%= render "show_sf36" %>
+<div class="alert alert-dismissable alert-info">
+  <h2><%= @laudo.tipo_to_s %></h2>
+  <%= render_dados(@laudo.tipo) if @dados %>
+
+  <% if @laudo.usuario %>
+    <h2 class="h2_show">Médico responsável:</h2>
+    <p style="margin-left: 20px">
+      <b><%=  @laudo.usuario.nome%></b>
+    </p>
+  <% end %>
+
+  <h2 class="h2_show">Imagem do laudo</h2>
+  <div>
+    <%= image_tag @laudo.imagem.url, :style => "display: block;
+    margin-left: auto;
+    margin-right: auto"  %>
+  </div>
+
+</div>
+
+<%= link_to 'Voltar', :back, :class => 'btn btn-danger' %>
