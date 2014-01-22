@@ -1,0 +1,49 @@
+<h2>Data do registro: <%=@evento_adverso.data_formatada%></h2>
+<% @voluntario = @evento_adverso.voluntario %>
+
+<%= render :partial => "voluntarios/detalhes_voluntario" %>
+
+<div class='control-group'>
+  <h2 class="h2_show">Tipos de eventos adversos:</h2>
+  <div class="controls">
+    <p>
+      <b>Qualquer sinal desfavorável e não intencional (incluindo um achado laboratorial anormal):</b>
+    </p>
+    <p style="margin-left: 20px"><%= leve_moderado_intenso? @evento_adverso.sinal_desfavoravel %></p>
+
+    <p>
+      <b>Sintoma ou doença temporariamente associada ao uso da medicação do estudo, relacionados ou não a ela:</b>
+    </p>
+    <p style="margin-left: 20px"><%= leve_moderado_intenso? @evento_adverso.sintoma_temporario %></p>
+
+    <p>
+      <b>Procedimento cirúrgico realizado durante o estudo:</b>
+    </p>
+    <p style="margin-left: 20px"><%= leve_moderado_intenso? @evento_adverso.procedimento_cirurgico %></p>
+
+    <p>
+      <b>Valores laboratoriais fora do valor de referência, clinicamente relevantes, excluindo os exames da seleção:</b>
+    </p>
+    <p style="margin-left: 20px"><%= leve_moderado_intenso? @evento_adverso.valores_fora_da_referencia %></p>
+
+    <p>
+      <b>Valores laboratoriais alterados em relação aos exames prévios:</b>
+    </p>
+    <p style="margin-left: 20px"><%= leve_moderado_intenso? @evento_adverso.valores_alterados %></p>
+
+    <p>
+      <b>Achados físicos pré-existentes (incluindo a medição de sinais vitais), que pioram e que são clinicamente relevantes:</b>
+    </p>
+    <p style="margin-left: 20px"><%= leve_moderado_intenso? @evento_adverso.achados_fisicos %></p>
+
+    <p>
+      <b>Outros achados e observações:</b>
+    </p>
+    <p style="margin-left: 20px"><%= leve_moderado_intenso? @evento_adverso.observacoes %></p>
+
+  </div>
+  <h2 class="h2_show">Médico responsável:</h2>
+  <p style="margin-left: 20px">
+    <b><%=  @evento_adverso.usuario.nome%></b>
+  </p>
+</div>

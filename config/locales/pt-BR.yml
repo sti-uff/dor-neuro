@@ -234,7 +234,6 @@ pt-BR:
         inclusao_diagnostico_hanseniase: "Diagnóstico de hanseníase segundo os critérios clínicos da OMS?"
         inclusao_duracao_sintomas: "Duração dos sintomas maior ou igual a 1 mês e menor ou igual a cinco anos?"
         inclusao_duracao_dor: "A dor tem duração maior ou igual a 1 mês e menor ou igual a cinco anos?"
-        inclusao_virgem_tratamento: "Paciente virgem de tratamento específico para dor neuropática e/ou imunossupressores?"
         inclusao_assinou_tcle: "Assinou TCLE?"
         exclusao_gravidez_amamentacao: "Gravidez/amamentação e lactação?"
         exclusao_deficit_cognitivo: "Déficit cognitivo de moderado a grave aferido pelo Mini Exame do Estado Mental?"

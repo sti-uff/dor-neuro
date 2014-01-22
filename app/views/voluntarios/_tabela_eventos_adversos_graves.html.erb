@@ -15,7 +15,7 @@
       <tbody>
         <% @eventos_adversos_graves.each do |evento| %>
           <tr>
-            <td><%= evento.data_formatada %></td>
+            <td><%= link_to evento.data_formatada, show_evento_adverso_grave_path(evento) %></td>
             <td><%= evento.obito ? 'Sim' : 'Não'%></td>
             <td><%= evento.ameaca_vida ? 'Sim' : 'Não' %></td>
             <td><%= evento.invalidez ? 'Sim' : 'Não'%></td>

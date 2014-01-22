@@ -1,0 +1,92 @@
+<h1>Revisar critérios I/E de seleção</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% if @criterio %>
+    <p>
+      <b>Data da aplicação do critério de I/E:</b>
+      <%= @criterio.data_formatada %>
+    </p>
+
+    <p>
+      <b>Médico responsável:</b>
+      <%= @criterio.usuario_id ? @criterio.usuario.nome : '' %>
+    </p>
+
+    <h2>Critérios de inclusão</h2>
+    <p>
+      <b>Idade entre 18 e 65 anos (inclusive):</b>
+      <%= @criterio.inclusao_idade ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Diagnóstico de hanseníase segundo os critérios clínicos da OMS:</b>
+      <%= @criterio.inclusao_diagnostico_hanseniase ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Duração dos sintomas maior ou igual a 1 mês e menor ou igual a cinco anos:</b>
+      <%= @criterio.inclusao_duracao_sintomas ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>A dor tem duração maior ou igual a 1 mês e menor ou igual a cinco anos:</b>
+      <%= @criterio.inclusao_duracao_dor ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Assinou TCLE:</b>
+      <%= @criterio.inclusao_assinou_tcle ? 'Sim' : 'Não' %>
+    </p>
+
+    <h2>Critérios de exclusão</h2>
+    <p>
+      <b>Gravidez/amamentação e lactação:</b>
+      <%= @criterio.exclusao_gravidez_amamentacao ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Déficit cognitivo de moderado a grave aferido pelo Mini Exame do Estado Mental:</b>
+      <%= @criterio.exclusao_deficit_cognitivo ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Incapacidade para pontuar a intensidade de dor (déficits visual ou auditivo):</b>
+      <%= @criterio.exclusao_incapaz_pontuar_dor ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Portador de neoplasias malignas:</b>
+      <%= @criterio.exclusao_neoplasia_maligna ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Paciente é imunodeficiente:</b>
+      <%= @criterio.exclusao_imunodeficiente ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Disfunção renal ou hepática já reconhecida:</b>
+      <%= @criterio.exclusao_disfuncao_renal_hepatica ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Uso de medicações que possam interferir na avaliação:</b>
+      <%= @criterio.exclusao_medicacoes ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Outras causas de neuropatia periférica:</b>
+      <%= @criterio.exclusao_neuropatia_periferica ? 'Sim' : 'Não' %>
+    </p>
+
+    <p>
+      <b>Voluntária em idade fértil sem uso de medidas anticoncepcionais eficazes:</b>
+      <%= @criterio.exclusao_idade_fertil_sem_anticoncepcionais ? 'Sim' : 'Não' %>
+    </p>
+
+<% else %>
+    <p>Os critérios I/E de seleção deste voluntário não foram aplicados.</p>
+<% end %>
+
+<%= link_to 'Voltar', :back, :class => 'btn' %>

@@ -74,6 +74,65 @@ form fieldset h2{
   margin-top: 10px;
 }
 
+.h2_show{
+  border-bottom: 2px dotted #CCC;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
 .btn_choose{
   margin-top: 20px;
+}
+
+.upload_field{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.div_icones_interno {
+	margin: 50px 0px 50px 0px;
+	display:block;
+	height: 100px;
+}
+
+.div_icones {
+	margin: 50px 0px 50px 0px;
+	display:block;
+	height: 100px;
+}
+
+.icones_principal {
+	list-style-type: none;
+	margin-left: 100px;
+}
+
+.item_icone {
+	float:left;
+	margin: 0px 50px 0px 0px;
+	text-align: center;
+}
+
+.rodape {
+	border-top: 2px dashed #eee;
+	padding: 20px;
+	margin: 50px 0px 100px 0px;
+	text-align: center;
+}
+
+
+.glyphicon-question-sign {
+	margin-top: 20px;
+	background-color: #7099bc;
+	color: white;
+}
+
+.msg_tabela_vazia {
+	text-align: center;
+	background-color: #ffe;
+	padding: 10px;
+}
+
+.form-actions {
+	margin: 20px;
+	padding: 20px;
 }

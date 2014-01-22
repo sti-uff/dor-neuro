@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010122808) do
+ActiveRecord::Schema.define(:version => 20140121162653) do
 
   create_table "cargos", :force => true do |t|
     t.string   "nome"
@@ -197,7 +197,6 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.boolean  "inclusao_diagnostico_hanseniase"
     t.boolean  "inclusao_duracao_sintomas"
     t.boolean  "inclusao_duracao_dor"
-    t.boolean  "inclusao_virgem_tratamento"
     t.boolean  "inclusao_assinou_tcle"
     t.boolean  "exclusao_gravidez_amamentacao"
     t.boolean  "exclusao_deficit_cognitivo"

@@ -1,11 +1,20 @@
+# encoding: utf-8
 class EventoAdverso < ActiveRecord::Base
   belongs_to :voluntario
   belongs_to :usuario
   
   attr_accessor :data_formatada
+
+  LEVE = 0
+  MODERADO = 1
+  SEVERO = 2
   
   def data_formatada
-    self.data.strftime("%d/%m/%Y") if self.data
+    if self.data
+      self.data.strftime("%d/%m/%Y")
+    else
+      nil
+    end
   end
   
   def data_formatada=(data)

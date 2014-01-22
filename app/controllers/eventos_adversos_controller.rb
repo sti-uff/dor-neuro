@@ -1,5 +1,15 @@
 # encoding: utf-8
 class EventosAdversosController < ApplicationController
+
+  def show
+    @evento_adverso = EventoAdverso.find params[:id]
+  end
+
+  def show_evento_adverso_grave
+    @evento_adverso_grave = EventoAdversoGrave.find params[:id]
+  end
+
+
   
   def evento_adverso
     @evento_adverso = EventoAdverso.new

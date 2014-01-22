@@ -10,22 +10,35 @@
 <br/>
   <%= form_for @superdose, :url => salvar_superdose_path do |f| %>
     <div class='control-group'>
-      
+
+      <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :observacoes, nil, :class => 'control-label' %>
-      <%= f.text_area :observacoes, :rows => '4' %>
-      
+      <%= f.text_area :observacoes, :rows => '4', "data-validate" => "validate(required)" %>
+      </div>
+
+      <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :data_formatada, nil, :class => 'control-label' %>
-      <%= f.text_field :data_formatada, :class => '_data_calendario' %>
-      
+      <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required)" %>
+      </div>
+
+      <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :usuario_id, nil, :class => 'control-label' %>
       <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
-      
+      </div>
+
       <%= hidden_field_tag 'superdose[voluntario_id]', session[:voluntario] %>
     </div>
 
     <div class='form-actions'>
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Voltar', eventos_adversos_menu_path, :class => 'btn' %>
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Voltar', eventos_adversos_menu_path, :class => 'btn btn-danger' %>
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+        $('#new_superdose').ketchup();
+  })
+</script>
+

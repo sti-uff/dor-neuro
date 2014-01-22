@@ -1,0 +1,114 @@
+<%  @dados_dn4 = DadosDn4.find_by_laudo_id @laudo.id  %>
+
+<fieldset>
+
+  <h2 class="h2_show">Questionário do doente</h2>
+
+  <div class="row">
+
+    <div class="span5">
+
+      <p>1) A dor apresenta uma, ou mais, das características seguintes?</p>
+
+      <div class="control-group">
+        <label>1 - Queimadura</label>
+        <div class='controls'>
+          <%= @dados_dn4.queimadura ? "Sim" : "Não" %>
+        </div>
+      </div>
+
+      <!-- <div class="clear"></div> -->
+
+      <div class="control-group">
+        <label>2 - Sensação de frio doloroso</label>
+        <div class='controls'>
+          <%= @dados_dn4.frio_doloroso ? "Sim" : "Não" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>3 - Choques elétricos</label>
+        <div class='controls'>
+          <%= @dados_dn4.choques_eletricos ? "Sim" : "Não" %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="span5">
+
+      <p>2) Na mesma região da dor, sente também um ou mais dos seguintes sintomas?</p>
+
+      <div class="control-group">
+        <label>4 - Formigueiro</label>
+        <div class='controls'>
+          <%= @dados_dn4.formigueiro ? "Sim" : "Não" %>
+        </div>
+      </div>
+
+      <!-- <div class="clear"></div> -->
+
+      <div class="control-group">
+        <label>5 - Picadas</label>
+        <div class='controls'>
+          <%= @dados_dn4.picadas ? "Sim" : "Não" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>6 - Dormência</label>
+        <div class='controls'>
+          <%= @dados_dn4.dormencia ? "Sim" : "Não" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>7 - Comichão</label>
+        <div class='controls'>
+          <%= @dados_dn4.comichao ? "Sim" : "Não" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <h2 class="h2_show">Exame do doente</h2>
+
+  <div class="row">
+    <div class="span5">
+
+      <p>3) A dor está localizada numa zona onde o exame físico evidencia:</p>
+
+      <div class="control-group">
+        <label>8 - Hipoestesia ao tato</label>
+        <div class='controls'>
+          <%= @dados_dn4.hipoestesia_tato ? "Sim" : "Não" %>
+        </div>
+
+        <div class="control-group">
+          <label>9 - Hipoestesia à picada</label>
+          <div class='controls'>
+            <%= @dados_dn4.hipoestesia_picada ? "Sim" : "Não" %>
+          </div>
+        </div>
+      </div>
+
+      </div><!--end span5-->
+
+      <div class="span5">
+
+        <p>4) A dor é provocada ou aumentada por:</p>
+
+        <div class="control-group">
+          <label>10 - Fricção leve ("brushing")</label>
+          <div class='controls'>
+            <%= @dados_dn4.friccao_leve ? "Sim" : "Não" %>
+          </div>
+        </div>
+
+      </div><!--end span5-->
+
+    </div><!--end row-->
+
+    <h2></h2>
+</fieldset>
