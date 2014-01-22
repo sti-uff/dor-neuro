@@ -3,6 +3,7 @@
 <% @voluntario = @laudo.visita.voluntario %>
 
 <%= render :partial => "voluntarios/detalhes_voluntario" %>
+
 <div class="alert alert-dismissable alert-info">
   <h2><%= @laudo.tipo_to_s %></h2>
   <%if @laudo.tipo == Laudo::TIPO_BIOPSIA %>
@@ -14,6 +15,22 @@
   <%elsif @laudo.tipo == Laudo::TIPO_RX_TORAX %>
     <%= render :partial => "show_dados_rx_torax" %>
   <% end %>
+
+
+  <% if @laudo.usuario %>
+    <h2 class="h2_show">Médico responsável:</h2>
+    <p style="margin-left: 20px">
+      <b><%=  @laudo.usuario.nome%></b>
+    </p>
+  <% end %>
+
+  <h2 class="h2_show">Imagem do laudo</h2>
+  <div>
+    <%= image_tag @laudo.imagem.url, :style => "display: block;
+    margin-left: auto;
+    margin-right: auto"  %>
+  </div>
+
 </div>
 
 <%= link_to 'Voltar', :back, :class => 'btn btn-danger' %>

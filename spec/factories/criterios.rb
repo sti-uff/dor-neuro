@@ -6,7 +6,6 @@ FactoryGirl.define do
     inclusao_diagnostico_hanseniase false
     inclusao_duracao_sintomas false
     inclusao_duracao_dor false
-    inclusao_virgem_tratamento false
     inclusao_assinou_tcle false
     exclusao_gravidez_amamentacao false
     exclusao_deficit_cognitivo false

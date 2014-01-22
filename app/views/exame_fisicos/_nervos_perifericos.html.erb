@@ -1,0 +1,17 @@
+<% if @exame_complemento %>
+  <div class="panel-body" id="nervos_perifericos">
+
+    <p>
+      <b>Espessamento de nervo?:</b>
+      <%= @exame_complemento.espessamento_nervo ? "Sim" : "Não" %>
+    </p>
+
+    <p>
+      <b>Nervo espessado:</b>
+      <%= @exame_complemento.nervo_espessado %>
+    </p>
+
+  </div>
+<% else %>
+  <p>Os exames complementares deste voluntário não foram aplicados.</p>
+<% end %>

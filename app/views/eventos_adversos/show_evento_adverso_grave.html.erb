@@ -1,0 +1,45 @@
+<h2>Data do registro: <%=@evento_adverso_grave.data_formatada%></h2>
+<% @voluntario = @evento_adverso_grave.voluntario %>
+
+<%= render :partial => "voluntarios/detalhes_voluntario" %>
+
+<div class='control-group'>
+  <h2 class="h2_show">Evento adverso grave:</h2>
+  <div class="controls">
+
+    <p>
+      <%= check_box_tag('',  '' , @evento_adverso_grave.obito, disabled: true) %> Óbito
+    </p>
+
+    <p>
+      <%= check_box_tag('',  '' , @evento_adverso_grave.ameaca_vida, disabled: true) %> Ameaça a vida
+    </p>
+
+    <p>
+      <%= check_box_tag('',  '' , @evento_adverso_grave.invalidez, disabled: true) %> Invalidez/incapacidade significativa ou persistente
+    </p>
+
+    <p>
+      <%= check_box_tag('',  '' , @evento_adverso_grave.anomalia_congenita, disabled: true) %> Anomalia congênita/defeito de nascimento
+    </p>
+
+    <p>
+      <%= check_box_tag('',  '' , @evento_adverso_grave.hospitalizacao, disabled: true) %> Hospitalização ou prolongação de hospitalização
+    </p>
+
+    <p style="margin-top: 20px">
+      <b>Observações:</b>
+    </p>
+
+    <p style="margin-left: 20px">
+      <%= @evento_adverso_grave.observacoes %>
+    </p>
+
+  </div>
+
+  <h2 class="h2_show">Médico responsável:</h2>
+  <p style="margin-left: 20px">
+    <b><%=  @evento_adverso_grave.usuario.nome%></b>
+  </p>
+  
+</div>
