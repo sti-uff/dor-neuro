@@ -1,26 +1,23 @@
-<%  @dados_biopsia = DadosBiopsia.find_by_laudo_id @laudo.id  %>
-
-
 <h2 class ="h2_show">Cortes parafina</h2>
 
 <p>
   <b>Presença de células inflamatórias:</b>
-  <%= leve_moderada_intensa? @dados_biopsia.celulas_inflamatorias %>
+  <%= leve_moderada_intensa? @dados.celulas_inflamatorias %>
 </p>
 
 <p>
   <b>Presença de vasculite, microvasculite, ou sinais indiretos (angiogênese, trombose):</b>
-  <%=  leve_moderada_intensa? @dados_biopsia.vasculite %>
+  <%=  leve_moderada_intensa? @dados.vasculite %>
 </p>
 
 <p>
   <b>Fibrose:</b>
-  <%= leve_moderada_intensa? @dados_biopsia.fibrose %>
+  <%= leve_moderada_intensa? @dados.fibrose %>
 </p>
 
 <p>
   <b>Presença de bacilos:</b>
-  <%= leve_moderada_intensa?  @dados_biopsia.bacilos %>
+  <%= leve_moderada_intensa?  @dados.bacilos %>
 </p>
 
 
@@ -28,22 +25,22 @@
 
 <p>
   <b>Perda de fibras:</b>
-  <%= leve_moderada_intensa? @dados_biopsia.perda_fibras %>
+  <%= leve_moderada_intensa? @dados.perda_fibras %>
 </p>
 
 <p>
   <b>Degeneração axonal:</b>
-  <%= leve_moderada_intensa? @dados_biopsia.degeneracao_axonal %>
+  <%= leve_moderada_intensa? @dados.degeneracao_axonal %>
 </p>
 
 <p>
   <b>Regeneração axonal:</b>
-  <%= leve_moderada_intensa? @dados_biopsia.regeneracao_axonal %>
+  <%= leve_moderada_intensa? @dados.regeneracao_axonal %>
 </p>
 
 <p>
   <b>Desmielinização ativa:</b>
-  <%= leve_moderada_intensa?  @dados_biopsia.desmielinizacao_ativa %>
+  <%= leve_moderada_intensa?  @dados.desmielinizacao_ativa %>
 </p>
 
 
