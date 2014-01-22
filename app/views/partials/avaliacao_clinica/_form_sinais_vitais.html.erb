@@ -8,15 +8,21 @@
       <h2><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</h2>
 
       <ul>
-      <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <%= hidden_field_tag 'avaliacao_clinica[usuario_id]', session[:usuario] %>
-  
+
+  <%= f.label :data_sinais_vitais_formatada, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :data_sinais_vitais_formatada, :class => '_data_calendario' %>
+  </div>
+  <br/>
+
   <div class="control-group">
     <%= f.label :pressao, 'PA', :class => 'control-label' %>
     <div class="controls">
@@ -61,10 +67,6 @@
         <%= f.text_field :altura %>
         <span class='add-on'>m</span>
       </div>
-    </div>
-    <%= f.label :data_sinais_vitais_formatada, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :data_sinais_vitais_formatada, :class => '_data_calendario' %>
     </div>
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-success' %>

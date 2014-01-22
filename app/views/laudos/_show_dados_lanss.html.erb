@@ -1,5 +1,3 @@
-<%  @dados_lanss = DadosLanss.find_by_laudo_id @laudo.id  %>
-
 <fieldset>
 
   <div class="row">
@@ -9,7 +7,7 @@
       <div class="control-group">
         <p><b>1) A sua dor se parece com uma sensação estranha e desagradável na pele? Palavras do tipo "agulhadas", "choques elétricos" e "formigamento" são as que melhor descrevem estas sensações.</b></p>
         <div class='controls'>
-          <%= resposta1  @dados_lanss.dor_desagradavel %>
+          <%= resposta1  @dados.dor_desagradavel %>
         </div>
       </div>
 
@@ -18,7 +16,7 @@
       <div class="control-group">
         <p><b>2) A sua dor faz com que a cor da pele dolorida mude de cor? Palavras do tipo "manchada" ou "avermelhada ou rosada" descrevem a aparência da sua pele.</b></p>
         <div class='controls'>
-          <%= resposta2 @dados_lanss.pele_manchada %>
+          <%= resposta2 @dados.pele_manchada %>
         </div>
       </div>
 
@@ -27,7 +25,7 @@
       <div class="control-group">
         <p><b>3) A sua dor faz com que a pele afetada fique sensível ao toque? A ocorrência de sensações desagradáveis e/ou dolorosas ao toque leve ou mesmo ao toque da roupa ao vestir-se descrevem esta sensibilidade anormal.</b></p>
         <div class='controls'>
-          <%= resposta3 @dados_lanss.pele_sensivel %>
+          <%= resposta3 @dados.pele_sensivel %>
         </div>
       </div>
 
@@ -36,7 +34,7 @@
       <div class="control-group">
         <p><b>4) A sua dor inicia de repente, sem nenhuma razão aparente, quando você está parado? Palavras tipo "choques elétricos", "dor em pontada" ou "dor explosiva" descrevem estas sensações.</b></p>
         <div class='controls'>
-          <%= resposta4 @dados_lanss.dor_repentina %>
+          <%= resposta4 @dados.dor_repentina %>
         </div>
       </div>
 
@@ -45,7 +43,7 @@
       <div class="control-group">
         <p><b>5) A sua dor faz com que a temperatura da sua pele na área dolorida mude? Palavras tipo "calor" e "queimação" descrevem estas sensações?</b></p>
         <div class='controls'>
-          <%= resposta5 @dados_lanss.pele_queimacao %>
+          <%= resposta5 @dados.pele_queimacao %>
         </div>
       </div>
 
@@ -54,7 +52,7 @@
       <div class="control-group">
         <p><b>6) ALODINIA: Examine a resposta ao toque leve com algodão sobre a área não-dolorida e, a seguir, na área dolorida. Caso sensações normais forem percebidas na área afetada, então a alodinia está presente.</b></p>
         <div class='controls'>
-          <%= resposta6 @dados_lanss.alodinia %>
+          <%= resposta6 @dados.alodinia %>
         </div>
       </div>
 
@@ -63,7 +61,7 @@
       <div class="control-group">
         <p><b>7) ALTERAÇÃO DO LIMIAR POR ESTÍMULO DE AGULHA</b></p>
         <div class='controls'>
-          <%= resposta7 @dados_lanss.alteracao_limiar %>
+          <%= resposta7 @dados.alteracao_limiar %>
         </div>
       </div>
 

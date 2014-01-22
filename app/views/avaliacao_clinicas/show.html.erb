@@ -1,0 +1,27 @@
+<h1>Revisar Avaliacão Clinica - <%=@avaliacao_clinica.avaliavel.voluntario.nome%> </h1>
+
+<ul class="nav nav-tabs" style="margin: 30px 0px 15px 0px;">
+  <li class="active"><a href="#sinais_vitais" data-toggle="tab">Sinais Vitais</a></li>
+  <li class=""><a href="#anamnese" data-toggle="tab">Anamnese</a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+
+  <div class="tab-pane fade active in" id="sinais_vitais">
+    <%= render :partial => "sinais_vitais.html" %>
+  </div>
+
+  <div class="tab-pane fade" id="anamnese">
+    <%= render :partial => "anamnese" %>
+  </div>
+
+</div>
+
+<h2 class="h2_show">
+  Exame Físico
+</h2>
+
+<%= render :partial => "exame_fisicos/show_partial.html" %>
+
+
+<%= link_to 'Voltar', :back, :class => 'btn btn-danger' %>
