@@ -46,4 +46,10 @@
   <%= leve_moderada_intensa?  @dados_biopsia.desmielinizacao_ativa %>
 </p>
 
+<h2 class="h2_show">Imagem do laudo</h2>
+
+<div>
+  <%= image_tag @dados_biopsia.laudo.imagem.url %>
+</div>
+
 

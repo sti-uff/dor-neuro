@@ -4,6 +4,10 @@ class EventoAdverso < ActiveRecord::Base
   belongs_to :usuario
   
   attr_accessor :data_formatada
+
+  LEVE = 0
+  MODERADO = 1
+  SEVERO = 2
   
   def data_formatada
     if self.data

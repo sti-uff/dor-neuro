@@ -1,0 +1,24 @@
+<%  @dados_rx_torax = DadosRxTorax.find_by_laudo_id @laudo.id  %>
+
+
+<div class="row">
+
+  <div class="span9">
+
+    <div class="control-group">
+      <p><b>Laudo:</b></p>
+      <div class='controls'>
+        <%= @dados_rx_torax.descricao %>
+      </div>
+    </div>
+
+  </div>
+
+
+</div><!--end row-->
+
+<h2 class="h2_show">Imagem do laudo</h2>
+
+<div>
+  <%= image_tag @dados_rx_torax.laudo.imagem.url %>
+</div>

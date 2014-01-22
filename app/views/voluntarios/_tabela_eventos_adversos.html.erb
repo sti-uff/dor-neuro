@@ -10,7 +10,7 @@
       <tbody>
         <% @eventos_adversos.each do |evento| %>
           <tr>
-            <td><%= evento.data_formatada %></td>
+            <td><%= link_to evento.data_formatada, eventos_adverso_path(evento) %></td>
             <td><%= evento.usuario.nome %></td>
           </tr>
         <% end %>

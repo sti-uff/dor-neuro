@@ -271,6 +271,8 @@ Dorneuro::Application.routes.draw do
   end
 
   resources :laudos, :only => :show
+
+  resources :eventos_adversos, :only => :show
   
   get '/pre_selecao' => "application#pre_selecao"
   get '/agenda_menu' => "application#agenda_menu"
