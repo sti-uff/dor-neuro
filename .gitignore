@@ -8,4 +8,3 @@
 .rvmrc
 /vendor/bundle
 .DS_Store
-config/database.yml
