@@ -16,7 +16,7 @@ module ApplicationHelper
 
   def exibir_dado_com_metrica(dado,metrica)
     if dado
-      (dado+metrica).html_safe
+      ("#{dado}#{metrica}").html_safe
     else
       nil
     end

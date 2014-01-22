@@ -1,0 +1,106 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title toggle" data-target="detalhes">Exibir Detalhes <span class="plus_minus">[+]</span></h3>
+  </div>
+
+
+  <div class="panel-body" id="detalhes">
+    <% if @exame_fisico %>
+      <p>
+        <b>Ectoscopia:</b>
+        <%= @exame_fisico.ectoscopia %>
+      </p>
+      <p>
+        <b>Exame cardiovascular:</b>
+        <%= @exame_fisico.exame_cardiovascular %>
+      </p>
+      <p>
+        <b>Exame respiratório:</b>
+        <%= @exame_fisico.exame_respiratorio %>
+      </p>
+      <p>
+        <b>Exame do abdome:</b>
+        <%= @exame_fisico.exame_abdome %>
+      </p>
+      <p>
+        <b>Exame da marcha:</b>
+        <%= @exame_fisico.exame_marcha %>
+      </p>
+      <p>
+        <b>Estática:</b>
+        <%= @exame_fisico.estatica %>
+      </p>
+      <p>
+        <b>Nervos cranianos:</b>
+        <%= @exame_fisico.nervos_cranianos %>
+      </p>
+      <p>
+        <b>Sensibilidade superficial:</b>
+        <%= @exame_fisico.sensibilidade_superficial %>
+      </p>
+
+    <% else %>
+      <p>Os critérios I/E de seleção deste voluntário não foram aplicados.</p>
+    <% end %>
+  </div>
+</div>
+
+<ul class="nav nav-tabs" style="margin: 30px 0px 15px 0px;">
+  <li class="active"><a href="#exame_forca" data-toggle="tab">Exame da força</a></li>
+  <li class=""><a href="#reflexos" data-toggle="tab">Reflexos</a></li>
+  <li class=""><a href="#esfincteres" data-toggle="tab">Esfíncteres</a></li>
+  <li class=""><a href="#coordenacao" data-toggle="tab">Coordenação</a></li>
+  <li class=""><a href="#tonus_muscular" data-toggle="tab">Tônus muscular</a></li>
+  <li class=""><a href="#nervos_perifericos" data-toggle="tab">Nervos periféricos</a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+
+  <div class="tab-pane fade active in" id="exame_forca">
+    <%= render :partial => "exame_fisicos/tabela_exame_forca" %>
+  </div>
+
+  <div class="tab-pane fade" id="reflexos">
+    <%= render :partial => "exame_fisicos/reflexos" %>
+  </div>
+
+
+  <div class="tab-pane fade" id="esfincteres">
+    <%= render :partial => "exame_fisicos/esfincteres" %>
+  </div>
+
+  <div class="tab-pane fade" id="coordenacao">
+    <%= render :partial => "exame_fisicos/coordenacao" %>
+  </div>
+
+  <div class="tab-pane fade" id="tonus_muscular">
+    <%= render :partial => "exame_fisicos/tonus_muscular" %>
+  </div>
+
+  <div class="tab-pane fade" id="nervos_perifericos">
+    <%= render :partial => "exame_fisicos/nervos_perifericos" %>
+  </div>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".toggle").each(function () {
+      $('#' + $(this).attr('data-target')).hide();
+    });
+
+    $(".toggle").click(function () {
+      var _el = $('#' + $(this).attr('data-target'));
+      if (_el.is(':visible')) {
+        $(this).find(".plus_minus").html("[+]")
+      } else {
+        $(this).find(".plus_minus").html("[-]")
+      }
+      _el.toggle(500);
+    });
+  });
+
+</script>
