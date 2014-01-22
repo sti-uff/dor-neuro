@@ -1,0 +1,500 @@
+<% content_for(:head) do %>
+    <%= javascript_include_tag 'sf36' %>
+<% end %>
+
+<fieldset>
+
+<div class="row">
+
+<div class="span9">
+
+<div class="control-group">
+  <p>1) Em geral, você diria que sua saúde é:</p>
+  <div class='controls'>
+    <p><%= saude_to_s @dados.saude %></p>
+  </div>
+</div>
+
+<div class="control-group">
+  <p>2) Comparada a um ano atrás, como você classificaria sua saúde em geral, agora?</p>
+  <div class='controls'>
+    <p>
+      <%= comparacao_saude_to_s @dados.comparacao_saude %>
+    </p>
+  </div>
+</div>
+
+<p>3) Os seguintes itens são sobre atividades que você poderia fazer atualmente durante um dia comum. Devido à sua saúde, você tem dificuldade para fazer essas atividades? Neste caso, quanto?</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Atividades</th>
+    <th>Resposta</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>a) Atividades vigorosas, que exigem muito esforço, tais como correr, levantar objetos pesados, participar em esportes árduos</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_vigorosas %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>b) Atividades moderadas, tais como mover uma mesa, passar aspirador de pó, jogar bola, varrer a casa</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_moderadas %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>c) Levantar ou carregar mantimentos</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_carregar_mantimentos %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>d) Subir vários lances de escada</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_varios_lances_escada %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>e) Subir um lance de escada</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_um_lance_escada %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>f) Curvar-se, ajoelhar-se ou dobrar-se</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_ajoelhar %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>g) Andar mais de 1 quilômetro</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_andar_mais_de_1_km %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>h) Andar vários quarteirões</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_varios_quarteiroes %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>i) Andar um quarteirão</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_um_quarteirao %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>j) Tomar banho ou vestir-se</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= atividades_to_s @dados.atividades_banho %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  </tbody>
+</table>
+
+<p>4) Durante as últimas 4 semanas, você teve algum dos seguintes problemas no seu trabalho ou com alguma atividade regular, como consequência de sua saúde física?</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>a) Você diminuiu a quantidade de tempo que se dedicava ao seu trabalho ou a outras atividades?</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= sim_nao @dados.fisico_menos_tempo_trabalho %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>b) Realizou menos tarefas do que você gostaria?</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= sim_nao @dados.fisico_menos_tarefas %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>c) Esteve limitado no seu tipo de trabalho ou a outras atividades?</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= sim_nao @dados.fisico_limitado %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>d) Teve dificuldade de executar seu trabalho ou outras atividades (p. ex. necessitou de um esforço extra)?</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= sim_nao @dados.fisico_dificuldade %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  </tbody>
+</table>
+
+<p>5) Durante as últimas 4 semanas, você teve algum dos seguintes problemas com seu trabalho ou outra atividade regular diária, como consequência de algum problema emocional (como sentir-se deprimido ou ansioso)?</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>a) Você diminuiu a quantidade de tempo que se dedicava ao seu trabalho ou a outras atividades?</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= sim_nao @dados.emocional_menos_tempo_trabalho %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>b) Realizou menos tarefas do que você gostaria?</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= sim_nao @dados.emocional_menos_tarefas %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>c) Não realizou ou fez qualquer das atividades com tanto cuidado como geralmente faz.</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= sim_nao @dados.emocional_nao_realizou_tarefas %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  </tbody>
+</table>
+
+<div class="control-group">
+  <p>6) Durante as últimas 4 semanas, de que maneira sua saúde física ou problemas emocionais interferiram nas suas atividades sociais normais, em relação à família, amigos ou em grupo?</p>
+  <div class='controls'>
+    <p>
+      <%= social_atividade_to_s @dados.social_atividade %>
+    </p>
+  </div>
+</div>
+
+<div class="control-group">
+  <p>7) Quanta dor no corpo você teve durante as últimas 4 semanas?</p>
+  <div class='controls'>
+    <p>
+      <%= dor_to_s @dados.dor %>
+    </p>
+  </div>
+</div>
+
+<div class="control-group">
+  <p>8) Durante as últimas 4 semanas, quanto a dor interferiu com seu trabalho normal (incluindo o trabalho dentro de casa)?</p>
+  <div class='controls'>
+    <p>
+      <%= social_atividade_to_s @dados.interferencia_dor %>
+    </p>
+  </div>
+</div>
+
+<p>9) Estas questões são sobre como você se sente e como tudo tem acontecido com você durante as últimas 4 semanas. Para cada questão, por favor dê uma resposta que mais se aproxime da maneira como você se sente. Em relação às últimas 4 semanas.</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Resposta</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>a) Quanto tempo você tem se sentido cheio de vigor, cheio de vontade, cheio de força?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 6 ao 1-->
+        <td>
+          <%= @dados.sentimento_vigor %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>b) Quanto tempo você tem se sentido uma pessoa muito nervosa?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 1 ao 6-->
+        <td>
+          <%= @dados.sentimento_nervoso %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>c) Quanto tempo você tem se sentido tão deprimido que nada pode animá-lo?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 1 ao 6-->
+        <td>
+          <%= @dados.sentimento_deprimido %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>d) Quanto tempo você tem se sentido calmo ou tranquilo?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 6 ao 1-->
+        <td>
+          <%= @dados.sentimento_calmo %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>e) Quanto tempo você tem se sentido com muita energia?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 6 ao 1-->
+        <td>
+          <%= @dados.sentimento_energico %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>f) Quanto tempo você tem se sentido desanimado e abatido?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 1 ao 6-->
+        <td>
+          <%= @dados.sentimento_abatido %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>g) Quanto tempo você tem se sentido esgotado?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 1 ao 6-->
+        <td>
+          <%= @dados.sentimento_esgotado %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>h) Quanto tempo você tem se sentido uma pessoa feliz?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 6 ao 1-->
+        <td>
+          <%= @dados.sentimento_feliz %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>i) Quanto tempo você tem se sentido cansado?</label>
+      </td>
+      <div class='controls'>
+        <!-- Vai do 1 ao 6-->
+        <td>
+          <%= @dados.sentimento_cansado %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  </tbody>
+</table>
+
+<div class="control-group">
+  <p>10) Durante as últimas 4 semanas, quanto do seu tempo a sua saúde física ou problemas emocionais interferiram com as suas atividades sociais (como visitar amigos, parentes, etc.)?</p>
+  <div class='controls'>
+    <p>
+      <%= social_visita_to_s @dados.social_visita %>
+    </p>
+  </div>
+</div>
+
+<p>11) O quanto verdadeiro ou falso é cada uma das afirmações para você?</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Resposta</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>a) Eu costumo adoecer um pouco mais facilmente que as outras pessoas</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= @dados.adoece_facilmente %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>b) Eu sou tão saudável quanto qualquer pessoa que eu conheço</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= @dados.saudavel %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>c) Eu acho que a minha saúde vai piorar</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= @dados.saude_vai_piorar %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  <tr>
+    <div class="control-group">
+      <td>
+        <label>d) Minha saúde é excelente</label>
+      </td>
+      <div class='controls'>
+        <td>
+          <%= @dados.saude_excelente %>
+        </td>
+      </div>
+    </div>
+  </tr>
+  </tbody>
+</table>
+
+</div><!--end span4-->
+
+</div><!--end row-->
+</fieldset>

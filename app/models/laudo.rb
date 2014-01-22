@@ -90,5 +90,22 @@ class Laudo < ActiveRecord::Base
       "Raio-X Torax"
     end
   end
+
+  def dados
+    case tipo
+      when TIPO_BIOPSIA
+        return dados_biopsia
+      when TIPO_DN4
+        return dados_dn4
+      when TIPO_LANSS
+        return dados_lanss
+      when TIPO_SF36
+        return dados_sf36
+      when TIPO_RX_TORAX
+        return dados_rx_torax
+      else
+        nil
+    end
+  end
   
 end
