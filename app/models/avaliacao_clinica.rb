@@ -12,7 +12,7 @@ class AvaliacaoClinica < ActiveRecord::Base
   end
   
   def data_sinais_vitais_formatada=(data)
-    self.data_sinais_vitais = "#{data[3..4]}/#{data[0..1]}/#{data[6..9]}"
+    self.data_sinais_vitais = data
   end
   
   def data_anamnese_formatada
@@ -20,6 +20,6 @@ class AvaliacaoClinica < ActiveRecord::Base
   end
   
   def data_anamnese_formatada=(data)
-    self.data_anamnese = "#{data[3..4]}/#{data[0..1]}/#{data[6..9]}"
+    self.data_anamnese = data
   end
 end

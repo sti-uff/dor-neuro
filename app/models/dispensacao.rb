@@ -6,10 +6,14 @@ class Dispensacao < ActiveRecord::Base
   attr_accessor :data_formatada
   
   def data_formatada
-    self.data.strftime("%d/%m/%Y") if self.data
+    if self.data
+      self.data.strftime("%d/%m/%Y")
+    else
+      nil
+    end
   end
   
   def data_formatada=(data)
-    self.data = "#{data[3..4]}/#{data[0..1]}/#{data[6..9]}"
+    self.data = data
   end
 end

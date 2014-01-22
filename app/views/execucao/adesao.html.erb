@@ -6,6 +6,7 @@
 
 <%= render 'partials/escolher_voluntario_visita', :usuario => false %>
 
+<br/>
 <% if !session[:voluntario].blank? && (session[:numero] && (session[:numero].to_i > 1 && session[:numero].to_i < 8)) %>
   <%= form_for @adesao, :url => execucao_salvar_adesao_path do |f| %>
     <div class='control-group'>
@@ -22,8 +23,8 @@
     </div>
     
     <div class='form-actions'>
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Voltar', execucao_path, :class => 'btn' %>
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Voltar', execucao_path, :class => 'btn btn-danger' %>
     </div>
   <% end %>
 <% end %>

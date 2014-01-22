@@ -1,0 +1,22 @@
+<div>
+  <% unless @gravidezes.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data do registro</th>
+          <th>Médico responsável</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @gravidezes.each do |gravidez| %>
+          <tr>
+            <td><%= gravidez.data_formatada %></td>
+            <td><%= gravidez.usuario.nome %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="alert alert-dismissable alert-warning">Nenhuma gravidez registrada.</p>
+  <% end %>
+</div>

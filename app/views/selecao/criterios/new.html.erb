@@ -4,6 +4,19 @@
 
 <h1>Aplicar critérios de inclusão e exclusão</h1>
 
+  <% if @voluntario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voluntario.errors.count, "erro impediu") %> este voluntário de ser salvo:</h2>
+
+      <ul>
+      <% @voluntario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
@@ -11,18 +24,18 @@
   
     <div class='control-group'>
       <%#= hidden_field_tag 'criterio[voluntario_id]', session[:voluntario] %>
-      <%= f.fields_for :criterios, @voluntario.criterios.last, :criterio do |c| %>
+      <%= f.fields_for :criterios, @voluntario.criterios.last do |c| %>
         <%= render 'partials/form_criterio', :f => c, :usuario => @voluntario.criterios.last.usuario_id %>
       <% end %>
     
-      <%= f.fields_for :inclusoes, @voluntario.inclusoes.last, :inclusao do |i| %>
+      <%= f.fields_for :inclusoes, @voluntario.inclusoes.last do |i| %>
         <%= render 'partials/form_inclusao', :f => i, :motivo => 'Critérios I/E' %>
       <% end %>
     </div>
     
     <div class='form-actions'>
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Voltar', selecao_menu_path, :class => 'btn' %>
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Voltar', selecao_menu_path, :class => 'btn btn-danger' %>
     </div>
   <% end %>
 <% end %>

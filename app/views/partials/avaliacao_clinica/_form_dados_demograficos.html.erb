@@ -33,7 +33,7 @@
         <div class="control-group">
           <%= f.label :data_nascimento_formatada, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :data_nascimento_formatada, :class => '_data_nascimento' %>
+            <%= f.text_field :data_nascimento, :class => '_data_nascimento' %>
           </div>
         </div>
         
@@ -136,7 +136,7 @@
         <div class="control-group">
           <%= f.label :data_entrevista_formatada, nil, :class => 'control-label' %>
           <div class="controls">
-          <%= f.text_field :data_entrevista_formatada, :class => '_data_calendario' %>
+          <%= f.text_field :data_entrevista, :class => '_data_calendario' %>
           </div>
         </div>
   
@@ -150,7 +150,7 @@
   <% end %>
   
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+    <%= f.submit nil, :class => 'btn btn-success' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>

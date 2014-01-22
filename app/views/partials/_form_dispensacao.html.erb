@@ -8,9 +8,9 @@
       <h2><%= pluralize(@dispensacao.errors.count, "erro impediu") %> esta dispensação de ser salva:</h2>
 
       <ul>
-      <% @dispensacao.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @dispensacao.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -31,12 +31,13 @@
         <%= f.label :medicamento_2, 'amitriptilina' %>
       </div>
     </div>
+    <div class="control-group" style="padding-bottom:12px">
+      <%= f.label :posologia, :class => 'control-label' %>
+      <%= f.text_area :posologia, :rows => 4 %>
 
-    <%= f.label :posologia, :class => 'control-label' %>
-    <%= f.text_area :posologia, :rows => 4 %>
-
-    <%= f.label :quantidade, :class => 'control-label' %>
-    <%= f.text_area :quantidade, :rows => 4 %>
+      <%= f.label :quantidade, :class => 'control-label' %>
+      <%= f.text_area :quantidade, :rows => 4 %>
+    </div>
 
     <%= f.label :data_formatada, :class => 'control-label' %>
     <%= f.text_field :data_formatada, :class => '_data_calendario' %>
@@ -45,7 +46,7 @@
     <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
   </div>
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+    <%= f.submit nil, :class => 'btn btn-success' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>

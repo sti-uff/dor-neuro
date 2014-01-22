@@ -16,7 +16,19 @@ class Voluntario < ActiveRecord::Base
   accepts_nested_attributes_for :criterios
   accepts_nested_attributes_for :inclusoes
   
-  attr_accessor :data_nascimento_formatada, :data_entrevista_formatada
+  #attr_accessor :data_nascimento
+
+  validates :nome,            :presence => true
+  validates :data_nascimento, :presence => true
+  validates :profissao,       :presence => true
+  validates :sexo,            :presence => true
+  validates :telefone,        :presence => true
+  validates :celular,         :presence => true
+  validates :estado_civil,    :presence => true
+  validates :nacionalidade,   :presence => true
+  validates :naturalidade,    :presence => true
+  validates :centro,          :presence => true
+  validates :prontuario,      :presence => true
   
   SEXO_MASC = 0
   SEXO_FEM = 1
@@ -57,19 +69,4 @@ class Voluntario < ActiveRecord::Base
     end
   end
   
-  def data_nascimento_formatada
-    self.data_nascimento.strftime("%d/%m/%Y") if self.data_nascimento
-  end
-  
-  def data_nascimento_formatada=(data)
-    self.data_nascimento = "#{data[3..4]}/#{data[0..1]}/#{data[6..9]}"
-  end
-  
-  def data_entrevista_formatada
-    self.data_entrevista.strftime("%d/%m/%Y") if self.data_entrevista
-  end
-  
-  def data_entrevista_formatada=(data)
-    self.data_entrevista = "#{data[3..4]}/#{data[0..1]}/#{data[6..9]}"
-  end
 end

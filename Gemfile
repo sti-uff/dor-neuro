@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -10,7 +10,7 @@ gem 'mysql2', '0.3.11'
 # gem 'mysql', '2.8.1'
 gem 'devise', '1.5.3'
 gem 'schema_plus', '0.4.1'
-gem 'paperclip', '~> 2.0' #'3.1.1'
+gem 'paperclip', '3.5.2'
 gem 'whenever', '0.6.8', :require => false
 gem "httparty", "0.6.1"
 # gem 'sqlite3'
@@ -29,10 +29,12 @@ end
 group :development, :test do
   gem "factory_girl_rails", '1.1.0' #, "3.4.0"
   gem 'rspec-rails', '2.10.1'
+  gem 'awesome_print'
+  gem 'pry'
 end
 
 group :development do
-  gem 'rails-erd', '0.4.5'
+  gem 'rails-erd'
 end
 
 group :test do

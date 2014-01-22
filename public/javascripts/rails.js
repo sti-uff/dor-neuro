@@ -45,7 +45,7 @@
 
   if (!submitBubbles) {
     // discover forms on the page by observing focus events which always bubble
-    document.on('focusin', 'form', function(focusEvent, form) {
+    $(document).on('focusin', 'form', function(focusEvent, form) {
       // special handler for the real "submit" event (one-time operation)
       if (!form.retrieve('emulated:submit')) {
         form.on('submit', function(submitEvent) {
@@ -60,7 +60,7 @@
 
   if (!changeBubbles) {
     // discover form inputs on the page
-    document.on('focusin', 'input, select, texarea', function(focusEvent, input) {
+      $(document).on('focusin', 'input, select, texarea', function(focusEvent, input) {
       // special handler for real "change" events
       if (!input.retrieve('emulated:change')) {
         input.on('change', function(changeEvent) {
@@ -125,24 +125,24 @@
   }
 
 
-  document.on("click", "*[data-confirm]", function(event, element) {
+    $(document).on("click", "*[data-confirm]", function(event, element) {
     var message = element.readAttribute('data-confirm');
     if (!confirm(message)) event.stop();
   });
 
-  document.on("click", "a[data-remote]", function(event, element) {
+    $(document).on("click", "a[data-remote]", function(event, element) {
     if (event.stopped) return;
     handleRemote(element);
     event.stop();
   });
 
-  document.on("click", "a[data-method]", function(event, element) {
+    $(document).on("click", "a[data-method]", function(event, element) {
     if (event.stopped) return;
     handleMethod(element);
     event.stop();
   });
 
-  document.on("submit", function(event) {
+    $(document).on("submit", function(event) {
     var element = event.findElement(),
         message = element.readAttribute('data-confirm');
     if (message && !confirm(message)) {
@@ -164,7 +164,7 @@
     }
   });
 
-  document.on("ajax:after", "form", function(event, element) {
+    $(document).on("ajax:after", "form", function(event, element) {
     var inputs = element.select("input[type=submit][disabled=true][data-disable-with]");
     inputs.each(function(input) {
       input.value = input.readAttribute('data-original-value');

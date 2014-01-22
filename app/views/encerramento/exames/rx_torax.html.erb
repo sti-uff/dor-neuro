@@ -6,7 +6,7 @@
 
 <% unless session[:voluntario].blank? %>
   <%= form_for @laudo, :url => encerramento_salvar_rx_torax_path, :html => { :multipart => true } do |f| %>
-    
+    <br/>
     <%= f.fields_for :dados_rx_torax do |dados| %>
       <%= render 'partials/laudos/form_rx_torax', :f => dados %>
     <% end %>
@@ -19,8 +19,8 @@
     </div>
     
     <div class='form-actions'>
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Voltar', encerramento_exames_path, :class => 'btn' %>
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Voltar', encerramento_exames_path, :class => 'btn btn-danger' %>
     </div>
   <% end %>
 <% end %>

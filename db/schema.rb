@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010122808) do
+ActiveRecord::Schema.define(:version => 20140121162653) do
 
   create_table "cargos", :force => true do |t|
     t.string   "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.index ["nome"], :name => "index_cargos_on_nome", :unique => true
   end
 
@@ -26,14 +27,14 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.string   "ramal"
     t.string   "responsavel"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "profissoes", :force => true do |t|
     t.string   "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.index ["nome"], :name => "index_profissoes_on_nome", :unique => true
   end
 
@@ -54,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.integer  "centro_id"
     t.integer  "cargo_id"
     t.integer  "profissao_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
     t.index ["email"], :name => "index_usuarios_on_email", :unique => true
     t.index ["reset_password_token"], :name => "index_usuarios_on_reset_password_token", :unique => true
     t.index ["centro_id"], :name => "index_usuarios_on_centro_id"
@@ -69,8 +70,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
   create_table "ufs", :force => true do |t|
     t.string   "nome"
     t.string   "sigla"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "voluntarios", :force => true do |t|
@@ -87,8 +88,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.integer  "centro_id"
     t.integer  "naturalidade"
     t.date     "data_entrevista"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.index ["centro_id"], :name => "index_voluntarios_on_centro_id"
     t.index ["naturalidade"], :name => "index_voluntarios_on_naturalidade"
     t.foreign_key ["centro_id"], "centros", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "voluntarios_ibfk_1"
@@ -98,8 +99,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
   create_table "visitas", :force => true do |t|
     t.integer  "voluntario_id"
     t.integer  "numero"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.index ["voluntario_id"], :name => "index_visitas_on_voluntario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "visitas_ibfk_1"
   end
@@ -109,8 +110,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.date     "data"
     t.integer  "visita_id"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.index ["visita_id"], :name => "index_adesoes_on_visita_id"
     t.index ["usuario_id"], :name => "index_adesoes_on_usuario_id"
     t.foreign_key ["visita_id"], "visitas", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "adesoes_ibfk_1"
@@ -125,8 +126,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.integer  "dispensavel_id"
     t.string   "dispensavel_type"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.index ["usuario_id"], :name => "index_dispensacoes_on_usuario_id"
     t.foreign_key ["usuario_id"], "usuarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "dispensacoes_ibfk_1"
   end
@@ -136,8 +137,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.integer  "status",         :default => 0
     t.string   "texto"
     t.integer  "dispensacao_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.index ["dispensacao_id"], :name => "index_agendamentos_sms_on_dispensacao_id"
     t.foreign_key ["dispensacao_id"], "dispensacoes", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "agendamentos_sms_ibfk_1"
   end
@@ -146,8 +147,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.date     "data"
     t.integer  "tipo"
     t.integer  "voluntario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.index ["voluntario_id"], :name => "index_agendas_on_voluntario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "agendas_ibfk_1"
   end
@@ -155,8 +156,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
   create_table "alocacoes", :force => true do |t|
     t.integer  "grupo"
     t.integer  "voluntario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.index ["voluntario_id"], :name => "index_alocacoes_on_voluntario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "alocacoes_ibfk_1"
   end
@@ -185,8 +186,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.integer  "usuario_id"
     t.date     "data_sinais_vitais"
     t.date     "data_anamnese"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.index ["usuario_id"], :name => "index_avaliacao_clinicas_on_usuario_id"
     t.foreign_key ["usuario_id"], "usuarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "avaliacao_clinicas_ibfk_1"
   end
@@ -196,7 +197,6 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.boolean  "inclusao_diagnostico_hanseniase"
     t.boolean  "inclusao_duracao_sintomas"
     t.boolean  "inclusao_duracao_dor"
-    t.boolean  "inclusao_virgem_tratamento"
     t.boolean  "inclusao_assinou_tcle"
     t.boolean  "exclusao_gravidez_amamentacao"
     t.boolean  "exclusao_deficit_cognitivo"
@@ -210,8 +210,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.date     "data"
     t.integer  "voluntario_id"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
     t.index ["voluntario_id"], :name => "index_criterios_on_voluntario_id"
     t.index ["usuario_id"], :name => "index_criterios_on_usuario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "criterios_ibfk_1"
@@ -219,18 +219,18 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
   end
 
   create_table "laudos", :force => true do |t|
-    t.datetime "imagem_updated_at"
     t.string   "imagem_file_name"
-    t.integer  "imagem_file_size"
     t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
     t.date     "data"
     t.integer  "escore"
     t.boolean  "bool"
     t.integer  "tipo"
     t.integer  "visita_id"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.index ["visita_id"], :name => "index_laudos_on_visita_id"
     t.index ["usuario_id"], :name => "index_laudos_on_usuario_id"
     t.foreign_key ["visita_id"], "visitas", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "laudos_ibfk_1"
@@ -247,8 +247,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.integer  "regeneracao_axonal"
     t.integer  "desmielinizacao_ativa"
     t.integer  "laudo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.index ["laudo_id"], :name => "index_dados_biopsia_on_laudo_id"
     t.foreign_key ["laudo_id"], "laudos", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "dados_biopsia_ibfk_1"
   end
@@ -265,8 +265,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.boolean  "hipoestesia_picada"
     t.boolean  "friccao_leve"
     t.integer  "laudo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.index ["laudo_id"], :name => "index_dados_dn4_on_laudo_id"
     t.foreign_key ["laudo_id"], "laudos", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "dados_dn4_ibfk_1"
   end
@@ -280,8 +280,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.boolean  "alodinia"
     t.boolean  "alteracao_limiar"
     t.integer  "laudo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.index ["laudo_id"], :name => "index_dados_lanss_on_laudo_id"
     t.foreign_key ["laudo_id"], "laudos", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "dados_lanss_ibfk_1"
   end
@@ -289,8 +289,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
   create_table "dados_rx_torax", :force => true do |t|
     t.integer  "laudo_id"
     t.text     "descricao"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.index ["laudo_id"], :name => "index_dados_rx_torax_on_laudo_id"
     t.foreign_key ["laudo_id"], "laudos", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "dados_rx_torax_ibfk_1"
   end
@@ -333,8 +333,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.integer  "saudavel"
     t.integer  "saude_vai_piorar"
     t.integer  "saude_excelente"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.index ["laudo_id"], :name => "index_dados_sf36_on_laudo_id"
     t.foreign_key ["laudo_id"], "laudos", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "dados_sf36_ibfk_1"
   end
@@ -342,8 +342,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
   create_table "municipios", :force => true do |t|
     t.string   "nome"
     t.integer  "uf_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.index ["uf_id"], :name => "index_municipios_on_uf_id"
     t.foreign_key ["uf_id"], "ufs", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "municipios_ibfk_1"
   end
@@ -356,8 +356,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.integer  "municipio_id"
     t.integer  "enderecavel_id"
     t.string   "enderecavel_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.index ["municipio_id"], :name => "index_enderecos_on_municipio_id"
     t.foreign_key ["municipio_id"], "municipios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "enderecos_ibfk_1"
   end
@@ -372,8 +372,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.date     "data"
     t.integer  "voluntario_id"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.index ["voluntario_id"], :name => "index_evento_adverso_graves_on_voluntario_id"
     t.index ["usuario_id"], :name => "index_evento_adverso_graves_on_usuario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "evento_adverso_graves_ibfk_1"
@@ -397,8 +397,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.date     "data"
     t.integer  "voluntario_id"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.index ["voluntario_id"], :name => "index_evento_adversos_on_voluntario_id"
     t.index ["usuario_id"], :name => "index_evento_adversos_on_usuario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "evento_adversos_ibfk_1"
@@ -416,8 +416,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.text     "sensibilidade_superficial"
     t.date     "data"
     t.integer  "avaliacao_clinica_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.index ["avaliacao_clinica_id"], :name => "index_exame_fisicos_on_avaliacao_clinica_id"
     t.foreign_key ["avaliacao_clinica_id"], "avaliacao_clinicas", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "exame_fisicos_ibfk_1"
   end
@@ -458,8 +458,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.boolean  "espessamento_nervo"
     t.text     "nervo_espessado"
     t.integer  "exame_fisico_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.index ["exame_fisico_id"], :name => "index_exame_complementos_on_exame_fisico_id"
     t.foreign_key ["exame_fisico_id"], "exame_fisicos", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "exame_complementos_ibfk_1"
   end
@@ -468,8 +468,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.date     "data"
     t.integer  "voluntario_id"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.index ["voluntario_id"], :name => "index_gravidezes_on_voluntario_id"
     t.index ["usuario_id"], :name => "index_gravidezes_on_usuario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "gravidezes_ibfk_1"
@@ -481,8 +481,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.string   "motivo"
     t.integer  "voluntario_id"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.index ["voluntario_id"], :name => "index_inclusoes_on_voluntario_id"
     t.index ["usuario_id"], :name => "index_inclusoes_on_usuario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "inclusoes_ibfk_1"
@@ -494,8 +494,8 @@ ActiveRecord::Schema.define(:version => 20121010122808) do
     t.date     "data"
     t.integer  "voluntario_id"
     t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.index ["voluntario_id"], :name => "index_superdoses_on_voluntario_id"
     t.index ["usuario_id"], :name => "index_superdoses_on_usuario_id"
     t.foreign_key ["voluntario_id"], "voluntarios", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "superdoses_ibfk_1"

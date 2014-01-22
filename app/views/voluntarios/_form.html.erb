@@ -33,7 +33,7 @@
         <div class="control-group">
           <%= f.label :data_nascimento_formatada, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :data_nascimento_formatada, :class => '_data_nascimento' %>
+            <%= f.text_field :data_nascimento, :class => '_data_nascimento', "data-validate" => "validate(required,date) on(submit change)" %>
           </div>
         </div>
 
@@ -47,12 +47,12 @@
         <div class="control-group">
           <%= f.label :email, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :email %>
+            <%= f.text_field :email, "data-validate" => "validate(emailOpcional)" %>
           </div>
         </div>
 
-        <div class="control-group">
-          <%= f.label :sexo, nil, :class => 'control-label' %>
+        <div class="control-group radio-group">
+          <%= f.label :sexo, nil, :class => 'control-label', :style => "margin-top:7px"     %>
           <div class="controls">
             <div class='radio inline'>
               <%= f.radio_button :sexo, 0 %>
@@ -97,8 +97,8 @@
           </div>
         </div>
 
-        <div class="control-group">
-          <%= f.label :estado_civil, nil, :class => 'control-label' %>
+        <div class="control-group radio-group">
+          <%= f.label :estado_civil, nil, :class => 'control-label', :style => "margin-top:20px" %>
           <div class="controls">
             <div class='radio inline'>
               <%= f.radio_button :estado_civil, 0 %>
@@ -142,19 +142,19 @@
     <%= render 'partials/form_endereco', :f => endereco %>
   <% end %>
 
-
-  <%= f.fields_for :criterios, @voluntario.criterios.first do |criterio| %>
-    <%= render 'partials/form_criterio', :f => criterio, :usuario => @voluntario.criterios.first.usuario_id %>
-  <% end %>
-
-  <%= f.fields_for :inclusoes, @voluntario.inclusoes.first do |inclusao| %>
-    <%= render 'partials/form_inclusao', :f => inclusao, :motivo => "Critérios I/E" %>
-  <% end %>
-  
-
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to 'Voltar', voltar, :class => 'btn' %>
+<br/>
+  <div class="well">
+    <%= f.submit nil, :class => 'btn btn btn-success' %>
+    <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('form[id$="voluntario"]').ketchup();
+    });
+
+
+
+
+</script>
