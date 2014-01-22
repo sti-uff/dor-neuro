@@ -14,6 +14,12 @@ jQuery.ketchup
     }
 })
 
+.validation('token_input', 'Este campo é obrigatório.', function(form, el, value) {
+    el.css('display','block').css('visibility','hidden');
+    el.attr('token_input', true);
+    return el.val() != '';
+})
+
 .validation('minlength', 'Campo deve possuir o mínimo de {arg1} caracteres.', function(form, el, value, min) {
   return (value.length >= +min);
 })
