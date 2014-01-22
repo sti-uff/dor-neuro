@@ -3,11 +3,10 @@
   <%= javascript_include_tag 'date_picker', 'jquery.meio.mask', 'mascaras', 'jquery.tokeninput', 'token_input' %>
 <% end %>
 
-<%= form_for(@voluntario) do |f| %>
+<%= form_for(@voluntario, :html => { :id => "form_voluntario" }) do |f| %>
   <% if @voluntario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@voluntario.errors.count, "erro impediu") %> este voluntário de ser salvo:</h2>
-
+    <div class="alert alert-dismissable alert-danger">
+      <strong><%= pluralize(@voluntario.errors.count, "erro impediu") %> este voluntário de ser salvo:</strong>
       <ul>
       <% @voluntario.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -26,28 +25,28 @@
         <div class="control-group">
           <%= f.label :nome, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :nome, :maxlength => 8, :class => '_iniciais' %>
+            <%= f.text_field :nome, :maxlength => 8, :class => '_iniciais', "data-validate" => "validate(required) on(blur change)" %>
           </div>
         </div>
 
         <div class="control-group">
           <%= f.label :data_nascimento_formatada, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :data_nascimento, :class => '_data_nascimento', "data-validate" => "validate(required,date) on(submit change)" %>
+            <%= f.text_field :data_nascimento, :class => '_data_nascimento', "data-validate" => "validate(required,date) on(blur change)" %>
           </div>
         </div>
 
         <div class="control-group">
           <%= f.label :profissao, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :profissao %>
+            <%= f.text_field :profissao, "data-validate" => "validate(required) on(blur change)" %>
           </div>
         </div>
 
         <div class="control-group">
           <%= f.label :email, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :email, "data-validate" => "validate(emailOpcional)" %>
+            <%= f.text_field :email, "data-validate" => "validate(emailOpcional) on(blur change)" %>
           </div>
         </div>
 
@@ -55,8 +54,8 @@
           <%= f.label :sexo, nil, :class => 'control-label', :style => "margin-top:7px"     %>
           <div class="controls">
             <div class='radio inline'>
-              <%= f.radio_button :sexo, 0 %>
-              <%= f.label :sexo_0, 'Masculino' %>
+              <%= f.radio_button :sexo, 0, :checked => true  %>
+              <%= f.label :sexo_0, 'Masculino'%>
             </div>
             <div class='radio inline'>
               <%= f.radio_button :sexo, 1 %>
@@ -86,7 +85,7 @@
         <div class="control-group">
           <%= f.label :telefone, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :telefone, :class => '_telefone' %>
+            <%= f.text_field :telefone, :class => '_telefone', "data-validate" => "validate(required) on(blur change)" %>
           </div>
         </div>
 
@@ -101,7 +100,7 @@
           <%= f.label :estado_civil, nil, :class => 'control-label', :style => "margin-top:20px" %>
           <div class="controls">
             <div class='radio inline'>
-              <%= f.radio_button :estado_civil, 0 %>
+              <%= f.radio_button :estado_civil, 0, :checked => true %>
               <%= f.label :estado_civil_0, 'Casado' %>
             </div>
             <div class='radio inline'>
@@ -129,7 +128,7 @@
         <div class="control-group">
           <%= f.label :prontuario, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :prontuario %>
+            <%= f.text_field :prontuario, "data-validate" => "validate(required) on(blur change)" %>
           </div>
         </div>
 
@@ -151,10 +150,6 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('form[id$="voluntario"]').ketchup();
+        $('#form_voluntario').ketchup();
     });
-
-
-
-
 </script>

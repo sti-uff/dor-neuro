@@ -166,6 +166,7 @@ Dorneuro::Application.routes.draw do
     post '/gravidez' => 'eventos_adversos#salvar_gravidez', :as => :salvar_gravidez
     get '/new' => 'eventos_adversos#evento_adverso', :as => :evento_adverso
     post '/new' => 'eventos_adversos#salvar_evento_adverso', :as => :salvar_evento_adverso
+    get '/show_evento_adverso_grave/:id' => 'eventos_adversos#show_evento_adverso_grave', :as => :show_evento_adverso_grave
   end
   
   scope "/selecao" do
