@@ -7,7 +7,7 @@ development:
   encoding: utf8
   database: dorneuro_dev
   username: root
-  password: 
+  password: tzzk7662
 
 test:
   adapter: mysql2

@@ -11,6 +11,8 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'alocacao', 'alocacoes'
   inflect.irregular 'dispensacao', 'dispensacoes'
   inflect.irregular 'adesao', 'adesoes'
+  inflect.irregular 'erro', 'erros'
+  inflect.irregular 'erro impediu', 'erros impediram'
   inflect.irregular 'impediu', 'impediram'
   inflect.irregular 'agendamento_sms', 'agendamentos_sms'
 #   inflect.plural /^(ox)$/i, '\1en'
