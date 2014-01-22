@@ -7,18 +7,18 @@ development:
   encoding: utf8
   database: dorneuro_dev
   username: root
-  password: 
+  password: tzzk7662
 
 test:
   adapter: mysql2
   encoding: utf8
   database: dorneuro_test
   username: root
-  password: 
+  password: tzzk7662
 
 production:
   adapter: mysql2
   encoding: utf8
   database: dorneuro_prod
   username: root
-  password: 
+  password: tzzk7662

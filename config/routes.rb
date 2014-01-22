@@ -263,6 +263,8 @@ Dorneuro::Application.routes.draw do
   resources :centros
 
   resources :criterios, :only => :show
+
+  resources :exame_fisicos, :only => :show
   
   resources :municipios do
     collection do

@@ -1,0 +1,248 @@
+<% if @exame_complemento %>
+  <h3>Membros superiores</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Ação</th>
+        <th>Músculo</th>
+        <th>Nervo</th>
+        <th>Grau de força (0 a 5)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Adução dos dedos</td>
+        <td>Interósseos</td>
+        <td>Ulnar</td>
+        <td>
+          <%= @exame_complemento.aducao_interosseos_ulnar %>
+        </td>
+      </tr>
+      <tr>
+        <td>Abdução dos dedos</td>
+        <td>Interósseos</td>
+        <td>Ulnar</td>
+        <td>
+          <%= @exame_complementoabducao_interosseos_ulnar %>
+        </td>
+      </tr>
+      <tr>
+        <td>Flexão da mão sobre o antebraço</td>
+        <td>Flexor ulnar do carpo</td>
+        <td>Ulnar</td>
+        <td>
+          <%= @exame_complemento.flexor_carpo_ulnar %>
+        </td>
+      </tr>
+      <tr>
+        <td>Oposição do polegar</td>
+        <td>Opositor do polegar</td>
+        <td>Mediano</td>
+        <td>
+          <%= @exame_complemento.opositor_polegar_mediano %>
+        </td>
+      </tr>
+      <tr>
+        <td>Abdução do polegar</td>
+        <td>Abdutor do polegar brevis</td>
+        <td>Mediano</td>
+        <td>
+          <%= @exame_complemento.abdutor_polegar_mediano %>
+        </td>
+      </tr>
+      <tr>
+        <td>Flexão do polegar</td>
+        <td>Flexor do polegar</td>
+        <td>Mediano</td>
+        <td>
+          <%= @exame_complemento.flexor_polegar_mediano %>
+        </td>
+      </tr>
+      <tr>
+        <td>Flexão dos dedos sobre a mão</td>
+        <td>Flexor digital profundo</td>
+        <td>Mediano</td>
+        <td>
+          <%= @exame_complemento.flexor_digital_mediano %>
+        </td>
+      </tr>
+      <tr>
+        <td>Pronação da mão</td>
+        <td>Pronador</td>
+        <td>Mediano</td>
+        <td>
+          <%= @exame_complemento.pronador_mediano %>
+        </td>
+      </tr>
+      <tr>
+        <td>Extensão do polegar</td>
+        <td>Extensor do polegar brevis</td>
+        <td>Interósseo posterior</td>
+        <td>
+          <%= @exame_complemento.extensor_polegar_interosseo_posterior %>
+        </td>
+      </tr>
+      <tr>
+        <td>Extensão dos dedos sobre o antebraço</td>
+        <td>Extensor digital</td>
+        <td>Interósseo posterior</td>
+        <td>
+          <%= @exame_complemento.extensor_digital_interosseo_posterior %>
+        </td>
+      </tr>
+      <tr>
+        <td>Supinação da mão</td>
+        <td>Supinador</td>
+        <td>Radial</td>
+        <td>
+          <%= @exame_complemento.supinador_radial %>
+        </td>
+      </tr>
+      <tr>
+        <td>Extensão do antebraço</td>
+        <td>Tríceps</td>
+        <td>Radial</td>
+        <td>
+          <%= @exame_complemento.triceps_radial %>
+        </td>
+      </tr>
+      <tr>
+        <td>Abdução do braço</td>
+        <td>Deltóide</td>
+        <td>Axilar</td>
+        <td>
+          <%= @exame_complemento.deltoide_axilar %>
+        </td>
+      </tr>
+      <tr>
+        <td>Flexão do braço</td>
+        <td>Bíceps</td>
+        <td>Musculocutâneo</td>
+        <td>
+          <%= @exame_complemento.biceps_musculocutaneo %>
+        </td>
+      </tr>
+      <tr>
+        <td>Adução do braço</td>
+        <td>Grande dorsal</td>
+        <td>Tóraco dorsal</td>
+        <td>
+          <%= @exame_complemento.grande_dorsal_toraco_dorsal %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Membros inferiores</h3> <!-- ################ INFERIORES ################ -->
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Ação</th>
+        <th>Músculo</th>
+        <th>Nervo</th>
+        <th>Grau de força (0 a 5)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dorsiflexão do hálux</td>
+        <td>Extensor longo do hálux</td>
+        <td>Fibular profundo</td>
+        <td>
+          <%= @exame_complemento.extensor_fibular_profundo %>
+        </td>
+      </tr>
+      <tr>
+        <td>Eversão do pé</td>
+        <td>Fibular longo e brevis</td>
+        <td>Fibular superficial</td>
+        <td>
+          <%= @exame_complemento.longo_fibular_superficial %>
+        </td>
+      </tr>
+      <tr>
+        <td>Dorsiflexão do pé</td>
+        <td>Tibial anterior</td>
+        <td>Fibular profundo</td>
+        <td>
+          <%= @exame_complemento.tibial_fibular_profundo %>
+        </td>
+      </tr>
+      <tr>
+        <td>Inversão do pé</td>
+        <td>Tibial posterior</td>
+        <td>Tibial</td>
+        <td>
+          <%= @exame_complemento.posterior_tibial %>
+        </td>
+      </tr>
+      <tr>
+        <td>Flexão dos dedos</td>
+        <td>Flexor digital longo</td>
+        <td>Tibial</td>
+        <td>
+          <%= @exame_complemento.flexor_digital_tibial %>
+        </td>
+      </tr>
+      <tr>
+        <td>Extensão do pé</td>
+        <td>Gastrocnêmio</td>
+        <td>Tibial</td>
+        <td>
+          <%= @exame_complemento.gastrocnemio_tibial %>
+        </td>
+      </tr>
+      <tr>
+        <td>Flexão da perna sobre a coxa</td>
+        <td>Bíceps da coxa</td>
+        <td>Ciático</td>
+        <td>
+          <%= @exame_complemento.biceps_coxa_ciatico %>
+        </td>
+      </tr>
+      <tr>
+        <td>Extensão da perna</td>
+        <td>Quadríceps</td>
+        <td>Femoral</td>
+        <td>
+          <%= @exame_complemento.quadriceps_femoral %>
+        </td>
+      </tr>
+      <tr>
+        <td>Flexão da coxa sobre o quadril</td>
+        <td>Iliopsoas</td>
+        <td>Interósseo posterior</td>
+        <td>
+          <%= @exame_complemento.iliopsoas_interosseo_posterior %>
+        </td>
+      </tr>
+      <tr>
+        <td>Adução da perna</td>
+        <td>Adutores</td>
+        <td>Femoral</td>
+        <td>
+          <%= @exame_complemento.adutores_femoral %>
+        </td>
+      </tr>
+      <tr>
+        <td>Abdução da perna</td>
+        <td>Glúteo médio e mínimo</td>
+        <td>Obturador</td>
+        <td>
+          <%= @exame_complemento.gluteos_obturador %>
+        </td>
+      </tr>
+      <tr>
+        <td>Extensão do antebraço</td>
+        <td>Tríceps</td>
+        <td>Glúteo superior</td>
+        <td>
+          <%= @exame_complemento.triceps_gluteo_superior %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<% else %>
+  <p>Os exames complementares deste voluntário não foram aplicados.</p>
+<% end %>

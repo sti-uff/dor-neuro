@@ -61,7 +61,7 @@ Centro.transaction do
       array = centro.split(/,/)
       unless Centro.find_by_id(linha)
         Centro.create(:id => linha, :nome => array[0].strip, :categoria => array[1].to_i,
-          :endereco => Endereco.new(:municipio_id => array[2].to_i))
+          :endereco => Endereco.new(:municipio_id => array[2].to_i, :logradouro => "-", :bairro => "-", :cep => "-"))
       end
       linha += 1
     end
@@ -69,7 +69,6 @@ Centro.transaction do
 end
 
 puts "Adicionando admin"
-
 Usuario.transaction do
   Usuario.create(:nome => "admin", :email => "admin@dorneuro.com", :password => '654321',
                 :cargo_id => 6, :centro_id => 1, :profissao_id => 1)

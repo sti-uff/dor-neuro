@@ -1,0 +1,12 @@
+<% if @exame_complemento %>
+  <div class="panel-body" id="tonus_muscular">
+
+    <p>
+      <b>Tônus muscular :</b>
+      <%= @exame_complemento.tonus_muscular %>
+    </p>
+
+  </div>
+<% else %>
+  <p>Os exames complementares deste voluntário não foram aplicados.</p>
+<% end %>

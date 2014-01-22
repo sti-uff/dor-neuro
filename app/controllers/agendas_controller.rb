@@ -62,7 +62,10 @@ class AgendasController < ApplicationController
         format.html { redirect_to(agendas_path, :notice => 'Agenda criada com sucesso.') }
         format.xml  { render :xml => @agenda, :status => :created, :location => @agenda }
       else
-        format.html { render :action => "new" }
+        format.html do
+          flash.now[:error] = "Erro ao agendar consulta"
+          render :action => "new"
+        end
         format.xml  { render :xml => @agenda.errors, :status => :unprocessable_entity }
       end
     end
@@ -78,7 +81,10 @@ class AgendasController < ApplicationController
         format.html { redirect_to(agendas_path, :notice => 'Agenda atualizada com sucesso.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html  do
+          flash.now[:error] = "Erro ao editar agendamento."
+          render :action => "edit"
+        end
         format.xml  { render :xml => @agenda.errors, :status => :unprocessable_entity }
       end
     end
