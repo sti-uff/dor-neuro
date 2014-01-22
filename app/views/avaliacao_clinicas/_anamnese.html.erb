@@ -1,5 +1,55 @@
 <% if @avaliacao_clinica %>
-  <div class="panel-body" id="tonus_muscular">
+  <div class="panel-body" id="anamnese">
+    <p>
+      <b>Data</b>
+      <%= @avaliacao_clinica.data_anamnese %>
+    </p>
+
+    <p>
+      <b>Queixa principal (QP):</b>
+      <%= @avaliacao_clinica.queixa_principal %>
+    </p>
+    <p>
+      <b>História da doença atual (HDA):</b>
+      <%= @avaliacao_clinica.historia_doenca_atual %>
+    </p>
+    <p>
+      <b>História médica pregressa (HPP):</b>
+      <%= @avaliacao_clinica.historia_medica_pregressa %>
+    </p>
+    <p>
+      <b>Histórico familiar/familial (HF):</b>
+      <%= @avaliacao_clinica.historico_familiar %>
+    </p>
+    <p>
+      <b>História pessoal e social:</b>
+      <%= @avaliacao_clinica.historia_pessoal_social %>
+    </p>
+    <p>
+      <b>Alergias:</b>
+      <%= @avaliacao_clinica.alergias %>
+    </p>
+    <p>
+      <b>Revisão de sistemas:</b>
+      <%= @avaliacao_clinica.revisao_sistemas %>
+    </p>
+
+    <p>
+      <b>tabagista:</b>
+      <%= exibir(@avaliacao_clinica.tabagista) %>
+    </p>
+    <p>
+      <b>Carga tabágica:</b>
+      <%= @avaliacao_clinica.carga_tabagica %>
+    </p>
+    <p>
+      <b>alcoolista</b>
+      <%= @avaliacao_clinica.alcoolista %>
+    </p>
+    <p>
+      <b>Quantidade</b>
+      <%= @avaliacao_clinica.quantidade_alcool %>
+    </p>
 
   </div>
 <% else %>

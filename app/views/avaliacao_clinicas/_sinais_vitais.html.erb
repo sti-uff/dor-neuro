@@ -1,5 +1,44 @@
 <% if @avaliacao_clinica %>
-  
+
+  <div class="panel-body" id="sinais_vitais">
+    
+    <p>
+      <b>Data:</b>
+      <%= @avaliacao_clinica.data_sinais_vitais %>
+    </p>
+
+    <p>
+      <b>PA:</b>
+      <%= exibir_pressao @avaliacao_clinica.pressao_sistolica, @avaliacao_clinica.pressao_diastolica %>
+    </p>
+
+    <p>
+      <b>Frequência Cardíaca:</b>
+      <%= exibir_dado_com_metrica @avaliacao_clinica.frequencia_cardiaca, "bpm" %>
+    </p>
+
+    <p>
+      <b>Frequência respiratória:</b>
+      <%= exibir_dado_com_metrica @avaliacao_clinica.frequencia_respiratoria, "ipm" %>
+    </p>
+
+    <p>
+      <b>Temperatura:</b>
+      <%= exibir_dado_com_metrica @avaliacao_clinica.temperatura, "ºC" %>
+    </p>
+
+    <p>
+      <b>Peso:</b>
+      <%= exibir_dado_com_metrica @avaliacao_clinica.peso, "Kg" %>
+    </p>
+
+    <p>
+      <b>Altura:</b>
+      <%= exibir_dado_com_metrica @avaliacao_clinica.altura, "m" %>
+    </p>
+
+  </div>
+
 <% else %>
   <p>Os exames complementares deste voluntário não foram aplicados.</p>
 <% end %>
