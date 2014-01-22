@@ -25,7 +25,7 @@ module ApplicationHelper
   def exibir_pressao(p_sist,p_diast)
 
     if p_sist and p_diast
-      p_sist + " x " + p_diast + " mmHg"
+      p_sist.to_s + " x " + p_diast.to_s + " mmHg"
     end
     
   end
