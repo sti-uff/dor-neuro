@@ -3,6 +3,10 @@
 # and open the template in the editor.
 %>
 
-<%#= render :partial => "show_dados_biopsia" %>
-
-<%= render :partial => "show_dados_dn4" %>
+<%if @laudo.tipo == Laudo::TIPO_BIOPSIA %>
+  <%= render :partial => "show_dados_biopsia" %>
+<%elsif @laudo.tipo == Laudo::TIPO_DN4 %>
+  <%= render :partial => "show_dados_dn4" %>
+<%elsif @laudo.tipo == Laudo::TIPO_LANSS %>
+  <%= render :partial => "show_dados_lanss" %>
+<% end %>
