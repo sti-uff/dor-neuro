@@ -26,6 +26,7 @@ class VoluntariosController < ApplicationController
     @gravidezes = @voluntario.gravidezes
     @superdoses = @voluntario.superdoses
     @eventos_adversos_graves = @voluntario.evento_adverso_graves
+    @avaliacoes_clinicas = AvaliacaoClinica.por_voluntario_id(@voluntario.id)
 
     respond_to do |format|
       format.html # show.html.erb
