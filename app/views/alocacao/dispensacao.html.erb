@@ -1,3 +1,16 @@
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li>
+			<%= link_to 'Alocação', alocacao_path %><span class="divider"></span>
+		</li>
+		<li class="active">Dispensação de medicamentos</li>
+	</ul>
+</div>
+
 <h1>Dispensação de medicamentos</h1>
 
 <%= render 'partials/escolher_voluntario_dispensacao', :execucao => false %>

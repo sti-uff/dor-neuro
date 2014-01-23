@@ -1,3 +1,17 @@
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li>
+			<%= link_to 'Alocação', alocacao_path %><span class="divider"></span>
+		</li>
+		<li class="active">Analisar Prontuários</li>
+		<li class="active">Verificar questionários</li>
+	</ul>
+</div>
+
 <h1>Verificar questionários</h1>
 
 <%= render 'partials/escolher_voluntario', :usuario => false %>
