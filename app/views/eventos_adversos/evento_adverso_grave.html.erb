@@ -2,6 +2,20 @@
   <%= javascript_include_tag 'date_picker' %>
 <% end %>
 
+<div class="breadcrumb">
+  <ul class="breadcrumb">
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Principal', root_path %><span class="divider"></span>
+    </li>
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Eventos adversos', eventos_adversos_menu_path %><span class="divider"></span>
+    </li>
+    <li class="active">Registrar eventos adversos graves</li>
+  </ul>
+</div>
+
 <h1>Registrar eventos adversos graves</h1>
 
 <%= render 'partials/escolher_voluntario', :usuario => false %>

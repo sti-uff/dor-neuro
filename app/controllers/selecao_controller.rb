@@ -117,7 +117,6 @@ class SelecaoController < ApplicationController
                :avaliavel_type => 'Visita', :usuario_id => session[:usuario])
       @avaliacao_clinica.build_exame_fisico
       @avaliacao_clinica.exame_fisico.build_exame_complemento
-      @avaliacao_clinica.save
     end
     respond_to do |format|
       format.html { render request.fullpath }
