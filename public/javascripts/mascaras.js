@@ -3,6 +3,11 @@ $(document).ready(function() {
 	$('._cep').setMask('cep');
     $('._telefone').setMask('phone');
     $('._celular').setMask('phone');
+    $('._inteiros').setMask('integer');
+    $('._decimais').setMask('decimal');
+    $('._pa_fc_fr_peso').setMask('pa_fc_fr_peso');
+    $('._altura').setMask('altura');
+    $('._temp').setMask('temp');
     //Adaptação para suportar estados com 9 digitos.
     $('._celular').keyup( function() {
         if (jQuery.inArray(parseInt($('._celular').val().substr(1,2)),ddds) == 0){

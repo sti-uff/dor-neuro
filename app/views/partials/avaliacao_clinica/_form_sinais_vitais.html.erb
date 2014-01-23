@@ -1,12 +1,11 @@
 <% content_for(:head) do %>
-  <%= javascript_include_tag 'date_picker' %>
+  <%= javascript_include_tag 'date_picker', 'jquery.meio.mask', 'mascaras' %>
 <% end %>
 
 <%= form_for @avaliacao_clinica, :url => url do |f| %>
   <% if @avaliacao_clinica.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</h2>
-
+    <div class="alert alert-dismissable alert-danger">
+      <strong><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> os sinais vitais de serem salvos:</strong>
       <ul>
         <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -19,7 +18,7 @@
 
   <%= f.label :data_sinais_vitais_formatada, :class => 'control-label' %>
   <div class="controls">
-    <%= f.text_field :data_sinais_vitais_formatada, :class => '_data_calendario' %>
+    <%= f.text_field :data_sinais_vitais_formatada, :class => '_data_calendario', "data-validate" => "validate(required, date) on(blur change)" %>
   </div>
   <br/>
 
@@ -27,44 +26,44 @@
     <%= f.label :pressao, 'PA', :class => 'control-label' %>
     <div class="controls">
       <div class='input-append'>
-        <%= f.text_field :pressao_sistolica %>
+        <%= f.text_field :pressao_sistolica, :class => "_pa_fc_fr_peso", "data-validate" => "validate(required) on(blur change)" %>
         x
-        <%= f.text_field :pressao_diastolica %>
+        <%= f.text_field :pressao_diastolica, :class => "_pa_fc_fr_peso", "data-validate" => "validate(required) on(blur change)" %>
         <span class='add-on'>mmHg</span>
       </div>
     </div>
     <%= f.label :frequencia_cardiaca, :class => 'control-label' %>
     <div class="controls">
       <div class='input-append'>
-        <%= f.text_field :frequencia_cardiaca %>
+        <%= f.text_field :frequencia_cardiaca, :class => "_pa_fc_fr_peso", "data-validate" => "validate(required) on(blur change)" %>
         <span class='add-on'>bpm</span>
       </div>
     </div>
     <%= f.label :frequencia_respiratoria, :class => 'control-label' %>
     <div class="controls">
       <div class='input-append'>
-        <%= f.text_field :frequencia_respiratoria %>
+        <%= f.text_field :frequencia_respiratoria, :class => "_pa_fc_fr_peso", "data-validate" => "validate(required) on(blur change)" %>
         <span class='add-on'>ipm</span>
       </div>
     </div>
     <%= f.label :temperatura, :class => 'control-label' %>
     <div class="controls">
       <div class='input-append'>
-        <%= f.text_field :temperatura %>
+        <%= f.text_field :temperatura, :class => "_temp", "data-validate" => "validate(required) on(blur change)" %>
         <span class='add-on'>ºC</span>
       </div>
     </div>
     <%= f.label :peso, :class => 'control-label' %>
     <div class="controls">
       <div class='input-append'>
-        <%= f.text_field :peso %>
+        <%= f.text_field :peso, :class => "_pa_fc_fr_peso", "data-validate" => "validate(required) on(blur change)" %>
         <span class='add-on'>Kg</span>
       </div>
     </div>
     <%= f.label :altura, :class => 'control-label' %>
     <div class="controls">
       <div class='input-append'>
-        <%= f.text_field :altura %>
+        <%= f.text_field :altura, :class => "_altura", "data-validate" => "validate(required) on(blur change)" %>
         <span class='add-on'>m</span>
       </div>
     </div>
@@ -74,3 +73,9 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $('#edit_avaliacao_clinica_<%=@avaliacao_clinica.id%>').ketchup();
+});
+</script>

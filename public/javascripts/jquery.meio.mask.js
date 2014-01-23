@@ -122,20 +122,23 @@
 			// and then if the 'attr' options value is 'alt', your input should look like:
 			// <input type="text" name="some_name" id="some_name" alt="msk" />
 			masks : {
-				'phone'				: { mask : '(99) 9999-9999' },
-                'phone9digitos'		: { mask : '(99) 99999-9999' },
-				'phone-us'			: { mask : '(999) 999-9999' },
-				'cpf'				: { mask : '999.999.999-99' }, // cadastro nacional de pessoa fisica
-				'cnpj'				: { mask : '99.999.999/9999-99' },
-				'date'				: { mask : '39/19/9999' }, //uk date
-				'date-us'			: { mask : '19/39/9999' },
-				'cep'				: { mask : '99999-999' },
-				'time'				: { mask : '29:59' },
-				'cc'				: { mask : '9999 9999 9999 9999' }, //credit card mask
-				'integer'			: { mask : '999.999.999.999', type : 'reverse' },				
-				'decimal'			: { mask : '99,999.999.999.999', type : 'reverse', defaultValue : '000' },
-				'decimal-us'		: { mask : '99.999,999,999,999', type : 'reverse', defaultValue : '000' },
-				'signed-decimal'	: { mask : '99,999.999.999.999', type : 'reverse', defaultValue : '+000' },
+				'phone'             : { mask : '(99) 9999-9999' },
+                                'phone9digitos'     : { mask : '(99) 99999-9999' },
+				'phone-us'          : { mask : '(999) 999-9999' },
+				'cpf'               : { mask : '999.999.999-99' }, // cadastro nacional de pessoa fisica
+				'cnpj'              : { mask : '99.999.999/9999-99' },
+				'date'              : { mask : '39/19/9999' }, //uk date
+				'date-us'           : { mask : '19/39/9999' },
+				'cep'               : { mask : '99999-999' },
+				'time'              : { mask : '29:59' },
+				'cc'                : { mask : '9999 9999 9999 9999' }, //credit card mask
+				'integer'           : { mask : '999.999.999.999', type : 'reverse'},
+				'pa_fc_fr_peso'     : { mask : '999'},
+				'decimal'           : { mask : '99,999.999.999.999' , type : 'reverse', defaultValue : '000' },
+				'altura'            : { mask : '9.99' },
+				'temp'              : { mask : '99.9' },
+				'decimal-us'        : { mask : '99.999,999,999,999', type : 'reverse', defaultValue : '000' },
+				'signed-decimal'    : { mask : '99,999.999.999.999', type : 'reverse', defaultValue : '+000' },
 				'signed-decimal-us' : { mask : '99,999.999.999.999', type : 'reverse', defaultValue : '+000' }
 			},
 			init : function(){

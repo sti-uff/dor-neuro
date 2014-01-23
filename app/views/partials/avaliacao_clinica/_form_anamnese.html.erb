@@ -1,11 +1,11 @@
 <% content_for(:head) do %>
-  <%= javascript_include_tag 'date_picker' %>
+  <%= javascript_include_tag 'date_picker', 'jquery.meio.mask', 'mascaras' %>
 <% end %>
 
 <%= form_for @avaliacao_clinica, :url => url do |f| %>
   <% if @avaliacao_clinica.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</h2>
+    <div class="alert alert-dismissable alert-danger">
+      <strong><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> a anamnese de ser salva:</strong>
 
       <ul>
       <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
@@ -23,21 +23,21 @@
       <div class="control-group">
         <%= f.label :queixa_principal, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_area :queixa_principal, :rows => 4 %>
+          <%= f.text_area :queixa_principal, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :historia_doenca_atual, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_area :historia_doenca_atual, :rows => 4 %>
+          <%= f.text_area :historia_doenca_atual, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
         </div>
       </div>
     
       <div class="control-group">
         <%= f.label :historia_medica_pregressa, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_area :historia_medica_pregressa, :rows => 4 %>
+          <%= f.text_area :historia_medica_pregressa, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
         </div>
       </div>
     
@@ -49,11 +49,11 @@
             <%= f.label :tabagista_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :tabagista, false %>
+            <%= f.radio_button :tabagista, false, :checked => true %>
             <%= f.label :tabagista_false, 'Não' %>
           </div>
           <%= f.label :carga_tabagica, :class => 'control-label' %>
-          <%= f.text_field :carga_tabagica %>
+          <%= f.text_field :carga_tabagica, :class =>"_inteiros", "data-validate" => "validate(carga_tabaco) on(blur change)" %>
         </div>
       </div>
       
@@ -64,21 +64,21 @@
       <div class="control-group">
         <%= f.label :historico_familiar, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_area :historico_familiar, :rows => 4 %>
+          <%= f.text_area :historico_familiar, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
         </div>
       </div>
       
       <div class="control-group">
         <%= f.label :historia_pessoal_social, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_area :historia_pessoal_social, :rows => 4 %>
+          <%= f.text_area :historia_pessoal_social, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
         </div>
       </div>
   
       <div class="control-group">
         <%= f.label :alergias, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_area :alergias, :rows => 4 %>
+          <%= f.text_area :alergias, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
         </div>
       </div>
       
@@ -90,11 +90,11 @@
             <%= f.label :alcoolista_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :alcoolista, false %>
+            <%= f.radio_button :alcoolista, false, :checked => true %>
             <%= f.label :alcoolista_false, 'Não' %>
           </div>
           <%= f.label :quantidade_alcool, :class => 'control-label' %>
-          <%= f.text_field :quantidade_alcool %>
+          <%= f.text_field :quantidade_alcool, :class => "_inteiros", "data-validate" => "validate(qtd_alcool) on(blur change)" %>
         </div>
       </div>
       
@@ -105,14 +105,14 @@
       <div class="control-group">
         <%= f.label :revisao_sistemas, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_area :revisao_sistemas, :rows => 4 %>
+          <%= f.text_area :revisao_sistemas, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
         </div>
       </div>
   
       <div class="control-group">
         <%= f.label :data_anamnese_formatada, :class => 'control-label' %>
         <div class='controls'>
-          <%= f.text_field :data_anamnese_formatada, :class => '_data_calendario' %>
+          <%= f.text_field :data_anamnese_formatada, :class => '_data_calendario', "data-validate" => "validate(required, date) on(blur change)" %>
         </div>
       </div>
 
@@ -124,3 +124,23 @@
     <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $('#edit_avaliacao_clinica_<%=@avaliacao_clinica.id%>').ketchup();
+});
+
+$.ketchup.validation('carga_tabaco', 'Se o volutário é tabagista deve-se informar a carga tabágica.', function(form, el, value) {
+  if ($("#avaliacao_clinica_tabagista_true").is(':checked')){
+    return false;
+  }
+  return true;
+});
+
+$.ketchup.validation('qtd_alcool', 'Se o volutário é alcoolista deve-se informar a quantidade.', function(form, el, value) {
+  if ($("#avaliacao_clinica_alcoolista_true").is(':checked')){
+    return false;
+  }
+  return true;
+});
+</script>
