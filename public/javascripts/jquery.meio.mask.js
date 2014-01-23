@@ -134,6 +134,7 @@
 				'cc'                : { mask : '9999 9999 9999 9999' }, //credit card mask
 				'integer'           : { mask : '999.999.999.999', type : 'reverse'},
 				'pa_fc_fr_peso'     : { mask : '999'},
+				'grau_forca'        : { mask : '9'},
 				'decimal'           : { mask : '99,999.999.999.999' , type : 'reverse', defaultValue : '000' },
 				'altura'            : { mask : '9.99' },
 				'temp'              : { mask : '99.9' },

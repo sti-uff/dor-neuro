@@ -1,262 +1,265 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'jquery.meio.mask', 'mascaras' %>
+<% end %>
+
 <%= form_for @avaliacao_clinica, :url => url do |f| %>
   <% if @avaliacao_clinica.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</h2>
-
+     <div class="alert alert-dismissable alert-danger">
+       <strong><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</strong>
       <ul>
-      <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <%= hidden_field_tag 'avaliacao_clinica[usuario_id]', session[:usuario] %>
-  
+
   <%= f.fields_for :exame_fisico do |e| %>
     <%= e.fields_for :exame_complemento do |c| %>
-    <h2>Membros superiores</h2>
-    <table class='table'>
-      <thead>
-        <tr>
-          <th>Ação</th>
-          <th>Músculo</th>
-          <th>Nervo</th>
-          <th>Grau de força (0 a 5)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Adução dos dedos</td>
-          <td>Interósseos</td>
-          <td>Ulnar</td>
-          <td>
-            <%= c.text_field :aducao_interosseos_ulnar, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Abdução dos dedos</td>
-          <td>Interósseos</td>
-          <td>Ulnar</td>
-          <td>
-            <%= c.text_field :abducao_interosseos_ulnar, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Flexão da mão sobre o antebraço</td>
-          <td>Flexor ulnar do carpo</td>
-          <td>Ulnar</td>
-          <td>
-            <%= c.text_field :flexor_carpo_ulnar, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Oposição do polegar</td>
-          <td>Opositor do polegar</td>
-          <td>Mediano</td>
-          <td>
-            <%= c.text_field :opositor_polegar_mediano, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Abdução do polegar</td>
-          <td>Abdutor do polegar brevis</td>
-          <td>Mediano</td>
-          <td>
-            <%= c.text_field :abdutor_polegar_mediano, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Flexão do polegar</td>
-          <td>Flexor do polegar</td>
-          <td>Mediano</td>
-          <td>
-            <%= c.text_field :flexor_polegar_mediano, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Flexão dos dedos sobre a mão</td>
-          <td>Flexor digital profundo</td>
-          <td>Mediano</td>
-          <td>
-            <%= c.text_field :flexor_digital_mediano, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Pronação da mão</td>
-          <td>Pronador</td>
-          <td>Mediano</td>
-          <td>
-            <%= c.text_field :pronador_mediano, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Extensão do polegar</td>
-          <td>Extensor do polegar brevis</td>
-          <td>Interósseo posterior</td>
-          <td>
-            <%= c.text_field :extensor_polegar_interosseo_posterior, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Extensão dos dedos sobre o antebraço</td>
-          <td>Extensor digital</td>
-          <td>Interósseo posterior</td>
-          <td>
-            <%= c.text_field :extensor_digital_interosseo_posterior, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Supinação da mão</td>
-          <td>Supinador</td>
-          <td>Radial</td>
-          <td>
-            <%= c.text_field :supinador_radial, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Extensão do antebraço</td>
-          <td>Tríceps</td>
-          <td>Radial</td>
-          <td>
-            <%= c.text_field :triceps_radial, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Abdução do braço</td>
-          <td>Deltóide</td>
-          <td>Axilar</td>
-          <td>
-            <%= c.text_field :deltoide_axilar, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Flexão do braço</td>
-          <td>Bíceps</td>
-          <td>Musculocutâneo</td>
-          <td>
-            <%= c.text_field :biceps_musculocutaneo, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Adução do braço</td>
-          <td>Grande dorsal</td>
-          <td>Tóraco dorsal</td>
-          <td>
-            <%= c.text_field :grande_dorsal_toraco_dorsal, :class => 'span1' %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <h2>Membros inferiores</h2> <!-- ################ INFERIORES ################ -->
-    <table class='table'>
-      <thead>
-        <tr>
-          <th>Ação</th>
-          <th>Músculo</th>
-          <th>Nervo</th>
-          <th>Grau de força (0 a 5)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Dorsiflexão do hálux</td>
-          <td>Extensor longo do hálux</td>
-          <td>Fibular profundo</td>
-          <td>
-            <%= c.text_field :extensor_fibular_profundo, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Eversão do pé</td>
-          <td>Fibular longo e brevis</td>
-          <td>Fibular superficial</td>
-          <td>
-            <%= c.text_field :longo_fibular_superficial, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Dorsiflexão do pé</td>
-          <td>Tibial anterior</td>
-          <td>Fibular profundo</td>
-          <td>
-            <%= c.text_field :tibial_fibular_profundo, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Inversão do pé</td>
-          <td>Tibial posterior</td>
-          <td>Tibial</td>
-          <td>
-            <%= c.text_field :posterior_tibial, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Flexão dos dedos</td>
-          <td>Flexor digital longo</td>
-          <td>Tibial</td>
-          <td>
-            <%= c.text_field :flexor_digital_tibial, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Extensão do pé</td>
-          <td>Gastrocnêmio</td>
-          <td>Tibial</td>
-          <td>
-            <%= c.text_field :gastrocnemio_tibial, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Flexão da perna sobre a coxa</td>
-          <td>Bíceps da coxa</td>
-          <td>Ciático</td>
-          <td>
-            <%= c.text_field :biceps_coxa_ciatico, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Extensão da perna</td>
-          <td>Quadríceps</td>
-          <td>Femoral</td>
-          <td>
-            <%= c.text_field :quadriceps_femoral, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Flexão da coxa sobre o quadril</td>
-          <td>Iliopsoas</td>
-          <td>Interósseo posterior</td>
-          <td>
-            <%= c.text_field :iliopsoas_interosseo_posterior, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Adução da perna</td>
-          <td>Adutores</td>
-          <td>Femoral</td>
-          <td>
-            <%= c.text_field :adutores_femoral, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Abdução da perna</td>
-          <td>Glúteo médio e mínimo</td>
-          <td>Obturador</td>
-          <td>
-            <%= c.text_field :gluteos_obturador, :class => 'span1' %>
-          </td>
-        </tr>
-        <tr>
-          <td>Extensão do antebraço</td>
-          <td>Tríceps</td>
-          <td>Glúteo superior</td>
-          <td>
-            <%= c.text_field :triceps_gluteo_superior, :class => 'span1' %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <h2>Membros superiores</h2>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Ação</th>
+            <th>Músculo</th>
+            <th>Nervo</th>
+            <th>Grau de força (0 a 5)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Adução dos dedos</td>
+            <td>Interósseos</td>
+            <td>Ulnar</td>
+            <td>
+              <%= c.text_field :aducao_interosseos_ulnar, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Abdução dos dedos</td>
+            <td>Interósseos</td>
+            <td>Ulnar</td>
+            <td>
+              <%= c.text_field :abducao_interosseos_ulnar, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Flexão da mão sobre o antebraço</td>
+            <td>Flexor ulnar do carpo</td>
+            <td>Ulnar</td>
+            <td>
+              <%= c.text_field :flexor_carpo_ulnar, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Oposição do polegar</td>
+            <td>Opositor do polegar</td>
+            <td>Mediano</td>
+            <td>
+              <%= c.text_field :opositor_polegar_mediano, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Abdução do polegar</td>
+            <td>Abdutor do polegar brevis</td>
+            <td>Mediano</td>
+            <td>
+              <%= c.text_field :abdutor_polegar_mediano, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Flexão do polegar</td>
+            <td>Flexor do polegar</td>
+            <td>Mediano</td>
+            <td>
+              <%= c.text_field :flexor_polegar_mediano, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Flexão dos dedos sobre a mão</td>
+            <td>Flexor digital profundo</td>
+            <td>Mediano</td>
+            <td>
+              <%= c.text_field :flexor_digital_mediano, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Pronação da mão</td>
+            <td>Pronador</td>
+            <td>Mediano</td>
+            <td>
+              <%= c.text_field :pronador_mediano, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Extensão do polegar</td>
+            <td>Extensor do polegar brevis</td>
+            <td>Interósseo posterior</td>
+            <td>
+              <%= c.text_field :extensor_polegar_interosseo_posterior, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Extensão dos dedos sobre o antebraço</td>
+            <td>Extensor digital</td>
+            <td>Interósseo posterior</td>
+            <td>
+              <%= c.text_field :extensor_digital_interosseo_posterior, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Supinação da mão</td>
+            <td>Supinador</td>
+            <td>Radial</td>
+            <td>
+              <%= c.text_field :supinador_radial, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Extensão do antebraço</td>
+            <td>Tríceps</td>
+            <td>Radial</td>
+            <td>
+              <%= c.text_field :triceps_radial, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Abdução do braço</td>
+            <td>Deltóide</td>
+            <td>Axilar</td>
+            <td>
+              <%= c.text_field :deltoide_axilar, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Flexão do braço</td>
+            <td>Bíceps</td>
+            <td>Musculocutâneo</td>
+            <td>
+              <%= c.text_field :biceps_musculocutaneo, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Adução do braço</td>
+            <td>Grande dorsal</td>
+            <td>Tóraco dorsal</td>
+            <td>
+              <%= c.text_field :grande_dorsal_toraco_dorsal, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Membros inferiores</h2> <!-- ################ INFERIORES ################ -->
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Ação</th>
+            <th>Músculo</th>
+            <th>Nervo</th>
+            <th>Grau de força (0 a 5)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dorsiflexão do hálux</td>
+            <td>Extensor longo do hálux</td>
+            <td>Fibular profundo</td>
+            <td>
+              <%= c.text_field :extensor_fibular_profundo, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Eversão do pé</td>
+            <td>Fibular longo e brevis</td>
+            <td>Fibular superficial</td>
+            <td>
+              <%= c.text_field :longo_fibular_superficial, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Dorsiflexão do pé</td>
+            <td>Tibial anterior</td>
+            <td>Fibular profundo</td>
+            <td>
+              <%= c.text_field :tibial_fibular_profundo, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Inversão do pé</td>
+            <td>Tibial posterior</td>
+            <td>Tibial</td>
+            <td>
+              <%= c.text_field :posterior_tibial, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Flexão dos dedos</td>
+            <td>Flexor digital longo</td>
+            <td>Tibial</td>
+            <td>
+              <%= c.text_field :flexor_digital_tibial, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Extensão do pé</td>
+            <td>Gastrocnêmio</td>
+            <td>Tibial</td>
+            <td>
+              <%= c.text_field :gastrocnemio_tibial, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Flexão da perna sobre a coxa</td>
+            <td>Bíceps da coxa</td>
+            <td>Ciático</td>
+            <td>
+              <%= c.text_field :biceps_coxa_ciatico, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Extensão da perna</td>
+            <td>Quadríceps</td>
+            <td>Femoral</td>
+            <td>
+              <%= c.text_field :quadriceps_femoral, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Flexão da coxa sobre o quadril</td>
+            <td>Iliopsoas</td>
+            <td>Interósseo posterior</td>
+            <td>
+              <%= c.text_field :iliopsoas_interosseo_posterior, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Adução da perna</td>
+            <td>Adutores</td>
+            <td>Femoral</td>
+            <td>
+              <%= c.text_field :adutores_femoral, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Abdução da perna</td>
+            <td>Glúteo médio e mínimo</td>
+            <td>Obturador</td>
+            <td>
+              <%= c.text_field :gluteos_obturador, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Extensão do antebraço</td>
+            <td>Tríceps</td>
+            <td>Glúteo superior</td>
+            <td>
+              <%= c.text_field :triceps_gluteo_superior, :class => "span1 _grau_forca", "data-validate" => "validate(required) on(blur change)" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     <% end %>
   <% end %>
   <div class="form-actions">
@@ -264,3 +267,9 @@
     <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#edit_avaliacao_clinica_<%=@avaliacao_clinica.id%>').ketchup();
+  });
+</script>

@@ -113,11 +113,11 @@ class SelecaoController < ApplicationController
         Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id, 'Visita')
     unless @avaliacao_clinica
       @avaliacao_clinica = AvaliacaoClinica.
-        create(:avaliavel_id => Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id,
+        new(:avaliavel_id => Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id,
                :avaliavel_type => 'Visita', :usuario_id => session[:usuario])
       @avaliacao_clinica.build_exame_fisico
       @avaliacao_clinica.exame_fisico.build_exame_complemento
-      @avaliacao_clinica.save
+      @avaliacao_clinica.save(:validate => false)
     end
     respond_to do |format|
       format.html { render request.fullpath }
@@ -144,7 +144,10 @@ class SelecaoController < ApplicationController
         format.html { redirect_to(retorno, :notice => notice) }
         format.xml  { head :ok }
       else
-        format.html { render request.fullpath }
+        format.html do
+          flash.now[:error] = "Não foi possivel salvar essa avaliação."
+          render request.fullpath
+        end
         format.xml  { render :xml => @avaliacao_clinica.errors, :status => :unprocessable_entity }
       end
     end
