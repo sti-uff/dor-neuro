@@ -6,6 +6,7 @@ $(document).ready(function() {
     $('._inteiros').setMask('integer');
     $('._decimais').setMask('decimal');
     $('._pa_fc_fr_peso').setMask('pa_fc_fr_peso');
+    $('._grau_forca').setMask('grau_forca');
     $('._altura').setMask('altura');
     $('._temp').setMask('temp');
     //Adaptação para suportar estados com 9 digitos.

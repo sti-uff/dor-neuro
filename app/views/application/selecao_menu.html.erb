@@ -26,51 +26,43 @@
   </p>
 </div>
 
-<div class="bs-example">
-  <p>
-    <%= link_to 'Neurofisiologia', selecao_neurofisiologia_path, :class => "btn btn-primary btn-lg" %>
-  </p>
+<div class="btn-group ">
+  <button type="button" class="btn btn-primary btn-lg"><%= link_to 'Neurofisiologia', selecao_neurofisiologia_path, :style => "color: #FFFFFF;" %></button>
+  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><%= link_to 'ENMG', selecao_enmg_path %></li>
+    <li><%= link_to 'CHEPS', selecao_cheps_path %></li>
+    <li><%= link_to 'QST', selecao_qst_path %></li>
+  </ul>
 </div>
 
-<div class="bs-example">
-  <p style="margin-left: 50px">
-    <%= link_to 'ENMG', selecao_enmg_path, :class => "btn btn-info" %>
-    <%= link_to 'CHEPS', selecao_cheps_path, :class => "btn btn-info" %>
-    <%= link_to 'QST', selecao_qst_path, :class => "btn btn-info" %>
-  </p>
+
+<div class="btn-group ">
+  <button type="button" class="btn btn-primary btn-lg"><%= link_to 'Aplicar questionários', selecao_questionarios_path,  :style => "color: #FFFFFF;" %></button>
+  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><%= link_to 'EVA', selecao_eva_path %></li>
+    <li> <%= link_to 'DN4', selecao_dn4_path %></li>
+    <li><%= link_to 'SF36', selecao_sf36_path %></li>
+    <li><%= link_to 'LANSS', selecao_lanss_path %></li>
+    <li><%= link_to 'Mini mental', selecao_mini_mental_path %></li>
+  </ul>
 </div>
 
-<div class="bs-example">
-  <p>
-    <%= link_to 'Aplicar questionários', selecao_questionarios_path, :class => "btn btn-primary btn-lg" %>
-  </p>
+<div class="btn-group ">
+  <button type="button" class="btn btn-primary btn-lg"><%= link_to 'Exames complementares', selecao_exames_path, :style => "color: #FFFFFF;" %></button>
+  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><%= link_to 'Teste de gravidez', selecao_teste_gravidez_path %></li>
+    <li> <%= link_to 'Hemograma completo', selecao_hemograma_path %> </li>
+    <li> <%= link_to 'Função renal', selecao_func_renal_path %></li>
+    <li><%= link_to 'Função hepática', selecao_func_hepatica_path %></li>
+    <li><%= link_to 'Urinocultura', selecao_urinocultura_path %></li>
+    <li><%= link_to 'Rx tórax', selecao_rx_torax_path %></li>
+  </ul>
 </div>
 
-<div class="bs-example">
-  <p style="margin-left: 50px">
-    <%= link_to 'EVA', selecao_eva_path, :class => "btn btn-info" %>
-    <%= link_to 'DN4', selecao_dn4_path, :class => "btn btn-info" %>
-    <%= link_to 'SF36', selecao_sf36_path, :class => "btn btn-info" %>
-    <%= link_to 'LANSS', selecao_lanss_path, :class => "btn btn-info" %>
-    <%= link_to 'Mini mental', selecao_mini_mental_path, :class => "btn btn-info" %>
-  </p>
-</div>
 
-<div class="bs-example">
-  <p>
-    <%= link_to 'Exames complementares', selecao_exames_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
 
-<div class="bs-example">
-  <p style="margin-left: 50px">
-    <%= link_to 'Teste de gravidez', selecao_teste_gravidez_path, :class => "btn btn-info" %>
-    <%= link_to 'Hemograma completo', selecao_hemograma_path, :class => "btn btn-info" %>
-    <%= link_to 'Função renal', selecao_func_renal_path, :class => "btn btn-info" %>
-    <%= link_to 'Função hepática', selecao_func_hepatica_path, :class => "btn btn-info" %>
-    <%= link_to 'Urinocultura', selecao_urinocultura_path, :class => "btn btn-info" %>
-    <%= link_to 'Rx tórax', selecao_rx_torax_path, :class => "btn btn-info" %>
-  </p>
-</div>
 
 
