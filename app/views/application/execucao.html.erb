@@ -1,3 +1,7 @@
+<% content_for(:head) do %>
+    <%= stylesheet_link_tag "eventos_adversos" %>
+<% end %>
+
 <div class="breadcrumb">
   <ul class="breadcrumb">
     <li>
@@ -12,27 +16,22 @@
   <h1>Execução</h1>
 </div>
 
-<div class="div_icones_interno">
+<div class="div_icones_interno eventos_adversos">
   <ul class="icones_principal">
     <li class="item_icone" id="btn_execucao_avaliacao_clinica">
-      <%= link_to 'Avaliação clínica de execução', execucao_new_avaliacao_clinica_path, :class => "btn btn-primary btn-lg" %>
+      <%= link_to 'Avaliação clínica de execução', execucao_new_avaliacao_clinica_path, :class => "btn btn-primary" %>
     </li>
     <li class="item_icone" id="btn_execucao_eva">
-      <%= link_to 'EVA de execução', execucao_eva_path, :class => "btn btn-primary btn-lg" %>
+      <%= link_to 'EVA de execução', execucao_eva_path, :class => "btn btn-primary" %>
     </li>
     <li class="item_icone" id="btn_execucao_exames">
-      <%= link_to 'Exames complementares de execução', execucao_exames_path, :class => "btn btn-primary btn-lg" %>
+      <%= link_to 'Exames complementares de execução', execucao_exames_path, :class => "btn btn-primary" %>
     </li>
-  </ul>
-</div>
-
-<div class="div_icones_interno">
-  <ul class="icones_principal">
     <li class="item_icone" id="btn_execucao_adesao">
-      <%= link_to 'Avaliar adesão', execucao_adesao_path, :class => "btn btn-primary btn-lg" %>
+      <%= link_to 'Avaliar adesão', execucao_adesao_path, :class => "btn btn-primary" %>
     </li>
     <li class="item_icone" id="btn_execucao_dispensacao">
-      <%= link_to 'Dispensar medicamentos', execucao_dispensacao_path, :class => "btn btn-primary btn-lg" %>
+      <%= link_to 'Dispensar medicamentos', execucao_dispensacao_path, :class => "btn btn-primary" %>
     </li>
   </ul>
 </div>

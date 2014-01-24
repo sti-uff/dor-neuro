@@ -1,3 +1,16 @@
+<div class="breadcrumb">
+  <ul class="breadcrumb">
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Principal', root_path %><span class="divider"></span>
+    </li>
+    <li>
+      <%= link_to 'Encerramento', encerramento_path %><span class="divider"></span>
+    </li>
+    <li class="active">Avaliação clínica de encerramento</li>
+  </ul>
+</div>
+
 <h1>Avaliação clínica de encerramento</h1>
 
 <%= render 'partials/escolher_voluntario', :usuario => true %>
@@ -12,7 +25,7 @@
   </ul>
 <% end %>
 
-<%= link_to 'Voltar', encerramento_path, :class => 'btn' %>
+<%= link_to 'Voltar', encerramento_path, :class => 'btn btn-danger' %>
 
 
 <script>

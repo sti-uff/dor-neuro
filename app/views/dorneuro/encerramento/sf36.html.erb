@@ -1,3 +1,16 @@
+<div class="breadcrumb">
+  <ul class="breadcrumb">
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Principal', root_path %><span class="divider"></span>
+    </li>
+    <li>
+      <%= link_to 'Encerramento', encerramento_path %><span class="divider"></span>
+    </li>
+    <li class="active">SF36 de encerramento</li>
+  </ul>
+</div>
+
 <h1>SF36 de encerramento</h1>
 
 <% @laudo.build_dados_sf36 %>
