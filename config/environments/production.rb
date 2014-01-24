@@ -1,3 +1,7 @@
+# -*- encoding : utf-8 -*-
+require 'syslog_logger'
+require 'exception_notifier'
+
 Dorneuro::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -23,6 +27,7 @@ Dorneuro::Application.configure do
 
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new
+  config.logger = SyslogLogger.new "dorneuro_p"
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
