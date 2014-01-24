@@ -1,7 +1,7 @@
 <%= form_for @avaliacao_clinica, :url => url do |f| %>
   <% if @avaliacao_clinica.errors.any? %>
     <div class="alert alert-dismissable alert-danger">
-      <strong><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</strong>
+      <strong><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de nervos periféricos de ser salva:</strong>
       <ul>
         <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -29,7 +29,7 @@
         </div>
 
         <%= c.label :nervo_espessado, nil, :class => 'control-label' %>
-        <%= c.text_area :nervo_espessado, :rows => 4 %>
+        <%= c.text_area :nervo_espessado, :rows => 4, "data-validate" => "validate(nervos) on(blur change)" %>
 
       <% end %>
     <% end %>
@@ -44,4 +44,11 @@
   $(document).ready(function() {
     $('#edit_avaliacao_clinica_<%=@avaliacao_clinica.id%>').ketchup();
   });
+
+  $.ketchup.validation('nervos', 'Se existe espessamento de nervos indique qual é o nervo espessado.', function(form, el, value) {
+  if ($("#avaliacao_clinica_exame_fisico_attributes_exame_complemento_attributes_espessamento_nervo_true").is(':checked') && !$(el).val()){
+    return false;
+  }
+  return true;
+});
 </script>

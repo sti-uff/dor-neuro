@@ -131,8 +131,10 @@ class SelecaoController < ApplicationController
     retorno = selecao_new_avaliacao_clinica_path
     if request.fullpath.include? 'sinais_vitais'
       notice = 'Sinais vitais salvos com sucesso.'
+      @avaliacao_clinica.salva_sinais_vitais
     elsif request.fullpath.include? 'anamnese'
       notice = 'Anamnese salva com sucesso.'
+      @avaliacao_clinica.salva_anamnese
     else
       notice = 'Exame físico salvo com sucesso.'
       if request.fullpath.include? 'fisico/'
