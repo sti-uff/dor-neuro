@@ -1,7 +1,7 @@
 <%= form_for @avaliacao_clinica, :url => url do |f| %>
   <% if @avaliacao_clinica.errors.any? %>
     <div class="alert alert-dismissable alert-danger">
-      <strong><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de ser salva:</strong>
+      <strong><%= pluralize(@avaliacao_clinica.errors.count, "erro impediu") %> esta avaliação clínica de reflexos de ser salva:</strong>
       <ul>
         <% @avaliacao_clinica.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>

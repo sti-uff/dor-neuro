@@ -8,31 +8,28 @@ class AvaliacaoClinica < ActiveRecord::Base
   attr_accessor :data_sinais_vitais_formatada, :data_anamnese_formatada
 
   #parte sinais vitais
-  validates :pressao_sistolica,         :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-  validates :pressao_diastolica,        :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-  validates :frequencia_cardiaca,       :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-  validates :frequencia_respiratoria,   :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-  validates :temperatura,               :presence => true,    :format => { :with => /\d{1,2}\.\d{1}/ }
-  validates :peso,                      :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-  validates :altura,                    :presence => true,    :format => { :with => /\d{1}\.\d{1,2}/ }
-  validates :data_sinais_vitais,        :presence => true
+  validates :pressao_sistolica,         :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}, :if => :salva_sinais_vitais?
+  validates :pressao_diastolica,        :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}, :if => :salva_sinais_vitais?
+  validates :frequencia_cardiaca,       :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}, :if => :salva_sinais_vitais?
+  validates :frequencia_respiratoria,   :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}, :if => :salva_sinais_vitais?
+  validates :temperatura,               :presence => true,    :format => { :with => /\d{1,2}\.\d{1}/ }                                , :if => :salva_sinais_vitais?
+  validates :peso,                      :presence => true,    :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}, :if => :salva_sinais_vitais?
+  validates :altura,                    :presence => true,    :format => { :with => /\d{1}\.\d{1,2}/ }                                , :if => :salva_sinais_vitais?
+  validates :data_sinais_vitais,        :presence => true                                                                             , :if => :salva_sinais_vitais?
 
   #anamnese
-  validates :queixa_principal,          :presence => true
-  validates :historia_doenca_atual,     :presence => true
-  validates :historia_medica_pregressa, :presence => true
-  validates :historico_familiar,        :presence => true
-  validates :historia_pessoal_social,   :presence => true
-  validates :tabagista,                 :presence => true
-  validates :alcoolista,                :presence => true
-  validates :alergias,                  :presence => true
-  validates :revisao_sistemas,          :presence => true
-  validates :carga_tabagica,            :allow_blank => true, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-  validates :quantidade_alcool,         :allow_blank => true, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-  validates :avaliavel_id,              :presence => true
-  validates :avaliavel_type,            :presence => true
-  validates :usuario_id,                :presence => true
-  validates :data_anamnese,             :presence => true
+  validates :queixa_principal,          :presence => true,    :if => :salva_anamnese?
+  validates :historia_doenca_atual,     :presence => true,    :if => :salva_anamnese?
+  validates :historia_medica_pregressa, :presence => true,    :if => :salva_anamnese?
+  validates :historico_familiar,        :presence => true,    :if => :salva_anamnese?
+  validates :historia_pessoal_social,   :presence => true,    :if => :salva_anamnese?
+  validates :tabagista,                 :inclusion => { :in => [true, false]},    :if => :salva_anamnese?
+  validates :alcoolista,                :inclusion => { :in => [true, false]},    :if => :salva_anamnese?
+  validates :alergias,                  :presence => true,    :if => :salva_anamnese?
+  validates :revisao_sistemas,          :presence => true,    :if => :salva_anamnese?
+  validates :avaliavel_id,              :presence => true,    :if => :salva_anamnese?
+  validates :avaliavel_type,            :presence => true,    :if => :salva_anamnese?
+  validates :data_anamnese,             :presence => true,    :if => :salva_anamnese?
 
 
   scope :por_voluntario_id, lambda { |voluntario_id|
@@ -64,4 +61,21 @@ class AvaliacaoClinica < ActiveRecord::Base
   def data_anamnese_formatada=(data)
     self.data_anamnese = data
   end
+
+  def salva_sinais_vitais
+    @sinais_vitais = true
+  end
+
+  def salva_sinais_vitais?
+    !@sinais_vitais.nil?
+  end
+
+  def salva_anamnese
+    @anamnese = true
+  end
+
+  def salva_anamnese?
+    !@anamnese.nil?
+  end
+
 end

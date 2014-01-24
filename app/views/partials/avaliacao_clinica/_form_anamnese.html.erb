@@ -49,11 +49,11 @@
             <%= f.label :tabagista_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :tabagista, false, :checked => true %>
+            <%= f.radio_button :tabagista, false, :onchange => "desabilita_carga_tabagica(this)" %>
             <%= f.label :tabagista_false, 'Não' %>
           </div>
           <%= f.label :carga_tabagica, :class => 'control-label' %>
-          <%= f.text_field :carga_tabagica, :class =>"_inteiros", "data-validate" => "validate(carga_tabaco) on(blur change)" %>
+          <%= f.text_field :carga_tabagica, "data-validate" => "validate(carga_tabaco) on(blur change)" %>
         </div>
       </div>
       
@@ -90,11 +90,11 @@
             <%= f.label :alcoolista_true, 'Sim' %>
           </div>
           <div class='radio inline'>
-            <%= f.radio_button :alcoolista, false, :checked => true %>
+            <%= f.radio_button :alcoolista, false, :onchange => "desabilita_qtd_alcool(this)" %>
             <%= f.label :alcoolista_false, 'Não' %>
           </div>
           <%= f.label :quantidade_alcool, :class => 'control-label' %>
-          <%= f.text_field :quantidade_alcool, :class => "_inteiros", "data-validate" => "validate(qtd_alcool) on(blur change)" %>
+          <%= f.text_field :quantidade_alcool, "data-validate" => "validate(qtd_alcool) on(blur change)" %>
         </div>
       </div>
       
@@ -130,15 +130,27 @@ $(document).ready(function() {
    $('#edit_avaliacao_clinica_<%=@avaliacao_clinica.id%>').ketchup();
 });
 
+function desabilita_carga_tabagica(el){
+  if( $(el).is(':checked') ) {
+    $("#avaliacao_clinica_carga_tabagica").attr('value','');
+  }
+}
+
+function desabilita_qtd_alcool(el){
+  if( $(el).is(':checked') ) {
+    $("#avaliacao_clinica_quantidade_alcool").attr('value','');
+  }
+}
+
 $.ketchup.validation('carga_tabaco', 'Se o volutário é tabagista deve-se informar a carga tabágica.', function(form, el, value) {
-  if ($("#avaliacao_clinica_tabagista_true").is(':checked')){
+  if ($("#avaliacao_clinica_tabagista_true").is(':checked') && !$(el).val()){
     return false;
   }
   return true;
 });
 
 $.ketchup.validation('qtd_alcool', 'Se o volutário é alcoolista deve-se informar a quantidade.', function(form, el, value) {
-  if ($("#avaliacao_clinica_alcoolista_true").is(':checked')){
+  if ($("#avaliacao_clinica_alcoolista_true").is(':checked') && !$(el).val() ){
     return false;
   }
   return true;
