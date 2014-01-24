@@ -1,0 +1,13 @@
+<h1>Verificar DN4</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% if @dn4 %>
+  <div>
+    <%= image_tag @dn4.imagem.url %>
+  </div>
+<% else %>
+  <p>O DN4 deste voluntário não foi registrado.</p>
+<% end %>
+
+<%= link_to 'Voltar', show_questionarios_path, :class => 'btn' %>

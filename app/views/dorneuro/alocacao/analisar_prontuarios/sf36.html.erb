@@ -1,0 +1,13 @@
+<h1>Verificar SF36</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% if @sf36 %>
+  <div>
+    <%= image_tag @sf36.imagem.url %>
+  </div>
+<% else %>
+  <p>O SF36 deste voluntário não foi registrado.</p>
+<% end %>
+
+<%= link_to 'Voltar', show_questionarios_path, :class => 'btn' %>

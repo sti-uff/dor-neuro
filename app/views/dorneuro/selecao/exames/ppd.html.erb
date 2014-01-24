@@ -1,0 +1,19 @@
+<h1>PPD</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @laudo, :url => selecao_salvar_ppd_path, :html => { :multipart => true } do |f| %>
+    <div class='control-group'>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do resultado do PPD', :texto_data => 'Data do exame' %>
+      
+      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id %>
+      <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_PPD %>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Voltar', selecao_exames_path, :class => 'btn btn-danger' %>
+    </div>
+  <% end %>
+<% end %>

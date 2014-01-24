@@ -1,0 +1,38 @@
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li>
+			<%= link_to 'Alocação', alocacao_path %><span class="divider"></span>
+		</li>
+		<li class="active">Excluir Voluntário</li>
+	</ul>
+</div>
+
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'partial_inclusao' %>
+<% end %>
+
+<h1>Excluir voluntário do estudo</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => true %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @inclusao, :url => salvar_incluir_path do |f| %>
+    
+    <%= hidden_field_tag 'inclusao[voluntario_id]', session[:voluntario] %>
+    <%= hidden_field_tag 'inclusao[usuario_id]', '', :class => '_usuario_inclusao' %>
+    <%= hidden_field_tag 'inclusao[motivo]', 'Alocação' %>
+    <%= hidden_field_tag 'inclusao[incluido]', false %>
+    
+    <div>
+      <label>Confirma a exclusão do voluntário?</label>
+      <%= f.submit 'Sim', :class => 'btn btn-success' %>
+      <%= link_to 'Não', alocacao_path, :class => 'btn btn-danger'%>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Voltar', alocacao_path, :class => 'btn' %>

@@ -1,0 +1,56 @@
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li>
+			<%= link_to 'Alocação', alocacao_path %><span class="divider"></span>
+		</li>
+		<li class="active">Randomizar voluntários</li>
+		<li class="active">Segregar grupos</li>
+	</ul>
+</div>
+
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'subgrupos' %>
+<% end %>
+
+<h1>Segregar grupos</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @alocacao, :url => alocacao_grupos_path do |f| %>
+    <div class='control-group'>
+      <div class="controls">
+        <%= f.label :grupo, nil, :class => 'control-label' %>
+        <div class="radio inline">
+          <%= f.radio_button :grupo, Alocacao::GRUPO_1, :checked => (@alocacao.grupo.to_i > Alocacao::GRUPO_2) %>
+          <%= f.label "grupo_#{Alocacao::GRUPO_1}", 'Grupo 1 - com neurite ativa' %>
+        </div>
+        <div class="radio inline">
+          <%= f.radio_button :grupo, Alocacao::GRUPO_2 %>
+          <%= f.label "grupo_#{Alocacao::GRUPO_2}", 'Grupo 2 - sem neurite ativa' %>
+        </div>
+      </div>
+      
+      <div class="controls _subgrupo">
+        <%= f.label :subgrupo, nil, :class => 'control-label' %>
+        <div class="radio inline">
+          <%= f.radio_button :subgrupo, Alocacao::GRUPO_1_1 %>
+          <%= f.label "subgrupo_#{Alocacao::GRUPO_1_1}", 'Grupo 1.1 - corticoterapia oral em monoterapia' %>
+        </div>
+        <div class="radio inline">
+          <%= f.radio_button :subgrupo, Alocacao::GRUPO_1_2 %>
+          <%= f.label "subgrupo_#{Alocacao::GRUPO_1_2}", 'Grupo 1.2 - corticoterapia oral em associação à azatioprina oral' %>
+        </div>
+      </div>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Voltar', alocacao_path, :class => 'btn btn-danger' %>
+    </div>
+  <% end %>
+<% end %>

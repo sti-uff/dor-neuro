@@ -1,0 +1,13 @@
+<h1>Verificar função renal</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% if @renal %>
+  <div>
+    <%= image_tag @renal.imagem.url %>
+  </div>
+<% else %>
+  <p>A função renal deste voluntário não foi registrada.</p>
+<% end %>
+
+<%= link_to 'Voltar', show_exames_path, :class => 'btn' %>

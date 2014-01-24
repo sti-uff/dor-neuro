@@ -1,0 +1,30 @@
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li>
+			<%= link_to 'Alocação', alocacao_path %><span class="divider"></span>
+		</li>
+		<li class="active">Analisar Prontuários</li>
+		<li class="active">Verificar exames complementares</li>
+	</ul>
+</div>
+
+<h1>Verificar exames complementares</h1>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <ul class="unstyled horizontal-list">
+    <li><%= link_to 'Teste de gravidez', show_gravidez_path %></li>
+    <li><%= link_to 'Hemograma completo', show_hemograma_path %></li>
+    <li><%= link_to 'Função renal', show_func_renal_path %></li>
+    <li><%= link_to 'Função hepática', show_func_hepatica_path %></li>
+    <li><%= link_to 'Urinocultura', show_urinocultura_path %></li>
+  </ul>
+  <div class="clear"></div>
+<% end %>
+
+<%= link_to 'Voltar', analisar_prontuarios_path, :class => 'btn' %>

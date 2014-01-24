@@ -1,0 +1,33 @@
+<h1>SF36 de encerramento</h1>
+
+<% @laudo.build_dados_sf36 %>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @laudo, :url => encerramento_salvar_sf36_path, :html => { :multipart => true } do |f| %>
+    
+    <%= f.fields_for :dados_sf36 do |dados| %>
+      <%= render 'partials/laudos/form_sf36', :f => dados %>
+    <% end %>
+    
+    <div class='control-group'>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do SF36',
+        :texto_data => 'Data do questionário' %>
+    
+      <%= f.label :escore, 'Escore total', :class => 'control-label' %>
+      <%= f.text_field :escore, {:readonly => true} %>
+    
+      <%= f.label :usuario_id, nil, :class => 'control-label' %>
+      <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
+      
+      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 8).id %>
+      <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_SF36 %>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Voltar', encerramento_path, :class => 'btn btn-danger' %>
+    </div>
+  <% end %>
+<% end %>
