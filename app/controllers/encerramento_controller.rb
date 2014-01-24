@@ -107,6 +107,7 @@ class EncerramentoController < ApplicationController
   end
   
   def exames
+    render "dorneuro/encerramento/exames"
   end
   
 end
