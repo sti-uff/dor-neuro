@@ -1,28 +1,36 @@
+<% content_for(:head) do %>
+    <%= stylesheet_link_tag "eventos_adversos" %>
+<% end %>
+
+<div class="breadcrumb">
+  <ul class="breadcrumb">
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Principal', root_path %><span class="divider"></span>
+    </li>
+    <li class="active">Encerramento</li>
+  </ul>
+</div>
+
+
 <div class="page-header">
   <h1>Encerramento</h1>
 </div>
 
-<div class="bs-example">
-  <p>
-    <%= link_to 'Avaliação clínica de encerramento', encerramento_new_avaliacao_clinica_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p>
-    <%= link_to 'EVA de encerramento', encerramento_eva_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p>
-    <%= link_to 'SF36 de encerramento', encerramento_sf36_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p>
-    <%= link_to 'Exames complementares de encerramento', encerramento_exames_path, :class => "btn btn-primary btn-lg" %>
-  </p>
+<div class="div_icones_interno eventos_adversos">
+  <ul class="icones_principal">
+    <li class="item_icone" id="btn_encerramento_avaliacao_clinica">
+      <%= link_to 'Avaliação clínica de encerramento', encerramento_new_avaliacao_clinica_path, :class => "btn btn-primary" %>
+    </li>
+    <li class="item_icone" id="btn_encerramento_eva">
+      <%= link_to 'EVA de encerramento', encerramento_eva_path, :class => "btn btn-primary" %>
+    </li>
+    <li class="item_icone" id="btn_encerramento_sf36">
+      <%= link_to 'SF36 de encerramento', encerramento_sf36_path, :class => "btn btn-primary" %>
+    </li>
+    <li class="item_icone" id="btn_encerramento_exames">
+      <%= link_to 'Exames complementares de encerramento', encerramento_exames_path, :class => "btn btn-primary" %>
+    </li>
+  </ul>
 </div>
 

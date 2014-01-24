@@ -1,3 +1,16 @@
+<div class="breadcrumb">
+  <ul class="breadcrumb">
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Principal', root_path %><span class="divider"></span>
+    </li>
+    <li>
+      <%= link_to 'Encerramento', encerramento_path %><span class="divider"></span>
+    </li>
+    <li class="active">Exames complementares</li>
+  </ul>
+</div>
+
 <h1>Exames complementares</h1>
 
 <ul class="unstyled horizontal-list">
@@ -9,4 +22,4 @@
   <div class="clear"></div>
 </ul>
 
-<%= link_to 'Voltar', encerramento_path, :class => 'btn' %>
+<%= link_to 'Voltar', encerramento_path, :class => 'btn btn-danger' %>
