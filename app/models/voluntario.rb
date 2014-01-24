@@ -28,6 +28,7 @@ class Voluntario < ActiveRecord::Base
   validates :naturalidade,    :presence => true
   validates :centro,          :presence => true
   validates :prontuario,      :presence => true
+  validates :data_entrevista, :presence => true, :if => :atualiza_dados_demograficos?
   
   SEXO_MASC = 0
   SEXO_FEM = 1
@@ -66,6 +67,14 @@ class Voluntario < ActiveRecord::Base
     when NACIONALIDADE_OUTRO
       "Outro"
     end
+  end
+
+  def atualiza_dados_demograficos
+    @dados_demograficos = true
+  end
+
+  def atualiza_dados_demograficos?
+    !@dados_demograficos.nil?
   end
   
 end

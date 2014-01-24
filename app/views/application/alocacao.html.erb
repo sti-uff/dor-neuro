@@ -1,49 +1,69 @@
+<div class="breadcrumb">
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span>
+			<%= link_to 'Principal', root_path %><span class="divider"></span>
+		</li>
+		<li class="active">Alocação</li>
+	</ul>
+</div>
+
 <div class="page-header">
-  <h1>Alocação</h1>
+	<h1>Alocação</h1>
 </div>
 
-<div class="bs-example">
-  <p>
-    <%= link_to 'Analisar prontuários', analisar_prontuarios_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p style="margin-left: 50px">
-    <%= link_to 'Verificar neurofisiologia', show_neurofisiologia_path, :class => "btn btn-info" %>
-    <%= link_to 'Verificar questionários', show_questionarios_path, :class => "btn btn-info" %>
-    <%= link_to 'Verificar exames', show_exames_path, :class => "btn btn-info" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p>
-    <%= link_to 'Incluir voluntário', incluir_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p>
-    <%= link_to 'Excluir voluntário', excluir_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p>
-    <%= link_to 'Randomizar voluntários', randomizar_path, :class => "btn btn-primary btn-lg" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p style="margin-left: 50px">
-    <%= link_to 'Critérios I/E da randomização', alocacao_criterios_path, :class => "btn btn-info" %>
-    <%= link_to 'Avaliação clínica de randomização', alocacao_new_avaliacao_clinica_path, :class => "btn btn-info" %>
-    <%= link_to 'Segregar grupos', alocacao_grupos_path, :class => "btn btn-info" %>
-  </p>
-</div>
-
-<div class="bs-example">
-  <p>
-    <%= link_to 'Dispensar medicamentos', alocacao_dispensacao_path, :class => "btn btn-primary btn-lg" %>
-  </p>
+<div class="div_icones_interno">
+	<ul class="icones_principal">
+		<li class="item_icone">			
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary">Voluntários</button>
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><%= link_to 'Incluir voluntário', incluir_path %></li>
+					<li class="divider"></li>
+					<li><%= link_to 'Excluir voluntário', excluir_path %></li>
+				</ul>
+			</div>
+		</li>
+		<li class="item_icone">
+			<div class="btn-group">
+				<button type="button" class="btn btn-success">Analisar prontuários</button>
+				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><%= link_to 'Verificar neurofisiologia', show_neurofisiologia_path %></li>
+					<li class="divider"></li>
+					<li><%= link_to 'Verificar questionários', show_questionarios_path %></li>
+					<li class="divider"></li>
+					<li><%= link_to 'Verificar exames', show_exames_path %></li>
+				</ul>
+			</div>
+		</li>
+		<li class="item_icone">
+			<div class="btn-group">
+				<button type="button" class="btn btn-warning">Randomizar voluntários</button>
+				<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><%= link_to 'Critérios I/E da randomização', alocacao_criterios_path %></li>
+					<li class="divider"></li>
+					<li><%= link_to 'Avaliação clínica de randomização', alocacao_new_avaliacao_clinica_path %></li>
+					<li class="divider"></li>
+					<li><%= link_to 'Segregar grupos', alocacao_grupos_path %></li>
+				</ul>
+			</div>
+		</li>
+		<li class="item_icone">
+			<div class="btn-group">
+				<%= link_to 'Dispensar medicamentos', alocacao_dispensacao_path, :class => "btn btn-danger" %>
+			</div>
+		</li>
+	</ul>
 </div>

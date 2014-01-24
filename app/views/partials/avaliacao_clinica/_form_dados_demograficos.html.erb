@@ -5,9 +5,8 @@
 
 <%= form_for @voluntario, :url => url do |f| %>
   <% if @voluntario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@voluntario.errors.count, "erro impediu") %> este voluntário de ser salvo:</h2>
-
+    <div class="alert alert-dismissable alert-danger">
+      <strong><%= pluralize(@voluntario.errors.count, "erro impediu") %> os dados demográficos de serem salvos:</strong>
       <ul>
       <% @voluntario.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -26,28 +25,28 @@
         <div class="control-group">
           <%= f.label :nome, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :nome %>
+            <%= f.text_field :nome, "data-validate" => "validate(required) on(blur change)" %>
           </div>
         </div>
   
         <div class="control-group">
           <%= f.label :data_nascimento_formatada, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :data_nascimento, :class => '_data_nascimento' %>
+            <%= f.text_field :data_nascimento, :class => '_data_nascimento', "data-validate" => "validate(required,date) on(blur change)" %>
           </div>
         </div>
         
         <div class="control-group">
           <%= f.label :profissao, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :profissao %>
+            <%= f.text_field :profissao, "data-validate" => "validate(required) on(blur change)" %>
           </div>
         </div>
     
         <div class="control-group">
           <%= f.label :email, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :email %>
+            <%= f.text_field :email, "data-validate" => "validate(emailOpcional) on(blur change)" %>
           </div>
         </div>
         
@@ -86,7 +85,7 @@
         <div class="control-group">
           <%= f.label :telefone, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :telefone, :class => '_telefone' %>
+            <%= f.text_field :telefone, :class => '_telefone', "data-validate" => "validate(required) on(blur change)" %>
           </div>
         </div>
     
@@ -129,14 +128,14 @@
         <div class="control-group">
           <%= f.label :prontuario, nil, :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :prontuario %>
+            <%= f.text_field :prontuario, "data-validate" => "validate(required) on(blur change)" %>
           </div>
         </div>
     
         <div class="control-group">
           <%= f.label :data_entrevista_formatada, nil, :class => 'control-label' %>
           <div class="controls">
-          <%= f.text_field :data_entrevista, :class => '_data_calendario' %>
+          <%= f.text_field :data_entrevista, :class => '_data_calendario', "data-validate" => "validate(required,date) on(blur change)" %>
           </div>
         </div>
   
@@ -154,3 +153,9 @@
     <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $('#edit_voluntario_<%=@voluntario.id%>').ketchup();
+});
+</script>

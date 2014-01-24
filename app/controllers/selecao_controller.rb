@@ -94,13 +94,14 @@ class SelecaoController < ApplicationController
   
   def salvar_dados_demograficos
     @voluntario = Voluntario.find session[:voluntario]
+    @voluntario.atualiza_dados_demograficos
     
     respond_to do |format|
       if @voluntario.update_attributes(params[:voluntario])
         format.html { redirect_to(selecao_new_avaliacao_clinica_path, :notice => 'Dados demográficos atualizados com sucesso.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "dados_demograficos" }
+        format.html { render request.fullpath }
         format.xml  { render :xml => @voluntario.errors, :status => :unprocessable_entity }
       end
     end
@@ -112,11 +113,11 @@ class SelecaoController < ApplicationController
         Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id, 'Visita')
     unless @avaliacao_clinica
       @avaliacao_clinica = AvaliacaoClinica.
-        create(:avaliavel_id => Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id,
+        new(:avaliavel_id => Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id,
                :avaliavel_type => 'Visita', :usuario_id => session[:usuario])
       @avaliacao_clinica.build_exame_fisico
       @avaliacao_clinica.exame_fisico.build_exame_complemento
-      @avaliacao_clinica.save
+      @avaliacao_clinica.save(:validate => false)
     end
     respond_to do |format|
       format.html { render request.fullpath }
@@ -143,7 +144,10 @@ class SelecaoController < ApplicationController
         format.html { redirect_to(retorno, :notice => notice) }
         format.xml  { head :ok }
       else
-        format.html { render request.fullpath }
+        format.html do
+          flash.now[:error] = "Não foi possivel salvar essa avaliação."
+          render request.fullpath
+        end
         format.xml  { render :xml => @avaliacao_clinica.errors, :status => :unprocessable_entity }
       end
     end
