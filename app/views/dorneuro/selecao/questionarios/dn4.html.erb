@@ -2,13 +2,24 @@
 
 <% @laudo.build_dados_dn4 %>
 
+<% if @laudo.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@laudo.errors.count, "erro impediu") %> o Questionário - DN4 de ser salvo:</strong>
+    <ul>
+    <% @laudo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
   <%= form_for @laudo, :url => selecao_salvar_dn4_path, :html => { :multipart => true } do |f| %>
     <div class='control-group'>
-      <%= f.fields_for :dados_dn4 do |dados| %>
-        <%= render 'partials/laudos/form_dn4', :f => dados %>
+      <%= f.fields_for :dados_dn4 do |d| %>
+        <%= render 'partials/laudos/form_dn4', :f => d %>
       <% end %>
       
       <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do DN4',
@@ -27,3 +38,9 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#new_laudo").ketchup();
+});
+</script>

@@ -1,5 +1,16 @@
 <h1>Questionários - EVA</h1>
 
+<% if @laudo.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@laudo.errors.count, "erro impediu") %> o Questionário - EVA de ser salvo:</strong>
+    <ul>
+    <% @laudo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
@@ -9,7 +20,7 @@
         :texto_data => 'Data do questionário' %>
     
       <%= f.label :escore, 'Nota de 0 a 10 na Escala Visual Analógica', :class => 'control-label' %>
-      <%= f.text_field :escore %>
+      <%= f.text_field :escore, "data-validate" => "validate(required, range(0,10)) on(blur change)" %>
       
       <%= f.label :usuario_id, nil, :class => 'control-label' %>
       <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
@@ -24,3 +35,9 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#new_laudo").ketchup();
+});
+</script>

@@ -19,6 +19,7 @@ class Laudo < ActiveRecord::Base
 
   validates :data, :presence => true
   validates :imagem, :attachment_presence => true
+  validates :escore, :allow_blank => true, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
 
   TIPO_TCLE = 0
   TIPO_BIOPSIA = 1

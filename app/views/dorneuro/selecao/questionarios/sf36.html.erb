@@ -2,6 +2,17 @@
 
 <% @laudo.build_dados_sf36 %>
 
+<% if @laudo.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@laudo.errors.count, "erro impediu") %> o Questionário - SF36 de ser salvo:</strong>
+    <ul>
+    <% @laudo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
@@ -31,3 +42,9 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#new_laudo").ketchup();
+});
+</script>
