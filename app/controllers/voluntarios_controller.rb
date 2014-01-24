@@ -99,9 +99,4 @@ class VoluntariosController < ApplicationController
   end
 
 
-#  def get_imagem_laudo
-#    send_file "#{AgendamentoVisita::PATH_FOTOS}/#{params[:id]}_sacra.jpeg", :type => 'image/jpeg', :disposition => 'inline'
-#  end
-
-
 end
