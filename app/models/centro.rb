@@ -9,4 +9,8 @@ class Centro < ActiveRecord::Base
   CATEGORIA_PARTICIPANTE = 1
   
   CATEGORIAS = ["Centro coordenador", "Centro participante"]
+
+  def qtd_voluntarios
+      voluntarios.count
+  end
 end

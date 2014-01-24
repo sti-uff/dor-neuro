@@ -261,6 +261,8 @@ Dorneuro::Application.routes.draw do
     # put "profissionais/:id" => "usuarios#update"
   end
 
+  resources :estatisticas, :only => :index
+
   resources :centros
 
   resources :criterios, :only => :show

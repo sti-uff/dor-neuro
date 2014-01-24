@@ -1,0 +1,215 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<%#*<script src="http://code.highcharts.com/modules/exporting.js"></script>%>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title toggle" data-target="sexo"> Gráfico por Sexo <span class="plus_minus">[+]</span></h3>
+  </div>
+  <div id="sexo" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title toggle" data-target="centro"> Gráfico por Centro <span class="plus_minus">[+]</span></h3>
+  </div>
+  <div id="centro" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title toggle" data-target="idade"> Gráfico por Idade <span class="plus_minus">[+]</span></h3>
+  </div>
+  <div id="idade" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".toggle").each(function () {
+      $('#' + $(this).attr('data-target')).hide();
+    });
+
+    $(".toggle").click(function () {
+      var _el = $('#' + $(this).attr('data-target'));
+      if (_el.is(':visible')) {
+        $(this).find(".plus_minus").html("[+]")
+      } else {
+        $(this).find(".plus_minus").html("[-]")
+      }
+      _el.toggle(500);
+    });
+  });
+
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+
+    $(document).ready(function () {
+
+
+      $('#sexo').highcharts({
+        chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false
+        },
+        title: {
+          text: 'Voluntários por sexo'
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: false,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: false
+            },
+            showInLegend: true
+          }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Voluntário por sexo',
+            data: [
+              {
+                name: 'Masculino',
+                y: <%= @ptc_masculino %>,
+                color: "blue"
+              },
+              {
+                name: 'Feminino',
+                y: <%= @ptc_feminino %>,
+                color: "#FA02E6"
+              },
+            ]
+          }]
+      });
+    });
+
+  });
+
+
+
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+
+    $(document).ready(function () {
+
+
+      $('#centro').highcharts({
+        chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false
+        },
+        title: {
+          text: 'Voluntários por Centro'
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: false,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: false
+            },
+            showInLegend: true
+          }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Voluntários por Centro',
+            data: [
+              {
+                name: '<%= @centro_neu.nome %>',
+                y: <%= @centro_neu.qtd_voluntarios %>
+              },
+              {
+                name: '<%= @centro_fio.nome %>',
+                y: <%= @centro_fio.qtd_voluntarios %>
+              },
+              {
+                name: '<%= @centro_usp.nome %>',
+                y: <%= @centro_usp.qtd_voluntarios %>
+              },
+            ]
+          }]
+      });
+    });
+
+  });
+
+
+
+</script>
+
+
+<script type="text/javascript">
+  $(function () {
+$('#idade').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Voluntários por Idade'
+            },
+            xAxis: {
+                categories: [
+                    '0-10',
+                    '11-20',
+                    '21-30',
+                    '31-40',
+                    '41-50',
+                    '51-60',
+                    '61-70',
+                    '71-80',
+                    '81-90',
+                    '91-100',
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Quantidade'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat:  '<td style="padding:0"><b>{point.y:.0f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: ' ',
+                data: <%= @idades %>
+
+            }]
+        });
+    $('#idade').find(".highcharts-legend").hide();
+
+
+    });
+
+
+</script>

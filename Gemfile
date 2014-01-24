@@ -15,6 +15,7 @@ gem 'whenever', '0.6.8', :require => false
 gem "httparty", "0.6.1"
 # gem 'sqlite3'
 gem 'newrelic_rpm', '3.6.3.104'
+gem "highcharts-rails", "~> 3.0.0"
 
 ###### UFF ADDITIONS
 group :production do

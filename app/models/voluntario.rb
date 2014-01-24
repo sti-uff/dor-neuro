@@ -76,5 +76,21 @@ class Voluntario < ActiveRecord::Base
   def atualiza_dados_demograficos?
     !@dados_demograficos.nil?
   end
+
+  #para fim de estatistica, o array possui as qnts de voluntarios de 10 em 10. 0-10, 11-20... por diante
+#  def self.array_idades
+#    hoje = Date.today
+#    array_range = []
+#    for i in 0..10 do
+#      a = i*10
+#      b = a + 10
+#      array_range[i] = "BETEWEEN '#{hoje - b.year}' AND '#{hoje - a.year}'"
+#    end
+#    qnt_idades = []
+#    array_range.each_with_index  do |range, index|
+#      qnt_idades[index] = Voluntario.where("data_nascimento BETEWEEN '24-01-2004' AND '24-01-2014'")
+#    end
+#
+#  end
   
 end
