@@ -2,6 +2,19 @@
   <%= javascript_include_tag 'date_picker' %>
 <% end %>
 
+<div class="breadcrumb">
+  <ul class="breadcrumb">
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Principal', root_path %><span class="divider"></span>
+    </li>
+    <li>
+      <%= link_to 'Execução', execucao_path %><span class="divider"></span>
+    </li>
+    <li class="active">Avaliar adesão</li>
+  </ul>
+</div>
+
 <h1>Avaliar adesão</h1>
 
 <%= render 'partials/escolher_voluntario_visita', :usuario => false %>
