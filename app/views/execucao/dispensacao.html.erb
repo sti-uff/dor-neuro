@@ -1,7 +1,0 @@
-<h1>Dispensação de medicamentos</h1>
-
-<%= render 'partials/escolher_voluntario_dispensacao', :execucao => true %>
-
-<% if !session[:voluntario].blank? && (session[:numero] && (session[:numero].to_i > 1 && session[:numero].to_i < 8)) %>
-  <%= render 'partials/form_dispensacao', :url => execucao_salvar_dispensacao_path, :voltar => execucao_path %>
-<% end %>
