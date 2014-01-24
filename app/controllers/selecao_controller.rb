@@ -156,12 +156,15 @@ class SelecaoController < ApplicationController
   end
   
   def neurofisiologia
+    render "dorneuro/selecao/neurofisiologia"
   end
   
   def questionarios
+    render "dorneuro/selecao/questionarios"
   end
   
   def exames
+    render "dorneuro/selecao/exames"
   end
   
 end
