@@ -15,7 +15,7 @@ class EventosAdversosController < ApplicationController
     @evento_adverso = EventoAdverso.new
     params[:pagina] = request.fullpath
     respond_to do |format|
-      format.html { render request.fullpath }
+      format.html
       format.xml  { render :xml => @evento_adverso }
     end
   end

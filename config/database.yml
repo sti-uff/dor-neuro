@@ -5,9 +5,9 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: dorneuro_dev
+  database: dorneuro
   username: root
-  password: 
+  password: tzzk7662
 
 test:
   adapter: mysql2
