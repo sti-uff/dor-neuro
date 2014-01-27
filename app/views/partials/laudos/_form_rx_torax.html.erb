@@ -9,7 +9,7 @@
       <div class="control-group">
         <div class='controls'>
           <%= f.label :descricao, 'Laudo' %>
-          <%= f.text_area :descricao, :rows => 5 %>
+          <%= f.text_area :descricao, :rows => 5, "data-validate" => "validate(required) on(blur change)" %>
         </div>
       </div>
       
