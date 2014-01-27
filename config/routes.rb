@@ -1,4 +1,6 @@
 Dorneuro::Application.routes.draw do
+
+  match "test_exception" => "application#test_exception"
   
   scope "/encerramento" do
     get '/eva' => 'encerramento#new_laudo', :as => :encerramento_eva

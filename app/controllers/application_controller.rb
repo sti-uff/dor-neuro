@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :authenticate_usuario!
+  before_filter :authenticate_usuario!, :except => :test_exception
   before_filter :setar_data
+
+  def test_exception
+    raise 'Testing, 1 2 3.'
+  end
 
   def home
     session.delete :voluntario
@@ -57,7 +61,7 @@ class ApplicationController < ActionController::Base
       end
     else
       if params['voluntario'] and params['voluntario']['criterios'] and params['voluntario']['criterios']['data_formatada']
-         $data_formatada = params['voluntario']['criterios']['data_formatada']
+        $data_formatada = params['voluntario']['criterios']['data_formatada']
       end
     end
   end
