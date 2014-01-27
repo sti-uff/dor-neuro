@@ -2,7 +2,9 @@
 class Gravidez < ActiveRecord::Base
   belongs_to :voluntario
   belongs_to :usuario
-  
+
+  validates :data, :presence => true
+
   attr_accessor :data_formatada
   
   def data_formatada

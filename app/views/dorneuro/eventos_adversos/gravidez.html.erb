@@ -17,6 +17,28 @@
 
 <h1>Registrar gravidez</h1>
 
+<% if @inclusao.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@inclusao.errors.count, "erro impediu") %> o evento adverso de gravidez de ser salvo:</strong>
+    <ul>
+    <% @inclusao.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @gravidez.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@gravidez.errors.count, "erro impediu") %> o evento adverso de gravidez de ser salvo:</strong>
+    <ul>
+    <% @gravidez.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>

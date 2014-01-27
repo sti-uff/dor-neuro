@@ -28,7 +28,7 @@ class EventosAdversosController < ApplicationController
         format.html { redirect_to(eventos_adversos_menu_path, :notice => 'Evento adverso registrado com sucesso.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => request.fullpath }
+        format.html { render request.fullpath }
         format.xml  { render :xml => @evento_adverso.errors, :status => :unprocessable_entity }
       end
     end
@@ -36,6 +36,7 @@ class EventosAdversosController < ApplicationController
   
   def gravidez
     @gravidez = Gravidez.new
+    @inclusao = Inclusao.new
     params[:pagina] = request.fullpath
     respond_to do |format|
       format.html { render request.fullpath }
@@ -59,7 +60,7 @@ class EventosAdversosController < ApplicationController
         format.html { redirect_to(eventos_adversos_menu_path, :notice => 'Gravidez registrada com sucesso.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => request.fullpath }
+        format.html { render request.fullpath }
         format.xml  { render :xml => @gravidez.errors, :status => :unprocessable_entity }
       end
     end
@@ -82,7 +83,7 @@ class EventosAdversosController < ApplicationController
         format.html { redirect_to(eventos_adversos_menu_path, :notice => 'Superdose registrada com sucesso.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => request.fullpath }
+        format.html { render request.fullpath }
         format.xml  { render :xml => @superdose.errors, :status => :unprocessable_entity }
       end
     end
@@ -105,7 +106,7 @@ class EventosAdversosController < ApplicationController
         format.html { redirect_to(eventos_adversos_menu_path, :notice => 'Evento adverso grave registrado com sucesso.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => request.fullpath }
+        format.html { render request.fullpath }
         format.xml  { render :xml => @evento_adverso_grave.errors, :status => :unprocessable_entity }
       end
     end
