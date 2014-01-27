@@ -6,7 +6,8 @@ class EstatisticasController < ApplicationController
     @centro_neu = Centro.first
     @centro_fio = Centro.all[1]
     @centro_usp = Centro.last
-    @idades = [10, 20, 30, 40, 50, 40, 30, 20, 10, 0]
+    @idades = Voluntario.quantidade_por_idade
+    @qtd_status = Voluntario.quantidade_por_status
   end
 
 end

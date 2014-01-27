@@ -1,32 +1,27 @@
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<%#*<script src="http://code.highcharts.com/modules/exporting.js"></script>%>
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title toggle" data-target="sexo"> Voluntários por Sexo <span class="plus_minus">[+]</span></h3>
-  </div>
+<h2 class="h2-show">Estatisticas de Voluntário</h2>
+<div class="col-md-6">
   <div id="sexo" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 </div>
 
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title toggle" data-target="centro"> Voluntários por Centro <span class="plus_minus">[+]</span></h3>
-  </div>
+<div class="col-md-6">
   <div id="centro" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 </div>
 
+<br/>
 
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title toggle" data-target="idade"> Voluntários por Idade <span class="plus_minus">[+]</span></h3>
-  </div>
+<div class="col-md-6">
   <div id="idade" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+<div class="col-md-6">
+  <div id="situacao" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 </div>
 
 
 <script type="text/javascript">
   $(document).ready(function () {
     $(".toggle").each(function () {
-      $('#' + $(this).attr('data-target')).hide();
+      $('#' + $(this).attr('data-target')).show();
     });
 
     $(".toggle").click(function () {
@@ -56,10 +51,10 @@
           plotShadow: false
         },
         title: {
-          text: 'Voluntários por sexo'
+          text: 'Voluntários por Sexo'
         },
         tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          pointFormat: '{series.name}: <b>{point.y:.0f}</b>'
         },
         plotOptions: {
           pie: {
@@ -73,7 +68,7 @@
         },
         series: [{
             type: 'pie',
-            name: 'Voluntário por sexo',
+            name: 'quantidade',
             data: [
               {
                 name: 'Masculino',
@@ -113,7 +108,7 @@
           text: 'Voluntários por Centro'
         },
         tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          pointFormat: '{series.name}: <b>{point.y:.0f}</b>'
         },
         plotOptions: {
           pie: {
@@ -127,7 +122,7 @@
         },
         series: [{
             type: 'pie',
-            name: 'Voluntários por Centro',
+            name: 'quantidade',
             data: [
               {
                 name: '<%= @centro_neu.nome %>',
@@ -205,6 +200,62 @@ $('#idade').highcharts({
 
 
     });
+
+
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+
+    $(document).ready(function () {
+
+
+      $('#situacao').highcharts({
+        chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false
+        },
+        title: {
+          text: 'Voluntários por Centro'
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.y:.0f}</b>'
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: false,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: false
+            },
+            showInLegend: true
+          }
+        },
+        series: [{
+            type: 'pie',
+            name: 'quantidade',
+            data: [
+              {
+                name: 'Seleção',
+                y: <%= @qtd_status[0] %>
+              },
+              {
+                name: 'Execução',
+                y: <%= @qtd_status[1] %>
+              },
+              {
+                name: 'Encerramento',
+                y: <%= @qtd_status[2] %>
+              },
+            ]
+          }]
+      });
+    });
+
+  });
+
 
 
 </script>

@@ -7,4 +7,6 @@ class Visita < ActiveRecord::Base
   
   accepts_nested_attributes_for :laudos
   accepts_nested_attributes_for :avaliacao_clinica
+
 end
+
