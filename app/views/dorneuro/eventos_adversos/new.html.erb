@@ -22,6 +22,17 @@
   <div class="clear"></div>
 </div>
 
+<% if @evento_adverso.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@evento_adverso.errors.count, "erro impediu") %> o Evento adverso de ser salvo:</strong>
+    <ul>
+    <% @evento_adverso.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
