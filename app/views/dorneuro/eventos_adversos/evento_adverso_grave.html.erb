@@ -17,6 +17,17 @@
 
 <h1>Registrar eventos adversos graves</h1>
 
+<% if @evento_adverso_grave.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@evento_adverso_grave.errors.count, "erro impediu") %> o registro de Evento adverso grave de ser salvo:</strong>
+    <ul>
+    <% @evento_adverso_grave.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
@@ -66,12 +77,12 @@
 
       <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :observacoes, nil, :class => 'control-label' %>
-      <%= f.text_area :observacoes, :rows => '4', "data-validate" => "validate(required)" %>
+      <%= f.text_area :observacoes, :rows => '4', "data-validate" => "validate(required) on(blur change)" %>
       </div>
       
       <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :data_formatada, nil, :class => 'control-label' %>
-      <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required)" %>
+      <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required, date) on(blur change)" %>
       </div>
       
       <div class="controls" style="padding: 10px 0px 10px 0px;">
