@@ -174,12 +174,12 @@
 
       <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :observacoes, nil, :class => 'control-label' %>
-      <%= f.text_area :observacoes, :rows => '4', "data-validate" => "validate(required)" %>
+      <%= f.text_area :observacoes, :rows => '4', "data-validate" => "validate(required) on(change submit)" %>
       </div>
 
       <div class="controls" style="padding: 10px 0px 10px 0px;">
       <%= f.label :data_formatada, nil, :class => 'control-label' %>
-      <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required)" %>
+      <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required,date) on(change submit)" %>
       </div>
 
       <div class="controls" style="padding: 10px 0px 10px 0px;">

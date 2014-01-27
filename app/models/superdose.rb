@@ -2,7 +2,10 @@
 class Superdose < ActiveRecord::Base
   belongs_to :voluntario
   belongs_to :usuario
-  
+
+  validates :data,        :presence => true
+  validates :observacoes, :presence => true
+
   attr_accessor :data_formatada
   
   def data_formatada
