@@ -4,6 +4,11 @@ class Dispensacao < ActiveRecord::Base
   has_many :agendamentos_sms
   
   attr_accessor :data_formatada
+
+  validates :medicamento,   :presence => true, :numericality => {:only_integer => true}
+  validates :posologia,     :presence => true
+  validates :quantidade,    :presence => true
+  validates :data,          :presence => true
   
   def data_formatada
     if self.data

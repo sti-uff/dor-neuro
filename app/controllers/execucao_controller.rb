@@ -44,7 +44,7 @@ class ExecucaoController < ApplicationController
         create(:avaliavel_id => @visita.id, :avaliavel_type => 'Visita', :usuario_id => session[:usuario])
       @avaliacao_clinica.build_exame_fisico
       @avaliacao_clinica.exame_fisico.build_exame_complemento
-      @avaliacao_clinica.save
+      @avaliacao_clinica.save(:validate => false)
     end
     respond_to do |format|
       format.html { render request.fullpath }
@@ -58,8 +58,10 @@ class ExecucaoController < ApplicationController
     retorno = execucao_new_avaliacao_clinica_path
     if request.fullpath.include? 'sinais_vitais'
       notice = 'Sinais vitais salvos com sucesso.'
+      @avaliacao_clinica.salva_sinais_vitais
     elsif request.fullpath.include? 'anamnese'
       notice = 'Anamnese salva com sucesso.'
+      @avaliacao_clinica.salva_anamnese
     else
       notice = 'Exame físico salvo com sucesso.'
       if request.fullpath.include? 'fisico/'
