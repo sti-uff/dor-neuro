@@ -33,17 +33,15 @@ class AvaliacaoClinica < ActiveRecord::Base
 
 
   scope :por_voluntario_id, lambda { |voluntario_id|
-    {
-      :include => {:avaliavel => :voluntario},
-      :conditions => ("visitas.voluntario_id = #{voluntario_id}"),
-    }
+    self.joins("join visitas on visitas.id = avaliacao_clinicas.avaliavel_id and avaliavel_type = 'Visita'").where('visitas.voluntario_id = ?', voluntario_id)
   }
-  
-  scope :to_visitas, where('avaliavel_type = ?', "Visita")
 
-  scope :por_voluntario_id, lambda { |voluntario_id|
-    self.to_visitas.joins("join visitas on visitas.id = avaliacao_clinicas.avaliavel_id").where('visitas.voluntario_id = ?', voluntario_id)
-    
+  scope :por_voluntario_id_e_visita_numero, lambda { |voluntario_id, visita_numero|
+    self.joins("join visitas on visitas.id = avaliacao_clinicas.avaliavel_id and avaliavel_type = 'Visita'").where('visitas.voluntario_id = ? and visitas.numero = ?', voluntario_id, visita_numero)
+  }
+
+  scope :por_voluntario_id_na_alocacao, lambda { |voluntario_id|
+    self.joins("join alocacoes on alocacoes.id = avaliacao_clinicas.avaliavel_id and avaliavel_type = 'Alocacao'").where('alocacoes.voluntario_id = ?', voluntario_id)
   }
   
   def data_sinais_vitais_formatada

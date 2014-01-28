@@ -5,16 +5,24 @@
 <% if !session[:voluntario].blank? %>
   <% disable = true
      voluntario = Voluntario.find session[:voluntario]
+     avaliacaoClinica = nil
+     if execucao && session[:numero]
+       avaliacaoClinica = AvaliacaoClinica.por_voluntario_id_e_visita_numero(voluntario.id,session[:numero]).first
+     elsif !execucao
+       avaliacaoClinica = AvaliacaoClinica.por_voluntario_id_na_alocacao(voluntario.id).first
+     end
      dados = [{:id => voluntario.id, :name => "#{voluntario.id} - #{voluntario.nome}"}].to_json
      centro = voluntario.centro.nome
      idade = ((Date.today - voluntario.data_nascimento)/365).to_i
-     grupo = voluntario.alocacao.grupo ? Alocacao::GRUPOS[voluntario.alocacao.grupo] : '' %>
+     grupo = voluntario.alocacao.grupo ? Alocacao::GRUPOS[voluntario.alocacao.grupo] : ''
+     peso = avaliacaoClinica ? avaliacaoClinica.peso : '' %>
 <% else %>
   <% disable = false
      dados = ''
      centro = ''
      idade = ''
-     grupo = '' %>
+     grupo = ''
+     peso = '' %>
 <% end %>
 <%= form_tag escolher_voluntario_path, :method => :get do %>
 
@@ -93,7 +101,7 @@
         <div class="control-group">
           <%= label_tag :peso, 'Peso' %>
           <div class="controls">
-            <%= text_field_tag :peso, '', :disabled => disable %>
+            <%= text_field_tag :peso, peso, :disabled => disable %>
           </div>
         </div>
 

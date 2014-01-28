@@ -123,9 +123,9 @@ class ExecucaoController < ApplicationController
       if @visita
         @adesao = @visita.adesao
       end
-      unless @adesao
-        @adesao = Adesao.new
-      end
+    end
+    unless @adesao
+      @adesao = Adesao.new
     end
     params[:pagina] = request.fullpath
     respond_to do |format|
@@ -195,6 +195,10 @@ class ExecucaoController < ApplicationController
         format.xml  { render :xml => @dispensacao.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  def exames
+    render "dorneuro/execucao/exames"
   end
   
 end

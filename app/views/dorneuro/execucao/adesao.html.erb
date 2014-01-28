@@ -17,6 +17,17 @@
 
 <h1>Avaliar adesão</h1>
 
+<% if @adesao.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@adesao.errors.count, "erro impediu") %> a avaliação de adesão de ser salva:</strong>
+    <ul>
+    <% @adesao.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'partials/escolher_voluntario_visita', :usuario => false %>
 
 <br/>
@@ -25,10 +36,10 @@
     <div class='control-group'>
     
       <%= f.label :observacoes, nil, :class => 'control-label' %>
-      <%= f.text_area :observacoes, :rows => '4' %>
+      <%= f.text_area :observacoes, :rows => '4', "data-validate" => "validate(required) on(blur change)" %>
       
       <%= f.label :data_formatada, nil, :class => 'control-label' %>
-      <%= f.text_field :data_formatada, :class => '_data_calendario' %>
+      <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required, date) on(blur change)" %>
       
       <%= f.label :usuario_id, nil, :class => 'control-label' %>
       <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
@@ -41,3 +52,12 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#new_adesao").ketchup();
+});
+</script>
+
+
+

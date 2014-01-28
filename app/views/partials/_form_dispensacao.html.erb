@@ -52,6 +52,10 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+  <%if @dispensacao.id.nil?%>
+   $("#new_dispensacao").ketchup();
+   <%else%>
    $("#edit_dispensacao_<%=@dispensacao.id%>").ketchup();
+  <%end%>
 });
 </script>

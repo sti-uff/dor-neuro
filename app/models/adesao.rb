@@ -4,7 +4,10 @@ class Adesao < ActiveRecord::Base
   belongs_to :usuario
   
   attr_accessor :data_formatada
-  
+
+  validates :data,        :presence => true
+  validates :observacoes, :presence => true
+
   def data_formatada
     if self.data
       self.data.strftime("%d/%m/%Y")

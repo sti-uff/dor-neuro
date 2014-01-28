@@ -1,5 +1,16 @@
 <h1>Teste de gravidez</h1>
 
+<% if @laudo.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@laudo.errors.count, "erro impediu") %> o Teste de gravidez de ser salvo:</strong>
+    <ul>
+    <% @laudo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'partials/escolher_voluntario_visita', :usuario => false %>
 
 <% if !session[:voluntario].blank? && (session[:numero] && (session[:numero].to_i > 1 && session[:numero].to_i < 8)) %>
@@ -17,3 +28,9 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#new_laudo").ketchup();
+});
+</script>
