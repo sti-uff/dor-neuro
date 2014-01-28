@@ -279,7 +279,11 @@ Dorneuro::Application.routes.draw do
     end
   end
 
-  resources :laudos, :only => :show
+  resources :laudos, :only => :show do
+    member do
+      match :download
+    end
+  end
 
   resources :eventos_adversos, :only => :show
   
