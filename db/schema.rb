@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121162653) do
+ActiveRecord::Schema.define(:version => 20140128205512) do
 
   create_table "cargos", :force => true do |t|
     t.string   "nome"
@@ -224,13 +224,13 @@ ActiveRecord::Schema.define(:version => 20140121162653) do
     t.integer  "imagem_file_size"
     t.datetime "imagem_updated_at"
     t.date     "data"
-    t.integer  "escore"
+    t.decimal  "escore",              :precision => 4, :scale => 1
     t.boolean  "bool"
     t.integer  "tipo"
     t.integer  "visita_id"
     t.integer  "usuario_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
     t.index ["visita_id"], :name => "index_laudos_on_visita_id"
     t.index ["usuario_id"], :name => "index_laudos_on_usuario_id"
     t.foreign_key ["visita_id"], "visitas", ["id"], :on_update => :restrict, :on_delete => :restrict, :name => "laudos_ibfk_1"
