@@ -4,7 +4,7 @@
 
 <% if @ppd %>
   <div>
-    <%= image_tag @ppd.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@ppd)%>
   </div>
 <% else %>
   <p>O PPD deste voluntário não foi registrado.</p>

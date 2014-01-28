@@ -4,7 +4,7 @@
 
 <% if @hepatica %>
   <div>
-    <%= image_tag @hepatica.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@hepatica)%>
   </div>
 <% else %>
   <p>A função hepática deste voluntário não foi registrada.</p>

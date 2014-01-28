@@ -4,7 +4,7 @@
 
 <% if @renal %>
   <div>
-    <%= image_tag @renal.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@renal)%>
   </div>
 <% else %>
   <p>A função renal deste voluntário não foi registrada.</p>

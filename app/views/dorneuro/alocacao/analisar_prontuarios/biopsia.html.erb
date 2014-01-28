@@ -4,7 +4,7 @@
 
 <% if @biopsia %>
   <div>
-    <%= image_tag @biopsia.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@biopsia)%>
   </div>
 <% else %>
   <p>A biópsia deste voluntário não foi registrada.</p>

@@ -4,7 +4,7 @@
 
 <% if @enmg %>
   <div>
-    <%= image_tag @enmg.imagem.url %>
+    <%=  exibir_pdf_ou_imagem(@enmg)%>
   </div>
 <% else %>
   <p>O ENMG deste voluntário não foi registrado.</p>

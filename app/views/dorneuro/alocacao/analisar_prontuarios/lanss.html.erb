@@ -4,7 +4,7 @@
 
 <% if @lanss %>
   <div>
-    <%= image_tag @lanss.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@lanss)%>
   </div>
 <% else %>
   <p>O LANSS deste voluntário não foi registrado.</p>

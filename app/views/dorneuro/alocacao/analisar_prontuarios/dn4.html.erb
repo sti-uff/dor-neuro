@@ -4,7 +4,7 @@
 
 <% if @dn4 %>
   <div>
-    <%= image_tag @dn4.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@dn4)%>
   </div>
 <% else %>
   <p>O DN4 deste voluntário não foi registrado.</p>

@@ -15,7 +15,7 @@
             <td><%= link_to avaliacao.avaliavel.id, avaliacao_clinica_path(avaliacao) %></td>
             <td><%= link_to avaliacao.data_sinais_vitais, avaliacao_clinica_path(avaliacao) %></td>
             <td><%= link_to avaliacao.data_anamnese, avaliacao_clinica_path(avaliacao) %></td>
-            <td><%= avaliacao.usuario.nome %></td>
+            <td><%= avaliacao.usuario.nome if avaliacao.usuario %></td>
           </tr>
         <% end %>
       </tbody>

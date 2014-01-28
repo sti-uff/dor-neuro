@@ -4,7 +4,7 @@
 
 <% if @urinocultura %>
   <div>
-    <%= image_tag @urinocultura.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@urinocultura)%>
   </div>
 <% else %>
   <p>A urinocultura deste voluntário não foi registrada.</p>

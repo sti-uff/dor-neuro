@@ -4,7 +4,7 @@
 
 <% if @gravidez %>
   <div>
-    <%= image_tag @gravidez.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@gravidez)%>
   </div>
 <% else %>
   <p>O teste de gravidez desta voluntária não foi registrado.</p>

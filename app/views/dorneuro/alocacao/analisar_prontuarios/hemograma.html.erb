@@ -4,7 +4,7 @@
 
 <% if @hemograma %>
   <div>
-    <%= image_tag @hemograma.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@hemograma)%>
   </div>
 <% else %>
   <p>O hemograma deste voluntário não foi registrado.</p>

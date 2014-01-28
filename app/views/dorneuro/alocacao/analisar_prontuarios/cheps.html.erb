@@ -4,7 +4,7 @@
 
 <% if @cheps %>
   <div>
-    <%= image_tag @cheps.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@cheps)%>
   </div>
 <% else %>
   <p>O CHEPS deste voluntário não foi registrado.</p>

@@ -30,5 +30,13 @@ module ApplicationHelper
     
   end
 
+  def exibir_pdf_ou_imagem(model)
+    if model.imagem.content_type.include? "image"
+       image_tag model.imagem.url
+    else
+       link_to model.imagem.url, :class => "btn btn-large glyphicon glyphicon-download"  do  ' Download '  end
+    end
+  end
+
 
 end

@@ -4,7 +4,7 @@
 
 <% if @mini_mental %>
   <div>
-    <%= image_tag @mini_mental.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@mini_mental)%>
   </div>
 <% else %>
   <p>O mini mental deste voluntário não foi registrado.</p>

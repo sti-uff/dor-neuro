@@ -4,7 +4,7 @@
 
 <% if @eva %>
   <div>
-    <%= image_tag @eva.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@eva)%>
   </div>
 <% else %>
   <p>O EVA deste voluntário não foi registrado.</p>

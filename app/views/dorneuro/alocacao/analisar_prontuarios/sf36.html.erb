@@ -4,7 +4,7 @@
 
 <% if @sf36 %>
   <div>
-    <%= image_tag @sf36.imagem.url %>
+    <%= exibir_pdf_ou_imagem(@sf36)%>
   </div>
 <% else %>
   <p>O SF36 deste voluntário não foi registrado.</p>
