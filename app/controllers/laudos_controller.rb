@@ -6,4 +6,11 @@ class LaudosController < ApplicationController
     @voluntario = @laudo.visita.voluntario
   end
 
+  def download
+    @laudo = Laudo.find params[:id]
+    send_data @laudo.imagem,
+    :filename => @laudo.imagem_file_name,
+    :type => @laudo.imagem_content_type
+  end
+
 end

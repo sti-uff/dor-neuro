@@ -13,13 +13,21 @@
     </p>
   <% end %>
 
-  <h2 class="h2_show">Imagem do laudo</h2>
-  <div>
-    <%= image_tag @laudo.imagem.url, :style => "display: block;
-    margin-left: auto;
-    margin-right: auto"  %>
-  </div>
+  <% if !(@laudo.imagem_content_type.include? "image") %>
+    <h2 class="h2_show">Download do laudo</h2>
+    <div>
+      <%= link_to 'Download', download_laudo_path(@laudo) %>
+    </div>
+  <% else %>
 
+    <h2 class="h2_show">Imagem do laudo</h2>
+    <div>
+      <%= image_tag @laudo.imagem.url, :style => "display: block;
+  margin-left: auto;
+  margin-right: auto"  %>
+    </div>
+
+  <% end %>
 </div>
 
 <%= link_to 'Voltar', :back, :class => 'btn btn-danger' %>
