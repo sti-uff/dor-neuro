@@ -4,9 +4,8 @@
 
 <%= form_for @dispensacao, :url => url do |f| %>
   <% if @dispensacao.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dispensacao.errors.count, "erro impediu") %> esta dispensação de ser salva:</h2>
-
+    <div class="alert alert-dismissable alert-danger">
+      <strong><%= pluralize(@dispensacao.errors.count, "erro impediu") %> esta dispensação de ser salva:</strong>
       <ul>
         <% @dispensacao.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -33,14 +32,14 @@
     </div>
     <div class="control-group" style="padding-bottom:12px">
       <%= f.label :posologia, :class => 'control-label' %>
-      <%= f.text_area :posologia, :rows => 4 %>
+      <%= f.text_area :posologia, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
 
       <%= f.label :quantidade, :class => 'control-label' %>
-      <%= f.text_area :quantidade, :rows => 4 %>
+      <%= f.text_area :quantidade, :rows => 4, "data-validate" => "validate(required) on(blur change)" %>
     </div>
 
     <%= f.label :data_formatada, :class => 'control-label' %>
-    <%= f.text_field :data_formatada, :class => '_data_calendario' %>
+    <%= f.text_field :data_formatada, :class => '_data_calendario', "data-validate" => "validate(required, date) on(blur change)" %>
 
     <%= f.label :usuario_id, nil, :class => 'control-label' %>
     <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
@@ -50,3 +49,9 @@
     <%= link_to 'Voltar', voltar, :class => 'btn btn-danger' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#edit_dispensacao_<%=@dispensacao.id%>").ketchup();
+});
+</script>

@@ -418,5 +418,9 @@ class AlocacaoController < ApplicationController
       end
     end
   end
+
+  def randomizar
+    render "dorneuro/alocacao/randomizar"
+  end
   
 end
