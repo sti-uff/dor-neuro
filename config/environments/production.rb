@@ -1,6 +1,5 @@
 #encoding : utf-8
 require 'syslog_logger'
-require 'exception_notifier'
 
 Dorneuro::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
@@ -52,11 +51,11 @@ Dorneuro::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[Erro ocorrido em PRODUÇÃO no Dor-Neuro] ",
-    :sender_address => %{Exception Notifier Dor-Neuro" <dorneuro.rails@gmail.com>},
-    :exception_recipients => ["thiagodiogo@gmail.com"," thiagon.oliver@gmail.com","leandrocicco@gmail.com", "mcpereira@id.uff.br"]
-  }
+#  config.middleware.use ExceptionNotification::Rack,
+#  :email => {
+#    :email_prefix => "[Erro ocorrido em PRODUÇÃO no Dor-Neuro] ",
+#    :sender_address => %{Exception Notifier Dor-Neuro" <dorneuro.rails@gmail.com>},
+#    :exception_recipients => ["thiagodiogo@gmail.com"," thiagon.oliver@gmail.com","leandrocicco@gmail.com", "mcpereira@id.uff.br"]
+#  }
 
 end
