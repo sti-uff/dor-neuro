@@ -1,6 +1,8 @@
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 
+require 'exception_notifier'
+
 my_date_formats = { :default => '%d/%m/%Y' } 
 
 # Initialize the rails application
