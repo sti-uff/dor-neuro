@@ -3,6 +3,7 @@ class EventosAdversosController < ApplicationController
 
   def show
     @evento_adverso = EventoAdverso.find params[:id]
+    render 'dorneuro/eventos_adversos/show.html'
   end
 
   def show_evento_adverso_grave
