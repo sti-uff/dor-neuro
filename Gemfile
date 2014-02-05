@@ -16,8 +16,8 @@ gem "httparty", "0.6.1"
 # gem 'sqlite3'
 gem 'newrelic_rpm', '3.6.3.104'
 gem "highcharts-rails", "~> 3.0.0"
-gem 'exception_notification'
 gem 'prawn'
+gem 'exception_notification', '2.6.1'
 
 ###### UFF ADDITIONS
 group :production do

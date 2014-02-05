@@ -51,11 +51,11 @@ Dorneuro::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[Erro ocorrido em PRODUÇÃO no Dor-Neuro] ",
-    :sender_address => %{Exception Notifier Dor-Neuro" <dorneuro.rails@gmail.com>},
-    :exception_recipients => ["thiagodiogo@gmail.com"," thiagon.oliver@gmail.com","leandrocicco@gmail.com", "mcpereira@id.uff.br"]
-  }
+#  config.middleware.use ExceptionNotification::Rack,
+#  :email => {
+#    :email_prefix => "[Erro ocorrido em PRODUÇÃO no Dor-Neuro] ",
+#    :sender_address => %{Exception Notifier Dor-Neuro" <dorneuro.rails@gmail.com>},
+#    :exception_recipients => ["thiagodiogo@gmail.com"," thiagon.oliver@gmail.com","leandrocicco@gmail.com", "mcpereira@id.uff.br"]
+#  }
 
 end
