@@ -27,6 +27,7 @@ class VoluntariosController < ApplicationController
     @superdoses = @voluntario.superdoses
     @eventos_adversos_graves = @voluntario.evento_adverso_graves
     @avaliacoes_clinicas = AvaliacaoClinica.por_voluntario_id(@voluntario.id)
+    @visitas = @voluntario.visitas.index_by &:numero
 
     respond_to do |format|
       format.html # show.html.erb
@@ -98,5 +99,17 @@ class VoluntariosController < ApplicationController
     end
   end
 
+  def acompanhamento
+      voluntario = Voluntario.find(params[:id])
+      respond_to do |format|
+        format.pdf do
+          pdf = TabelaAcompanhamento.new(voluntario)
+          send_data pdf.render, :filename => "tabela_acompanhamento_voluntario_#{voluntario.id}",
+                    :type => "application/pdf",
+                    :disposition => "inline"
+        end
+      end
+
+  end
 
 end

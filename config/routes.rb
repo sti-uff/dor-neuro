@@ -250,6 +250,9 @@ Dorneuro::Application.routes.draw do
     collection do
       get :listar_voluntarios
     end
+    member do
+      get :acompanhamento
+    end
   end
 
   devise_for :usuarios do
