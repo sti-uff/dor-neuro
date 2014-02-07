@@ -24,6 +24,9 @@
       
       <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do DN4',
         :texto_data => 'Data do questionário', :tipo => Laudo::TIPO_DN4 %>
+
+      <%= f.label :escore, 'Escore total (máximo 10)', :class => 'control-label' %>
+      <%= f.text_field :escore, {:readonly => true} %>
       
       <%= f.label :usuario_id, nil, :class => 'control-label' %>
       <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
@@ -43,4 +46,18 @@
 $(document).ready(function() {
    $("#new_laudo").ketchup();
 });
+
+var escore = 0;
+
+function atualiza_escore(el) {
+ if ( $(el).is(':checked') ) {
+   if ( $(el).val() == "true") {
+    escore = escore + 1;
+   }
+   else {
+     escore = escore - 1;
+   }
+   $('#laudo_escore').val(escore);
+ }
+}
 </script>

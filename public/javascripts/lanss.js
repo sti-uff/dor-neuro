@@ -23,7 +23,7 @@ $(document).ready(function() {
   
   $("[name='laudo[dados_lanss_attributes][pele_sensivel]']").change(function() {
     if ($("#laudo_dados_lanss_attributes_pele_sensivel_true").prop('checked') == true) {
-      soma3 = 5;
+      soma3 = 3;
     } else {
       soma3 = 0;
     }
@@ -32,7 +32,7 @@ $(document).ready(function() {
   
   $("[name='laudo[dados_lanss_attributes][dor_repentina]']").change(function() {
     if ($("#laudo_dados_lanss_attributes_dor_repentina_true").prop('checked') == true) {
-      soma4 = 5;
+      soma4 = 2;
     } else {
       soma4 = 0;
     }
@@ -41,7 +41,7 @@ $(document).ready(function() {
   
   $("[name='laudo[dados_lanss_attributes][pele_queimacao]']").change(function() {
     if ($("#laudo_dados_lanss_attributes_pele_queimacao_true").prop('checked') == true) {
-      soma5 = 5;
+      soma5 = 1;
     } else {
       soma5 = 0;
     }
@@ -59,7 +59,7 @@ $(document).ready(function() {
   
   $("[name='laudo[dados_lanss_attributes][alteracao_limiar]']").change(function() {
     if ($("#laudo_dados_lanss_attributes_alteracao_limiar_true").prop('checked') == true) {
-      soma7 = 5;
+      soma7 = 3;
     } else {
       soma7 = 0;
     }
