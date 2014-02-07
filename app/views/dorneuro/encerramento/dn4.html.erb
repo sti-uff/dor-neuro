@@ -1,4 +1,17 @@
-<h1>Questionários - DN4</h1>
+<div class="breadcrumb">
+  <ul class="breadcrumb">
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Principal', root_path %><span class="divider"></span>
+    </li>
+    <li>
+      <%= link_to 'Encerramento', encerramento_path %><span class="divider"></span>
+    </li>
+    <li class="active">DN4 de encerramento</li>
+  </ul>
+</div>
+
+<h1>DN4 de encerramento</h1>
 
 <% @laudo.build_dados_dn4 %>
 
@@ -16,7 +29,7 @@
 <%= render 'partials/escolher_voluntario', :usuario => false %>
 
 <% unless session[:voluntario].blank? %>
-  <%= form_for @laudo, :url => selecao_salvar_dn4_path, :html => { :multipart => true } do |f| %>
+  <%= form_for @laudo, :url => encerramento_salvar_dn4_path, :html => { :multipart => true } do |f| %>
     <div class='control-group'>
       <%= f.fields_for :dados_dn4 do |d| %>
         <%= render 'partials/laudos/form_dn4', :f => d %>
@@ -31,13 +44,13 @@
       <%= f.label :usuario_id, nil, :class => 'control-label' %>
       <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
       
-      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id %>
+      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 8).id %>
       <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_DN4 %>
     </div>
     
     <div class='form-actions'>
       <%= f.submit nil, :class => 'btn btn-success' %>
-      <%= link_to 'Voltar', selecao_questionarios_path, :class => 'btn btn-danger' %>
+      <%= link_to 'Voltar', encerramento_path, :class => 'btn btn-danger' %>
     </div>
   <% end %>
 <% end %>

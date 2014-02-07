@@ -20,17 +20,37 @@
 <div class="div_icones_interno eventos_adversos">
   <ul class="icones_principal">
     <li class="item_icone" id="btn_encerramento_avaliacao_clinica">
-      <%= link_to 'Avaliação clínica de encerramento', encerramento_new_avaliacao_clinica_path, :class => "btn btn-primary" %>
-    </li>
-    <li class="item_icone" id="btn_encerramento_eva">
-      <%= link_to 'EVA de encerramento', encerramento_eva_path, :class => "btn btn-primary" %>
-    </li>
-    <li class="item_icone" id="btn_encerramento_sf36">
-      <%= link_to 'SF36 de encerramento', encerramento_sf36_path, :class => "btn btn-primary" %>
+      <%= link_to 'Avaliação clínica de encerramento', encerramento_new_avaliacao_clinica_path, :class => "btn btn-primary btn-lg" %>
     </li>
     <li class="item_icone" id="btn_encerramento_exames">
-      <%= link_to 'Exames complementares de encerramento', encerramento_exames_path, :class => "btn btn-primary" %>
+      <%= link_to 'Exames complementares de encerramento', encerramento_exames_path, :class => "btn btn-primary btn-lg" %>
     </li>
   </ul>
 </div>
 
+<div class="div_icones_interno eventos_adversos">
+  <ul class="icones_principal">
+    <li class="item_icone">
+      <div class="btn-group">
+        <button type="button" class="btn btn-success btn-lg">Neurofisiologia de encerramento</button>
+        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'CHEPS', encerramento_cheps_path %></li>
+          <li><%= link_to 'QST', encerramento_qst_path %></li>
+        </ul>
+      </div>
+    </li>
+    <li class="item_icone">
+      <div class="btn-group">
+        <button type="button" class="btn btn-warning btn-lg">Questionários de encerramento</button>
+        <button type="button" class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'EVA', encerramento_eva_path %></li>
+          <li> <%= link_to 'DN4', encerramento_dn4_path %></li>
+          <li><%= link_to 'SF36', encerramento_sf36_path %></li>
+          <li><%= link_to 'LANSS', encerramento_lanss_path %></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

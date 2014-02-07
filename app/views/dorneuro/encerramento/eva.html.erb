@@ -15,7 +15,7 @@
 
 <% if @laudo.errors.any? %>
     <div class="alert alert-dismissable alert-danger">
-      <strong><%= pluralize(@laudo.errors.count, "erro impediu") %> a Questionário-EVA de execução de ser salvo:</strong>
+      <strong><%= pluralize(@laudo.errors.count, "erro impediu") %> a Questionário-EVA de ser salvo:</strong>
       <ul>
       <% @laudo.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

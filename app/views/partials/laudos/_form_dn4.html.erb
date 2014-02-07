@@ -12,12 +12,12 @@
         <label>1 - Queimadura</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :queimadura, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :queimadura, true, :onchange => "atualiza_escore(this,1)" %>
             <%= f.label :queimadura_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :queimadura, false, :onchange => "atualiza_escore(this)"  %>
+            <%= f.radio_button :queimadura, false, :onchange => "atualiza_escore(this,1)"  %>
             <%= f.label :queimadura_false, 'Não' %>
           </div>
         </div>
@@ -29,12 +29,12 @@
         <label>2 - Sensação de frio doloroso</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :frio_doloroso, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :frio_doloroso, true, :onchange => "atualiza_escore(this,2)" %>
             <%= f.label :frio_doloroso_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :frio_doloroso, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :frio_doloroso, false, :onchange => "atualiza_escore(this,2)" %>
             <%= f.label :frio_doloroso_false, 'Não' %>
           </div>
         </div>
@@ -44,12 +44,12 @@
         <label>3 - Choques elétricos</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :choques_eletricos, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :choques_eletricos, true, :onchange => "atualiza_escore(this,3)" %>
             <%= f.label :choques_eletricos_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :choques_eletricos, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :choques_eletricos, false, :onchange => "atualiza_escore(this,3)" %>
             <%= f.label :choques_eletricos_false, 'Não' %>
           </div>
         </div>
@@ -65,12 +65,12 @@
         <label>4 - Formigueiro</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :formigueiro, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :formigueiro, true, :onchange => "atualiza_escore(this,4)" %>
             <%= f.label :formigueiro_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :formigueiro, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :formigueiro, false, :onchange => "atualiza_escore(this,4)" %>
             <%= f.label :formigueiro_false, 'Não' %>
           </div>
         </div>
@@ -82,12 +82,12 @@
         <label>5 - Picadas</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :picadas, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :picadas, true, :onchange => "atualiza_escore(this,5)" %>
             <%= f.label :picadas_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :picadas, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :picadas, false, :onchange => "atualiza_escore(this,5)" %>
             <%= f.label :picadas_false, 'Não' %>
           </div>
         </div>
@@ -97,12 +97,12 @@
         <label>6 - Dormência</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :dormencia, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :dormencia, true, :onchange => "atualiza_escore(this,6)" %>
             <%= f.label :dormencia_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :dormencia, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :dormencia, false, :onchange => "atualiza_escore(this,6)" %>
             <%= f.label :dormencia_false, 'Não' %>
           </div>
         </div>
@@ -112,12 +112,12 @@
         <label>7 - Comichão</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :comichao, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :comichao, true, :onchange => "atualiza_escore(this,7)" %>
             <%= f.label :comichao_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :comichao, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :comichao, false, :onchange => "atualiza_escore(this,7)" %>
             <%= f.label :comichao_false, 'Não' %>
           </div>
         </div>
@@ -137,12 +137,12 @@
         <label>8 - Hipoestesia ao tato</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :hipoestesia_tato, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :hipoestesia_tato, true, :onchange => "atualiza_escore(this,8)" %>
             <%= f.label :hipoestesia_tato_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :hipoestesia_tato, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :hipoestesia_tato, false, :onchange => "atualiza_escore(this,8)" %>
             <%= f.label :hipoestesia_tato_false, 'Não' %>
           </div>
         </div>
@@ -152,12 +152,12 @@
         <label>9 - Hipoestesia à picada</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :hipoestesia_picada, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :hipoestesia_picada, true, :onchange => "atualiza_escore(this, 9)" %>
             <%= f.label :hipoestesia_picada_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :hipoestesia_picada, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :hipoestesia_picada, false, :onchange => "atualiza_escore(this, 9)" %>
             <%= f.label :hipoestesia_picada_false, 'Não' %>
           </div>
         </div>
@@ -173,12 +173,12 @@
         <label>10 - Fricção leve ("brushing")</label>
         <div class='controls'>
           <div class='radio inline'>
-            <%= f.radio_button :friccao_leve, true, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :friccao_leve, true, :onchange => "atualiza_escore(this, 10)" %>
             <%= f.label :friccao_leve_true, 'Sim' %>
           </div>
           
           <div class='radio inline'>
-            <%= f.radio_button :friccao_leve, false, :onchange => "atualiza_escore(this)" %>
+            <%= f.radio_button :friccao_leve, false, :onchange => "atualiza_escore(this, 10)" %>
             <%= f.label :friccao_leve_false, 'Não' %>
           </div>
         </div>

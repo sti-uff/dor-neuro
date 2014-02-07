@@ -5,10 +5,18 @@ Dorneuro::Application.routes.draw do
   scope "/encerramento" do
     get '/eva' => 'encerramento#new_laudo', :as => :encerramento_eva
     post '/eva' => 'encerramento#create_laudo', :as => :encerramento_salvar_eva
+    get '/dn4' => 'encerramento#new_laudo', :as => :encerramento_dn4
+    post '/dn4' => 'encerramento#create_laudo', :as => :encerramento_salvar_dn4
     get '/sf36' => 'encerramento#new_laudo', :as => :encerramento_sf36
     post '/sf36' => 'encerramento#create_laudo', :as => :encerramento_salvar_sf36
-    get '/avaliacao_clinica' => 'encerramento#new_avaliacao_clinica', :as => :encerramento_new_avaliacao_clinica
+    get '/lanss' => 'encerramento#new_laudo', :as => :encerramento_lanss
+    post '/lanss' => 'encerramento#create_laudo', :as => :encerramento_salvar_lanss
     get '/exames' => 'encerramento#exames', :as => :encerramento_exames
+    get '/cheps' => 'encerramento#new_laudo', :as => :encerramento_cheps
+    post '/cheps' => 'encerramento#create_laudo', :as => :encerramento_salvar_cheps
+    get '/qst' => 'encerramento#new_laudo', :as => :encerramento_qst
+    post '/qst' => 'encerramento#create_laudo', :as => :encerramento_salvar_qst
+    get '/avaliacao_clinica' => 'encerramento#new_avaliacao_clinica', :as => :encerramento_new_avaliacao_clinica
     scope "/avaliacao_clinica" do
       put '/exame_fisico' => 'encerramento#salvar_avaliacao_clinica', :as => :encerramento_salvar_exame_fisico
       get '/exame_fisico' => 'encerramento#avaliacao_clinica', :as => :encerramento_exame_fisico

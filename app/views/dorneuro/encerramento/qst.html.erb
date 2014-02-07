@@ -1,0 +1,55 @@
+<div class="breadcrumb">
+  <ul class="breadcrumb">
+    <li>
+      <span class="glyphicon glyphicon-home"></span>
+      <%= link_to 'Principal', root_path %><span class="divider"></span>
+    </li>
+    <li>
+      <%= link_to 'Encerramento', encerramento_path %><span class="divider"></span>
+    </li>
+    <li class="active">QST de encerramento</li>
+  </ul>
+</div>
+
+<h1>QST de encerramento</h1>
+
+<% if @laudo.errors.any? %>
+  <div class="alert alert-dismissable alert-danger">
+    <strong><%= pluralize(@laudo.errors.count, "erro impediu") %> a QST de ser salva:</strong>
+    <ul>
+    <% @laudo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render 'partials/escolher_voluntario', :usuario => false %>
+
+<% unless session[:voluntario].blank? %>
+  <%= form_for @laudo, :url => encerramento_salvar_qst_path, :html => { :multipart => true } do |f| %>
+    <div class='control-group'>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do QST',
+        :texto_data => 'Data do exame', :tipo => Laudo::TIPO_QST %>
+    
+      <div class="field">
+        <%= f.label :usuario_id, nil, :class => 'control-label' %>
+        <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>
+      </div>
+      
+      <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 8).id %>
+      <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_QST %>
+    </div>
+    
+    <div class='form-actions'>
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Voltar', encerramento_path, :class => 'btn btn-danger' %>
+    </div>
+  <% end %>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#new_laudo").ketchup();
+});
+</script>

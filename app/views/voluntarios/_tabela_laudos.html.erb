@@ -14,7 +14,7 @@
         <% @laudos.each do |laudo| %>
           <tr>
             <td><%= link_to laudo.data_formatada, laudo_path(laudo)%></td>
-            <td><%= laudo.visita.id %></td>
+            <td><%= laudo.visita.numero %></td>
             <td><%= link_to laudo.tipo_to_s, laudo_path(laudo) %></td>
             <td><%= laudo.escore %></td>
             <td><%= link_to (image_tag laudo.imagem.url, :size => "50x40"), "#myModal#{laudo.id}", "data-toggle"=>"modal", "data-target"=> "#myModal#{laudo.id}"  %></td>
