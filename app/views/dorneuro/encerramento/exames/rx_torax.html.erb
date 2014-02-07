@@ -23,7 +23,7 @@
     <% end %>
     
     <div class='control-group'>
-      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do raio x', :texto_data => 'Data do exame' %>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do raio x', :texto_data => 'Data do exame', :tipo => Laudo::TIPO_RX_TORAX  %>
       
       <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 8).id %>
       <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_RX_TORAX %>

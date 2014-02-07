@@ -17,9 +17,9 @@ class Laudo < ActiveRecord::Base
   accepts_nested_attributes_for :dados_sf36
   accepts_nested_attributes_for :dados_rx_torax
 
-  validates :data, :presence => true
-  validates :imagem, :attachment_presence => true
-  validates :escore, :allow_blank => true, :numericality => {:greater_than_or_equal_to => 0}
+  validates :data   , :presence => true
+  validates :imagem , :attachment_presence => true  , :if => :exige_arquivo_anexo?
+  validates :escore , :presence => true, :numericality => {:greater_than_or_equal_to => 0}, :if => :exige_escore?
 
   TIPO_TCLE = 0
   TIPO_BIOPSIA = 1
@@ -43,6 +43,21 @@ class Laudo < ActiveRecord::Base
   MODERADA = 2
   INTENSA = 3
 
+  TIPOS_ARQUIVO_OBRIGATORIO = [
+    TIPO_TCLE,
+    TIPO_BIOPSIA,
+    TIPO_ENMG,
+    TIPO_CHEPS,
+    TIPO_QST,
+    TIPO_MINI_MENTAL
+  ]
+
+  TIPOS_ESCORE_OBRIGATORIO = [
+    TIPO_EVA,
+    TIPO_DN4,
+    TIPO_SF36,
+    TIPO_LANSS
+  ]
 
   scope :por_voluntario_id, lambda { |voluntario_id|
     {
@@ -63,6 +78,13 @@ class Laudo < ActiveRecord::Base
     self.data = data
   end
 
+  def exige_arquivo_anexo?
+    TIPOS_ARQUIVO_OBRIGATORIO.include? self.tipo
+  end
+
+  def exige_escore?
+      TIPOS_ESCORE_OBRIGATORIO.include? self.tipo
+  end
 
   def tipo_to_s
     case(self.tipo)

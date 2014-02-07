@@ -24,7 +24,7 @@
     
     <div class='control-group'>
       <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do SF36',
-        :texto_data => 'Data do questionário' %>
+        :texto_data => 'Data do questionário', :tipo => Laudo::TIPO_SF36 %>
     
       <%= f.label :escore, 'Escore total', :class => 'control-label' %>
       <%= f.text_field :escore, {:readonly => true} %>

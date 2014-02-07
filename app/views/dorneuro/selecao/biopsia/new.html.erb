@@ -22,7 +22,7 @@
         <%= render 'partials/laudos/form_biopsia', :f => d %>
       <% end %>
       
-      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo da biópsia', :texto_data => 'Data da biópsia do nervo periférico' %>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo da biópsia', :texto_data => 'Data da biópsia do nervo periférico', :tipo => Laudo::TIPO_BIOPSIA %>
       
       <%= f.label :bool, 'Neurite?', :class => 'control-label' %>
       <div class="controls">

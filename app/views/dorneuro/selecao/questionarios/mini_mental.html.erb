@@ -16,7 +16,7 @@
 <% unless session[:voluntario].blank? %>
   <%= form_for @laudo, :url => selecao_salvar_mini_mental_path, :html => { :multipart => true } do |f| %>
     <div class='control-group'>
-      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do Mini mental', :texto_data => 'Data do questionário' %>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do Mini mental', :texto_data => 'Data do questionário', :tipo => Laudo::TIPO_MINI_MENTAL %>
     
       <%= f.label :escore, 'Escore total', :class => 'control-label' %>
       <%= f.text_field :escore, "data-validate" => "validate(required, range(0,10)) on(blur change)" %>

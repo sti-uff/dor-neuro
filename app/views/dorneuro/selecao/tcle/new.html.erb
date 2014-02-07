@@ -16,7 +16,7 @@
 <% unless session[:voluntario].blank? %>
   <%= form_for @laudo, :url => selecao_tcles_path, :html => { :multipart => true, :id => "form_laudo" } do |f| %>
     <div class='control-group'>
-      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do TCLE assinado', :texto_data => 'Data da assinatura' %>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do TCLE assinado', :texto_data => 'Data da assinatura', :tipo => Laudo::TIPO_TCLE %>
       
       <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], 1).id %>
       <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_TCLE %>

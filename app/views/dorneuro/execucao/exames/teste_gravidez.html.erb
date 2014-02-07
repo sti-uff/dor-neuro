@@ -16,7 +16,7 @@
 <% if !session[:voluntario].blank? && (session[:numero] && (session[:numero].to_i > 1 && session[:numero].to_i < 8)) %>
   <%= form_for @laudo, :url => execucao_salvar_teste_gravidez_path, :html => { :multipart => true } do |f| %>
     <div class='control-group'>
-      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do teste de gravidez', :texto_data => 'Data do exame' %>
+      <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do teste de gravidez', :texto_data => 'Data do exame', :tipo => Laudo::TIPO_GRAVIDEZ %>
       
       <%= hidden_field_tag 'laudo[visita_id]', Visita.find_by_voluntario_id_and_numero(session[:voluntario], session[:numero]).id %>
       <%= hidden_field_tag 'laudo[tipo]', Laudo::TIPO_GRAVIDEZ %>

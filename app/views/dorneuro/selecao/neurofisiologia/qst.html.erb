@@ -17,7 +17,7 @@
   <%= form_for @laudo, :url => selecao_salvar_qst_path, :html => { :multipart => true } do |f| %>
     <div class='control-group'>
       <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do QST',
-        :texto_data => 'Data do exame' %>
+        :texto_data => 'Data do exame', :tipo => Laudo::TIPO_QST %>
     
       <div class="field">
         <%= f.label :usuario_id, nil, :class => 'control-label' %>

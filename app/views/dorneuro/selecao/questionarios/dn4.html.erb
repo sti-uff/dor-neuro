@@ -23,7 +23,7 @@
       <% end %>
       
       <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo do DN4',
-        :texto_data => 'Data do questionário' %>
+        :texto_data => 'Data do questionário', :tipo => Laudo::TIPO_DN4 %>
       
       <%= f.label :usuario_id, nil, :class => 'control-label' %>
       <%= f.select :usuario_id, options_from_collection_for_select(Usuario.all, 'id', 'nome') %>

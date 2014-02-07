@@ -9,6 +9,10 @@
   </div>
   <div class="upload_field">
     <%= f.label imagem, texto, :class => 'control-label' %>
-    <%= f.file_field imagem, "data-validate" => "validate(required) on(blur change)" %>
+    <%if Laudo::TIPOS_ARQUIVO_OBRIGATORIO.include? tipo %>
+      <%= f.file_field imagem, "data-validate" => "validate(required) on(blur change)" %>
+    <%else%>
+      <%= f.file_field imagem %>
+    <%end%>
   </div>
 </div>

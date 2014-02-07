@@ -17,7 +17,7 @@
   <%= form_for @laudo, :url => selecao_salvar_eva_path, :html => { :multipart => true } do |f| %>
     <div class='control-group'>
       <%= render 'partials/upload', :f => f, :imagem => :imagem, :texto => 'Anexar imagem do laudo da EVA',
-        :texto_data => 'Data do questionário' %>
+        :texto_data => 'Data do questionário', :tipo => Laudo::TIPO_EVA %>
     
       <%= f.label :escore, 'Nota de 0 a 10 na Escala Visual Analógica', :class => 'control-label' %>
       <%= f.text_field :escore, "data-validate" => "validate(required, range(0,10)) on(blur change)" %>
