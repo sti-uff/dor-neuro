@@ -8,9 +8,10 @@ class LaudosController < ApplicationController
 
   def download
     @laudo = Laudo.find params[:id]
-    send_data @laudo.imagem,
+    send_file @laudo.imagem.path,
     :filename => @laudo.imagem_file_name,
-    :type => @laudo.imagem_content_type
+    :type => @laudo.imagem_content_type,
+    :x_sendfile => true
   end
 
 end
